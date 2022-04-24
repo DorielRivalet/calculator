@@ -1,3 +1,106 @@
+body{
+  display:flex;
+  flex-flow:column nowrap;
+  flex:1;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.calculator{
+  background-color: gainsboro;
+  display:flex;
+  flex-flow:column;
+}
+
+.topSection{
+  padding:8px;
+  border-radius: 4px 4px 4px 4px;
+  border: 4px solid black;
+  display:flex;
+  flex-flow: column nowrap;
+  width:auto;
+  gap:4px;
+}
+
+.displaySection{
+  background-color: rgb(169, 233, 74);
+  padding:16px;
+  font-size: 32px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.buttonSection{
+  border: 4px solid black;
+  border-radius: 4px 4px 4px 4px;
+  display:flex;
+  flex-flow: row nowrap;
+  gap: 8px;
+  padding: 16px;
+}
+
+.numberSection{
+  display:flex;
+  flex-flow: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.numberSection button{
+  font-size: 32px;
+  font-weight: bold;
+  width:32px;
+  background-color: aliceblue;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.operatorSection button{
+  font-size: 32px;
+  font-weight: bold;
+  width:32px;
+  background-color: aquamarine;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.functionSection button{
+  font-weight: bold;
+  width:auto;
+  padding: 8px;
+  background-color: crimson;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.operatorSection {
+  display:flex;
+  flex-flow: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.functionSection {
+  display:flex;
+  flex-flow: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.inputValue{
+  text-align: start;
+  font-size: 24px;
+}
+
+.result{
+  text-align: end;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+footer{
+  margin-top: auto;
+}
+
 a:hover{
   text-decoration: none;
 }
@@ -13,3 +116,4 @@ a:visited{
 a:link{
   text-decoration: none;
 }
+
