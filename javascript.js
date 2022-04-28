@@ -53,13 +53,14 @@ function divide(x,y){
 }
 
 function displayResult(){
-
   if (!secondOperand){
     return
   }
-
-  console.log(firstOperand,currentOperator,secondOperand,"=",result)
+  console.log(firstOperand,currentOperator,secondOperand,"=",resultValue)
   resultElement.textContent = resultValue;
+
+  operand1 = resultValue;
+  operand2 = null;
 }
 
 function clear(){
@@ -92,58 +93,26 @@ function del(){
 }
 
 function operate(operator, operand1, operand2){
-
-  //pseudocode
-/*
-if operator clicked
-  if operand1 is empty
-    operand1 = currentdisplayvalue
-    return
-  elif operand2 is empty
-    operand2 =  currentdisplayvalue
-    return
-  end
-
-  doOperatorfunction(operator,operand1,operand2)
-   what this function does at the end:
-     operand1 = operand1 (operator) operand2 // eg 1+2
-     operand2 = empty
-*/
-
-
-  currentDigits = 0;
-
-  if (!firstOperand){
-    firstOperand = +inputElement.textContent;
-    console.log(firstOperand,secondOperand)
-    return
-  } else if (!secondOperand){
-    secondOperand = +inputElement.textContent;
-    console.log(firstOperand,secondOperand)
-    return
-  }
-
   switch(operator){
     case "+":
-      add(operand1,operand2);
+      resultValue = add(operand1,operand2);
       break;
     case "-":
-      substract(operand1,operand2);
+      resultValue = substract(operand1,operand2);
       break;
     case "*":
-      multiply(operand1,operand2);
+      resultValue = multiply(operand1,operand2);
       break;
     case "/":
-      divide(operand1,operand2);
+      resultValue = divide(operand1,operand2);
   }
-
-  currentOperator = operator;
 }
 
 function inputNumber(event){
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
-  console.log(event.target.textContent)
+  console.log("number logged",event.target.textContent)
+
   if (!firstOperand){
     inputElement.textContent += event.target.textContent;
   } else if (!secondOperand){
@@ -157,7 +126,8 @@ function onNumberPress(event){
     return;
   }
 
-  if (event.target.textContent == "."){
+   if (event.target.textContent == "."){
+     return;
     if (!firstOperandHasDecimals){
       firstOperandHasDecimals = true;
       return;
@@ -175,7 +145,35 @@ function onNumberPress(event){
 }
 
 function onOperatorPress(event){
-  operate(event.target.textContent,firstOperand,secondOperand);
+  /*
+if operator clicked
+  if operand1 is empty
+    operand1 = currentdisplayvalue
+    return
+  elif operand2 is empty
+    operand2 =  currentdisplayvalue
+    return
+  end
+
+  doOperatorfunction(operator,operand1,operand2)
+   what this function does at the end:
+     operand1 = operand1 (operator) operand2 // eg 1+2
+     operand2 = empty
+*/
+
+  currentOperator = event.target.textContent;
+  currentDigits = 0;
+
+  if (!firstOperand){
+    firstOperand = +inputElement.textContent;
+    console.log(firstOperand,secondOperand)
+    return
+  } else if (!secondOperand){
+    secondOperand = +inputElement.textContent;
+    console.log(firstOperand,secondOperand)
+  }
+
+  operate(currentOperator,firstOperand,secondOperand);
   displayResult()
 }
 
