@@ -1,4 +1,23 @@
-let displayValue = 0;
+let inputValue = 0;
+let resultValue = 0;
+let operand1 = 0;
+let operand2 = 0;
+
+let currentDigits = 0;
+const maxDigits = 18;
+
+const initialInputValue = "_";
+const initialResultValue = 0;
+
+const inputElement = document.querySelector('.inputValue');
+const resultElement = document.querySelector('.result');
+
+inputElement.textContent = initialInputValue;
+resultElement.textContent = initialResultValue;
+
+const buttonsElements = document.querySelectorAll('.buttonSection button');
+
+let allInput = [];
 
 function add(x,y){
   return x+y
@@ -16,9 +35,14 @@ function divide(x,y){
   return x/y
 }
 
-function clear(allInput){
+function clear(){
   allInput = [];
-  return allInput;
+  inputValue = 0;
+  resultValue = 0;
+  operand1 = 0;
+  operand2 = 0;
+  inputElement.textContent = initialInputValue;
+  resultElement.textContent = initialResultValue;
 }
 
 function del(previousInput){
@@ -40,3 +64,58 @@ function operate(operator, operand1, operand2){
       divide(operand1,operand2);
   }
 }
+
+function onNumberPress(event){
+
+  if (inputElement.textContent === "_") {
+    inputElement.textContent = event.target.textContent;
+  } else {
+    inputElement.textContent += event.target.textContent;
+  }
+  currentDigits += 1;
+}
+
+function onOperatorPress(event){
+/*   if (inputElement.textContent === "_") {
+    inputElement.textContent = event.target.textContent;
+  } else {
+    inputElement.textContent += event.target.textContent;
+  }
+  currentDigits += 1; */
+}
+
+function onFunctionPress(event){
+  console.log("Test");
+
+  switch (event.textContent){
+    case (event.textContent === "CLEAR"):
+      console.log("Test2");
+      clear();
+      break;
+  }
+  /*   if (inputElement.textContent === "_") {
+      inputElement.textContent = event.target.textContent;
+    } else {
+      inputElement.textContent += event.target.textContent;
+    }
+    currentDigits += 1; */
+  }
+
+function onButtonClick(event){
+
+  if (currentDigits >= maxDigits) {
+    return;
+  }
+
+  if (event.target.classList.contains("numbers")){
+    onNumberPress(event);
+  } else if (event.target.classList.contains("operators")){
+    onOperatorPress(event);
+  } else if (event.target.classList.contains("functions")){
+    onFunctionPress(event);
+  }
+}
+
+buttonsElements.forEach(function(currentButton){
+  currentButton.addEventListener("click", onButtonClick)
+})
