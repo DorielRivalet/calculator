@@ -3,8 +3,8 @@
 //1.2 events
 
 //1.0 variables
-let inputValue = 0;
-let resultValue = 0;
+let inputValue = null;
+let resultValue = null;
 
 let firstOperand = null;
 let secondOperand = null;
@@ -52,17 +52,14 @@ function divide(x,y){
   }
 }
 
-function displayResult(result){
-  if (!result){
-    result = 0;
-  }
+function displayResult(){
 
   if (!secondOperand){
-    result = firstOperand;
+    return
   }
 
   console.log(firstOperand,currentOperator,secondOperand,"=",result)
-  resultElement.textContent = result;
+  resultElement.textContent = resultValue;
 }
 
 function clear(){
@@ -79,7 +76,7 @@ function clear(){
   secondOperandHasDecimals = false;
 }
 
-function del(previousInput){
+function del(){
   console.log("del")
 
   if (currentDigits <= 1){
@@ -184,7 +181,7 @@ function onOperatorPress(event){
 
 function onFunctionPress(event){
   switch (event.target.textContent){
-    case "CLEAR":
+    case "AC":
       clear();
       break;
     case "DEL":

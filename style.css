@@ -13,7 +13,8 @@ body{
   background-color: hsl(0, 0%, 86%);
   display:flex;
   flex-flow:column;
-  max-width: 307px;
+  width: 350px;
+  max-width: 350px;
 }
 
 .topSection{
@@ -91,6 +92,7 @@ body{
   flex-flow: column;
   gap: 8px;
   padding: 8px;
+  flex:1
 }
 
 .inputValue{
