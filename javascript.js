@@ -2,29 +2,12 @@
 //1.1 functions
 //1.2 events
 
-//pseudocode
-/*
-if operator clicked
-  if operand1 is empty
-    operand1 = currentdisplayvalue
-    return
-  elif operand2 is empty
-    operand2 =  currentdisplayvalue
-    return
-  end
-
-  doOperatorfunction(operator,operand1,operand2)
-   what this function does at the end:
-     operand1 = operand1 (operator) operand2 // eg 1+2
-     operand2 = empty
-*/
-
 //1.0 variables
 let inputValue = 0;
 let resultValue = 0;
 
-let firstOperand = 0;
-let secondOperand = 0;
+let firstOperand = null;
+let secondOperand = null;
 
 let currentDigits = 0;
 const maxDigits = 18;
@@ -69,8 +52,17 @@ function divide(x,y){
   }
 }
 
-function displayResult(){
-  console.log("displayResult")
+function displayResult(result){
+  if (!result){
+    result = 0;
+  }
+
+  if (!secondOperand){
+    result = firstOperand;
+  }
+
+  console.log(firstOperand,currentOperator,secondOperand,"=",result)
+  resultElement.textContent = result;
 }
 
 function clear(){
@@ -80,6 +72,7 @@ function clear(){
   firstOperand = null;
   secondOperand = null;
   currentDigits = 0;
+  currentOperator = "";
   inputElement.textContent = initialInputValue;
   resultElement.textContent = initialResultValue;
   firstOperandHasDecimals = false;
@@ -88,12 +81,23 @@ function clear(){
 
 function del(previousInput){
   console.log("del")
+
+  if (currentDigits <= 1){
+    inputElement.textContent = "_"
+    console.log("no digits")
+    currentDigits = 0;
+    return;
+  }  
+
+  inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
+  currentDigits -= 1;
+  console.log("currentDigits",currentDigits)
 }
 
 function operate(operator, operand1, operand2){
-  currentDigits = 0;
 
-  /*
+  //pseudocode
+/*
 if operator clicked
   if operand1 is empty
     operand1 = currentdisplayvalue
@@ -109,11 +113,16 @@ if operator clicked
      operand2 = empty
 */
 
+
+  currentDigits = 0;
+
   if (!firstOperand){
     firstOperand = +inputElement.textContent;
+    console.log(firstOperand,secondOperand)
     return
   } else if (!secondOperand){
     secondOperand = +inputElement.textContent;
+    console.log(firstOperand,secondOperand)
     return
   }
 
@@ -130,17 +139,25 @@ if operator clicked
     case "/":
       divide(operand1,operand2);
   }
+
+  currentOperator = operator;
 }
 
 function inputNumber(event){
+  currentDigits += 1;
+  console.log("currentDigits",currentDigits)
   console.log(event.target.textContent)
-  inputElement.textContent += event.target.textContent;
+  if (!firstOperand){
+    inputElement.textContent += event.target.textContent;
+  } else if (!secondOperand){
+    inputElement.textContent = event.target.textContent;
+  }
 }
 
 function onNumberPress(event){
   if (currentDigits >= maxDigits){
     console.log("max digits reached");
-    return
+    return;
   }
 
   if (event.target.textContent == "."){
@@ -158,7 +175,6 @@ function onNumberPress(event){
   }
 
   inputNumber(event);
-  currentDigits += 1;
 }
 
 function onOperatorPress(event){
@@ -169,7 +185,6 @@ function onOperatorPress(event){
 function onFunctionPress(event){
   switch (event.target.textContent){
     case "CLEAR":
-      console.log("clear1");
       clear();
       break;
     case "DEL":
