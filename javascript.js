@@ -1,3 +1,24 @@
+//variables
+//functions
+//events
+
+//pseudocode
+/*
+if operator clicked
+  if operand1 is empty
+    operand1 = currentdisplayvalue
+    return
+  elif operand2 is empty
+    operand2 =  currentdisplayvalue
+    return
+  end
+
+  doOperatorfunction(operator,operand1,operand2)
+   what this function does at the end:
+     operand1 = operand1 (operator) operand2 // eg 1+2
+     operand2 = empty
+*/
+
 let inputValue = 0;
 let resultValue = 0;
 let operand1 = 0;
@@ -85,10 +106,9 @@ function onOperatorPress(event){
 }
 
 function onFunctionPress(event){
-  console.log("Test");
 
-  switch (event.textContent){
-    case (event.textContent === "CLEAR"):
+  switch (event.target.textContent){
+    case "CLEAR":
       console.log("Test2");
       clear();
       break;
