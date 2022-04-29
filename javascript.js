@@ -3,13 +3,9 @@
 //1.2 events
 
 //1.0 variables
-/* const keys = [0,1,2,3,4,5,6,7,8,9Array.from(document.querySelectorAll('.key'));
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-window.addEventListener('keydown', playSound); */
 
 let inputValue = null;
 let resultValue = null;
-let currentInput = null;
 
 let firstOperand = null;
 let secondOperand = null;
@@ -73,7 +69,6 @@ function clear(){
   console.log("clear");
   inputValue = 0;
   resultValue = 0;
-  currentInput = null;
   firstOperand = null;
   secondOperand = null;
   currentDigits = 0;
@@ -115,38 +110,26 @@ function operate(operator, operand1, operand2){
   }
 }
 
-function inputNumber(event,isKeyPress){
-
-  if (isKeyPress){
-    currentInput = event.key;
-  } else {
-    currentInput = event.target.textContent;
-  }
+function inputNumber(input){
 
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
-  console.log("number logged",currentInput)
+  console.log("number logged",input)
 
   if (!firstOperand){
-    inputElement.textContent += currentInput;
+    inputElement.textContent += input;
   } else if (!secondOperand){
-    inputElement.textContent = currentInput;
+    inputElement.textContent = input;
   }
 }
 
-function onNumberPress(event,isKeyPress){
+function onNumberPress(input){ //todo: remove redundant ifs
   if (currentDigits >= maxDigits){
     console.log("max digits reached");
     return;
   }
 
-  if (isKeyPress){
-    currentInput = event.key;
-  } else {
-    currentInput = event.target.textContent;
-  }
-
-  if (currentInput == "."){
+  if (input == "."){
     return;
   if (!firstOperandHasDecimals){
     firstOperandHasDecimals = true;
@@ -161,10 +144,10 @@ function onNumberPress(event,isKeyPress){
     inputElement.textContent = "";
   }
 
-  inputNumber(event);
+  inputNumber(input);
 }
 
-function onOperatorPress(event, isKeyPress){
+function onOperatorPress(input){
   /*
 if operator clicked
   if operand1 is empty
@@ -180,13 +163,8 @@ if operator clicked
      operand1 = operand1 (operator) operand2 // eg 1+2
      operand2 = empty
 */
-  if (isKeyPress){
-    currentInput = event.key;
-  } else {
-    currentInput = event.target.textContent;
-  }
 
-  currentOperator = currentInput;
+  currentOperator = input;
   currentDigits = 0;
 
   if (!firstOperand){
@@ -202,22 +180,15 @@ if operator clicked
   displayResult()
 }
 
-function onFunctionPress(event, isKeyPress){
-
-  if (isKeyPress){
-    currentInput = event.key;
-  } else {
-    currentInput = event.target.textContent;
-  }
-
-  switch (currentInput){
-    case "AC":
-    case "Backspace":
-      clear();
-      break;
+function onFunctionPress(input){
+  switch (input){
     case "DEL":
-    case "Delete":
+    case "Backspace":
       del();
+      break;
+    case "AC":
+    case "Delete":
+      clear();
       break;
     case "=":
     case "Enter":
@@ -227,19 +198,19 @@ function onFunctionPress(event, isKeyPress){
 }
 
 function onButtonClick(event){
+  let input = event.target.textContent;
   if (event.target.classList.contains("numbers")){
-    onNumberPress(event);
+    onNumberPress(input);
   } else if (event.target.classList.contains("operators")){
-    onOperatorPress(event);
+    onOperatorPress(input);
   } else if (event.target.classList.contains("functions")){
-    onFunctionPress(event);
+    onFunctionPress(input);
   }
 }
 
-function onKeyPress(event) {
-  let key = event.key;
-
-  switch (key){
+function onKeyDown(event) {
+  let input = event.key;
+  switch (input){
     case "0":
     case "1":
     case "2":
@@ -251,26 +222,24 @@ function onKeyPress(event) {
     case "8":
     case "9":
     case ".":
-      onNumberPress(event,true);
+      onNumberPress(input);
       break;
     case "+":
     case "-":
     case "*":
     case "/":
-      onOperatorPress(event,true);
+      onOperatorPress(input);
       break;
     case "Backspace":
     case "Enter":
     case "=":
     case "Delete":
-      onFunctionPress(event,true);
-      break;
-    }
+      onFunctionPress(input);
   }
 }
 
 //1.2 events
-body.addEventListener("onkeypress", onKeyPress)
+document.addEventListener("keydown", onKeyDown) //document = window?
 
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onButtonClick)
