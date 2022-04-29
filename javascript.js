@@ -30,7 +30,6 @@ inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
 
 const buttonsElements = document.querySelectorAll('.buttonSection button');
-const body = document.querySelector("body");
 
 // variable to store our intervalID
 let nIntervId;
@@ -54,6 +53,7 @@ function waitForInput() {
 function stopWaitForInput() {
   clearInterval(nIntervId);
   // release our intervalID from the variable
+  inputElement.style.opacity = 1;
   nIntervId = null;
 }
 
