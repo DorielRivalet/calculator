@@ -3,8 +3,13 @@
 //1.2 events
 
 //1.0 variables
+/* const keys = [0,1,2,3,4,5,6,7,8,9Array.from(document.querySelectorAll('.key'));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound); */
+
 let inputValue = null;
 let resultValue = null;
+let currentInput = null;
 
 let firstOperand = null;
 let secondOperand = null;
@@ -29,6 +34,7 @@ inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
 
 const buttonsElements = document.querySelectorAll('.buttonSection button');
+const body = document.querySelector("body");
 
 //1.1 functions
 function add(x,y){
@@ -67,6 +73,7 @@ function clear(){
   console.log("clear");
   inputValue = 0;
   resultValue = 0;
+  currentInput = null;
   firstOperand = null;
   secondOperand = null;
   currentDigits = 0;
@@ -108,32 +115,45 @@ function operate(operator, operand1, operand2){
   }
 }
 
-function inputNumber(event){
+function inputNumber(event,isKeyPress){
+
+  if (isKeyPress){
+    currentInput = event.key;
+  } else {
+    currentInput = event.target.textContent;
+  }
+
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
-  console.log("number logged",event.target.textContent)
+  console.log("number logged",currentInput)
 
   if (!firstOperand){
-    inputElement.textContent += event.target.textContent;
+    inputElement.textContent += currentInput;
   } else if (!secondOperand){
-    inputElement.textContent = event.target.textContent;
+    inputElement.textContent = currentInput;
   }
 }
 
-function onNumberPress(event){
+function onNumberPress(event,isKeyPress){
   if (currentDigits >= maxDigits){
     console.log("max digits reached");
     return;
   }
 
-   if (event.target.textContent == "."){
-     return;
-    if (!firstOperandHasDecimals){
-      firstOperandHasDecimals = true;
-      return;
-    } else if (!secondOperandHasDecimals){
+  if (isKeyPress){
+    currentInput = event.key;
+  } else {
+    currentInput = event.target.textContent;
+  }
+
+  if (currentInput == "."){
+    return;
+  if (!firstOperandHasDecimals){
+    firstOperandHasDecimals = true;
+    return;
+  } else if (!secondOperandHasDecimals){
       secondOperandHasDecimals = true;
-      return;
+    return;
     }
   }
 
@@ -144,7 +164,7 @@ function onNumberPress(event){
   inputNumber(event);
 }
 
-function onOperatorPress(event){
+function onOperatorPress(event, isKeyPress){
   /*
 if operator clicked
   if operand1 is empty
@@ -160,8 +180,13 @@ if operator clicked
      operand1 = operand1 (operator) operand2 // eg 1+2
      operand2 = empty
 */
+  if (isKeyPress){
+    currentInput = event.key;
+  } else {
+    currentInput = event.target.textContent;
+  }
 
-  currentOperator = event.target.textContent;
+  currentOperator = currentInput;
   currentDigits = 0;
 
   if (!firstOperand){
@@ -177,15 +202,25 @@ if operator clicked
   displayResult()
 }
 
-function onFunctionPress(event){
-  switch (event.target.textContent){
+function onFunctionPress(event, isKeyPress){
+
+  if (isKeyPress){
+    currentInput = event.key;
+  } else {
+    currentInput = event.target.textContent;
+  }
+
+  switch (currentInput){
     case "AC":
+    case "Backspace":
       clear();
       break;
     case "DEL":
+    case "Delete":
       del();
       break;
     case "=":
+    case "Enter":
       displayResult();
       break;
   }
@@ -201,7 +236,42 @@ function onButtonClick(event){
   }
 }
 
+function onKeyPress(event) {
+  let key = event.key;
+
+  switch (key){
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case ".":
+      onNumberPress(event,true);
+      break;
+    case "+":
+    case "-":
+    case "*":
+    case "/":
+      onOperatorPress(event,true);
+      break;
+    case "Backspace":
+    case "Enter":
+    case "=":
+    case "Delete":
+      onFunctionPress(event,true);
+      break;
+    }
+  }
+}
+
 //1.2 events
+body.addEventListener("onkeypress", onKeyPress)
+
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onButtonClick)
 })
