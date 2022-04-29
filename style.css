@@ -6,11 +6,14 @@ body{
   align-items: center;
   text-align: center;
   height: 100vh;
-  background-color: rgb(255, 253, 139);
+  background-color: rgb(255, 245, 236);
+  color: black;
 }
 
 .calculator{
   background-color: hsl(0, 0%, 86%);
+  border: 2px solid black;
+  border-radius: 4px 4px 4px 4px;
   display:flex;
   flex-flow:column;
   width: 350px;
@@ -19,8 +22,6 @@ body{
 
 .topSection{
   padding:8px;
-  border-radius: 4px 4px 4px 4px;
-  border: 4px solid black;
   display:flex;
   flex-flow: column nowrap;
   width:auto;
@@ -33,6 +34,8 @@ body{
 }
 
 .displaySection{
+  border: 2px solid black;
+  border-radius: 4px 4px 4px 4px;
   background-color: rgb(169, 233, 74);
   padding:16px;
   font-size: 32px;
@@ -41,58 +44,101 @@ body{
 }
 
 .buttonSection{
-  border: 4px solid black;
-  border-radius: 4px 4px 4px 4px;
-  display:flex;
-  flex-flow: row nowrap;
-  gap: 8px;
-  padding: 16px;
-}
-
-.numberSection{
-  display:flex;
-  flex-flow: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
   padding: 8px;
+  grid-template-areas: "a a b b"
+                        "c d e f"
+                        "g h i j"
+                        "k l m n"
+                        "o p q r";
 }
 
-.numberSection button{
-  font-size: 32px;
-  font-weight: bold;
-  width:32px;
+#ac {
+  grid-area: a;
+}
+
+#del {
+  grid-area: b;
+}
+
+#seven {
+  grid-area: c;
+}
+
+#eight {
+  grid-area: d;
+}
+
+#nine {
+  grid-area: e;
+}
+
+#divide {
+  grid-area: f;
+}
+
+#four {
+  grid-area: g;
+}
+
+#five {
+  grid-area: h;
+}
+
+#six {
+  grid-area: i;
+}
+
+#multiply {
+  grid-area: j;
+}
+
+#one {
+  grid-area: k;
+}
+
+#two {
+  grid-area: l;
+}
+
+#three {
+  grid-area: m;
+}
+
+#minus {
+  grid-area: n;
+}
+
+#zero {
+  grid-area: o;
+}
+
+#dot {
+  grid-area: p;
+}
+
+#equal {
+  grid-area: q;
+}
+
+#plus {
+  grid-area: r;
+}
+
+.numberButton{
   background-color: aliceblue;
-  border-radius: 4px 4px 4px 4px;
 }
 
-.operatorSection button{
-  font-size: 32px;
-  font-weight: bold;
-  width:32px;
+.operatorButton{
   background-color: aquamarine;
-  border-radius: 4px 4px 4px 4px;
 }
 
-.functionSection button{
-  font-weight: bold;
-  width:auto;
-  padding: 8px;
+.functionButton{
   background-color: crimson;
-  border-radius: 4px 4px 4px 4px;
-}
-
-.operatorSection {
-  display:flex;
-  flex-flow: column;
-  gap: 8px;
-  padding: 8px;
-}
-
-.functionSection {
-  display:flex;
-  flex-flow: column;
-  gap: 8px;
-  padding: 8px;
-  flex:1
 }
 
 .inputValue{
@@ -126,6 +172,15 @@ a:link{
   text-decoration: none;
 }
 
+button{
+  padding:16px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  border-radius: 4px 4px 4px 4px;
+  border-color: whitesmoke;
+}
+
 button:hover{
-  border-color: white;
+  filter: brightness(85%);
 }
