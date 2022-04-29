@@ -58,6 +58,7 @@ function displayResult(){
   if (!secondOperand){
     return
   }
+
   console.log(firstOperand,currentOperator,secondOperand,"=",resultValue)
   resultElement.textContent = resultValue;
 
@@ -152,9 +153,7 @@ function onOperatorPress(input){
 if operator clicked
   if operand1 is empty
     operand1 = currentdisplayvalue
-    return
-  elif operand2 is empty
-    operand2 =  currentdisplayvalue
+
     return
   end
 
@@ -197,19 +196,8 @@ function onFunctionPress(input){
   }
 }
 
-function onButtonClick(event){
-  let input = event.target.textContent;
-  if (event.target.classList.contains("numbers")){
-    onNumberPress(input);
-  } else if (event.target.classList.contains("operators")){
-    onOperatorPress(input);
-  } else if (event.target.classList.contains("functions")){
-    onFunctionPress(input);
-  }
-}
-
-function onKeyDown(event) {
-  let input = event.key;
+function onInput(event) {
+  let input = event.key || event.target.textContent;
   switch (input){
     case "0":
     case "1":
@@ -234,13 +222,15 @@ function onKeyDown(event) {
     case "Enter":
     case "=":
     case "Delete":
+    case "AC":
+    case "DEL":
       onFunctionPress(input);
   }
 }
 
 //1.2 events
-document.addEventListener("keydown", onKeyDown) //document = window?
+document.addEventListener("keydown", onInput) //document = window?
 
 buttonsElements.forEach(function(currentButton){
-  currentButton.addEventListener("click", onButtonClick)
+  currentButton.addEventListener("click", onInput)
 })
