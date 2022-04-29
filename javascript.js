@@ -32,6 +32,34 @@ resultElement.textContent = initialResultValue;
 const buttonsElements = document.querySelectorAll('.buttonSection button');
 const body = document.querySelector("body");
 
+// variable to store our intervalID
+let nIntervId;
+
+function changeText() {
+  // check if already an interval has been set up
+  if (!nIntervId) {
+    nIntervId = setInterval(waitForInput, 1000);
+  }
+}
+
+function waitForInput() {
+  const oElem = inputElement;
+  if (oElem.style.opacity === "1") {
+    oElem.style.opacity = "0";
+  } else {
+    oElem.style.opacity = "1";
+  }
+}
+
+function stopWaitForInput() {
+  clearInterval(nIntervId);
+  // release our intervalID from the variable
+  nIntervId = null;
+}
+
+/* document.getElementById("start").addEventListener("click", changeColor);
+document.getElementById("stop").addEventListener("click", stopTextColor); */
+
 //1.1 functions
 function add(x,y){
   return x+y
@@ -78,6 +106,7 @@ function clear(){
   resultElement.textContent = initialResultValue;
   firstOperandHasDecimals = false;
   secondOperandHasDecimals = false;
+  changeText()
 }
 
 function del(){
@@ -87,6 +116,7 @@ function del(){
     inputElement.textContent = "_"
     console.log("no digits")
     currentDigits = 0;
+    changeText()
     return;
   }  
 
@@ -116,6 +146,7 @@ function inputNumber(input){
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
   console.log("number logged",input)
+  stopWaitForInput()
 
   if (!firstOperand){
     inputElement.textContent += input;
@@ -228,6 +259,7 @@ function onInput(event) {
   }
 }
 
+changeText()
 //1.2 events
 document.addEventListener("keydown", onInput) //document = window?
 
