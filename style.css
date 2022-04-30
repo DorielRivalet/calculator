@@ -2,10 +2,19 @@ body{
   display:flex;
   flex-flow:column nowrap;
   flex:1;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Courier New', Courier, monospace;
   align-items: center;
   text-align: center;
   height: 100vh;
+  background-color: rgb(255, 245, 236);
+  color: black;
+}
+
+.dark-mode {
+  background-color: rgb(41, 41, 255);
+  color: white;
+}
+.light-mode {
   background-color: rgb(255, 245, 236);
   color: black;
 }
@@ -32,9 +41,17 @@ body{
 }
 
 .modelName{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding:16px;
+}
+
+.modelName button{
+  font-family:'Times New Roman', Times, serif;
   font-style: italic;
-  padding:8px;
+  cursor:pointer;
+  text-decoration: none;
+  border: 0px;
+  font-size: 16px;
+  background-color: transparent;
 }
 
 .displaySection{
@@ -145,6 +162,10 @@ body{
   background-color: crimson;
 }
 
+.equalButton{
+  background-color: rgb(185, 187, 255);
+}
+
 .inputValue{
   text-align: start;
   font-size: 24px;
@@ -152,7 +173,7 @@ body{
 
 .result{
   text-align: end;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 900;
 }
 
@@ -180,15 +201,16 @@ a:link{
   color: black;
 }
 
-button{
+.buttonSection button{
   padding:16px;
   font-size: 16px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Courier New', Courier, monospace;
   font-weight: bolder;
   border-radius: 4px 4px 4px 4px;
   border-color: whitesmoke;
+  cursor:pointer;
 }
 
-button:hover{
-  filter: brightness(90%);
+.buttonSection button:hover{
+  filter: brightness(110%);
 }
