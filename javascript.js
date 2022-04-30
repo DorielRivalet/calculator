@@ -4,40 +4,33 @@
 
 //1.0 variables
 
-let inputValue = null;
-let resultValue = null;
-
-let firstOperand = null;
-let secondOperand = null;
-
+let inputValue;
+let resultValue;
+let firstOperand;
+let secondOperand;
+let currentOperator;
 let currentDigits = 0;
-const maxDigits = 18;
-
-let currentOperator = "";
-
 let firstOperandHasDecimals = false;
 let secondOperandHasDecimals = false;
+let nIntervId; // variable to store our intervalID
 
+const maxDigits = 18;
 const maxDecimalDigits = 1;
-
-const initialInputValue = "_";
-const initialResultValue = 0;
-
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
+const initialInputValue = "_";
+const initialResultValue = 0;
+const buttonsElements = document.querySelectorAll('.buttonSection button');
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
 
-const buttonsElements = document.querySelectorAll('.buttonSection button');
-
-// variable to store our intervalID
-let nIntervId;
+//1.1 functions
 
 function changeText() {
   // check if already an interval has been set up
   if (!nIntervId) {
-    nIntervId = setInterval(waitForInput, 1000);
+    nIntervId = setInterval(waitForInput, 500);
   }
 }
 
@@ -57,10 +50,6 @@ function stopWaitForInput() {
   nIntervId = null;
 }
 
-/* document.getElementById("start").addEventListener("click", changeColor);
-document.getElementById("stop").addEventListener("click", stopTextColor); */
-
-//1.1 functions
 function add(x,y){
   return x+y
 }
@@ -80,6 +69,14 @@ function divide(x,y){
     console.log("cannot divide by 0");
     return NaN
   }
+}
+
+function getCurrentInput(){
+  return inputElement.textContent;
+}
+
+function setResult(input){
+  resultElement.textContent = input; 
 }
 
 function displayResult(){
@@ -111,7 +108,6 @@ function clear(){
 
 function del(){
   console.log("del")
-
   if (currentDigits <= 1){
     inputElement.textContent = "_"
     console.log("no digits")
@@ -119,7 +115,6 @@ function del(){
     changeText()
     return;
   }  
-
   inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
   currentDigits -= 1;
   console.log("currentDigits",currentDigits)
@@ -142,12 +137,23 @@ function operate(operator, operand1, operand2){
 }
 
 function inputNumber(input){
+  if (inputElement.textContent === "_") {
+    if (input === "0") {
+      return
+    }
+    stopWaitForInput()
+    inputElement.textContent = "";
+    inputElement.textContent += input;
+    currentDigits += 1;
+    console.log("currentDigits",currentDigits)
+    console.log("number logged",input)
+    return
+  }
 
+  stopWaitForInput()
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
   console.log("number logged",input)
-  stopWaitForInput()
-
   if (!firstOperand){
     inputElement.textContent += input;
   } else if (!secondOperand){
@@ -160,8 +166,7 @@ function onNumberPress(input){ //todo: remove redundant ifs
     console.log("max digits reached");
     return;
   }
-
-  if (input == "."){
+/*   if (input == "."){
     return;
   if (!firstOperandHasDecimals){
     firstOperandHasDecimals = true;
@@ -170,12 +175,7 @@ function onNumberPress(input){ //todo: remove redundant ifs
       secondOperandHasDecimals = true;
     return;
     }
-  }
-
-  if (inputElement.textContent === "_") {
-    inputElement.textContent = "";
-  }
-
+  } */
   inputNumber(input);
 }
 
@@ -193,10 +193,8 @@ if operator clicked
      operand1 = operand1 (operator) operand2 // eg 1+2
      operand2 = empty
 */
-
   currentOperator = input;
   currentDigits = 0;
-
   if (!firstOperand){
     firstOperand = +inputElement.textContent;
     console.log(firstOperand,secondOperand)
@@ -205,26 +203,8 @@ if operator clicked
     secondOperand = +inputElement.textContent;
     console.log(firstOperand,secondOperand)
   }
-
   operate(currentOperator,firstOperand,secondOperand);
   displayResult()
-}
-
-function onFunctionPress(input){
-  switch (input){
-    case "DEL":
-    case "Backspace":
-      del();
-      break;
-    case "AC":
-    case "Delete":
-      clear();
-      break;
-    case "=":
-    case "Enter":
-      displayResult();
-      break;
-  }
 }
 
 function onInput(event) {
@@ -249,17 +229,21 @@ function onInput(event) {
     case "/":
       onOperatorPress(input);
       break;
+    case "DEL":
     case "Backspace":
-    case "Enter":
-    case "=":
+      del();
+      break;
     case "Delete":
     case "AC":
-    case "DEL":
-      onFunctionPress(input);
+      clear();
+      break;
+    case "Enter":
+    case "=":
+      displayResult();
   }
 }
 
-changeText()
+changeText()//wait effect
 //1.2 events
 document.addEventListener("keydown", onInput) //document = window?
 
