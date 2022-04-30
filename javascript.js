@@ -209,6 +209,7 @@ if operator clicked
 
 function onInput(event) {
   let input = event.key || event.target.textContent;
+  console.log(input)
   switch (input){
     case "0":
     case "1":
@@ -226,7 +227,9 @@ function onInput(event) {
     case "+":
     case "-":
     case "*":
+    case "x":
     case "/":
+    case "÷":
       onOperatorPress(input);
       break;
     case "DEL":
@@ -235,6 +238,7 @@ function onInput(event) {
       break;
     case "Delete":
     case "AC":
+    case "Escape":
       clear();
       break;
     case "Enter":
