@@ -178,6 +178,12 @@ body{
 }
 
 footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font-size: 18px;
   margin-top: auto;
 }
 
@@ -213,4 +219,8 @@ a:link{
 
 .buttonSection button:hover{
   filter: brightness(110%);
+}
+
+.fa-github {
+  font-size: 48px;
 }
