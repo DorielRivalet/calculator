@@ -11,13 +11,16 @@ body{
 }
 
 .calculator{
+  box-shadow: 1px 1px 15px -2px rgb(0, 0, 0);
+  margin:32px;
+  padding:8px;
   background-color: hsl(0, 0%, 86%);
   border: 2px solid black;
   border-radius: 8px 8px 8px 8px;
   display:flex;
   flex-flow:column;
-  width: 350px;
-  max-width: 350px;
+  width: 60vh;
+  max-width: 60vh;
 }
 
 .topSection{
@@ -31,6 +34,7 @@ body{
 .modelName{
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
+  padding:8px;
 }
 
 .displaySection{
@@ -182,5 +186,5 @@ button{
 }
 
 button:hover{
-  filter: brightness(85%);
+  filter: brightness(90%);
 }
