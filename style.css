@@ -13,7 +13,7 @@ body{
 .calculator{
   background-color: hsl(0, 0%, 86%);
   border: 2px solid black;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 8px 8px 8px 8px;
   display:flex;
   flex-flow:column;
   width: 350px;
@@ -35,7 +35,7 @@ body{
 
 .displaySection{
   border: 2px solid black;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
   background-color: rgb(169, 233, 74);
   padding:16px;
   font-size: 32px;
