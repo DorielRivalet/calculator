@@ -45,15 +45,25 @@ body{
 
 .modelName{
   padding:16px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.modelName .brandName{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 24px;
+}
+
+.modelName .productId{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 16px;
+  cursor:pointer;
 }
 
 .modelName button{
-  font-family:'Times New Roman', Times, serif;
   font-style: italic;
-  cursor:pointer;
   text-decoration: none;
   border: 0px;
-  font-size: 16px;
   font-weight: 900;
   background-color: transparent;
 }

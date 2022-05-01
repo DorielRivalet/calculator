@@ -26,10 +26,11 @@ const numberButtonElements = document.querySelectorAll('.buttonSection .numberBu
 const operatorButtonElements = document.querySelectorAll('.buttonSection .operatorButton');
 const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
 const equalButtonElement = document.querySelector('.buttonSection .equalButton');
-const modelNameButton = document.querySelector('.modelName button');
+const modelNameButtons = document.querySelectorAll('.modelName button');
+const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
-const githubIcon = document.querySelector("footer i")
+const githubIcon = document.querySelector("footer i");
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
@@ -259,7 +260,9 @@ function changeTheme(){
   document.body.classList.toggle("dark-mode");
   calculatorElement.classList.toggle("dark-modeCalculator");
   displaySectionElement.classList.toggle("dark-modeDisplaySection");
-  modelNameButton.classList.toggle("dark-modeModelName");
+  modelNameButtons.forEach(function(currentButton){
+    currentButton.classList.toggle("dark-modeModelName");
+  })
   buttonsElements.forEach(function(currentButton){
     currentButton.classList.toggle("dark-modeButtonSection");
   })
@@ -283,4 +286,4 @@ document.addEventListener("keydown", onInput) //document = window?
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
 })
-modelNameButton.addEventListener("click", changeTheme)
+productIdElement.addEventListener("click", changeTheme)
