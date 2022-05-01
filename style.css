@@ -14,10 +14,6 @@ body{
   background-color: rgb(41, 41, 255);
   color: white;
 }
-.light-mode {
-  background-color: rgb(255, 245, 236);
-  color: black;
-}
 
 .calculator{
   box-shadow: 1px 1px 15px -2px rgb(0, 0, 0);
@@ -30,6 +26,12 @@ body{
   flex-flow:column;
   width: 60vh;
   max-width: 60vh;
+}
+
+.dark-modeCalculator{
+  border: 2px solid rgb(89, 164, 255);
+  background-color: hsl(234, 94%, 63%);
+  color:whitesmoke;
 }
 
 .topSection{
@@ -51,17 +53,27 @@ body{
   text-decoration: none;
   border: 0px;
   font-size: 16px;
+  font-weight: 900;
   background-color: transparent;
+}
+
+.dark-modeModelName{
+  color: whitesmoke;
 }
 
 .displaySection{
   border: 2px solid black;
   border-radius: 6px 6px 6px 6px;
   background-color: rgb(169, 233, 74);
+  color: black;
   padding:16px;
   font-size: 32px;
   display: flex;
   flex-flow: column nowrap;
+}
+
+.dark-modeDisplaySection{
+  border: 2px solid rgb(89, 164, 255);
 }
 
 .buttonSection{
@@ -213,8 +225,34 @@ a:link{
   font-family:'Courier New', Courier, monospace;
   font-weight: bolder;
   border-radius: 4px 4px 4px 4px;
-  border-color: whitesmoke;
   cursor:pointer;
+}
+
+button{
+  border-color: whitesmoke;
+}
+
+.numberButton{
+  background-color: aliceblue;
+}
+
+.operatorButton{
+  background-color: aquamarine;
+}
+
+.functionButton{
+  background-color: crimson;
+}
+
+.dark-modeNumberButton{
+  background-color: rgb(93, 133, 168);
+  border-color: rgb(97, 64, 150);
+  color:antiquewhite;
+}
+
+.dark-modeButtonSection{
+  border-color: rgb(97, 64, 150);
+  color:antiquewhite;
 }
 
 .buttonSection button:hover{

@@ -12,6 +12,7 @@ let currentOperator;
 let currentDigits = 0;
 let firstOperandHasDecimals = false;
 let secondOperandHasDecimals = false;
+let isDarkMode = false;
 let nIntervId; // variable to store our intervalID
 
 const maxDigits = 18;
@@ -21,10 +22,12 @@ const resultElement = document.querySelector('.result');
 const initialInputValue = "_";
 const initialResultValue = 0;
 const buttonsElements = document.querySelectorAll('.buttonSection button');
+const modelNameButton = document.querySelector('.modelName button');
+const calculatorElement = document.querySelector('.calculator');
+const displaySectionElement = document.querySelector('.displaySection');
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
-
 //1.1 functions
 
 function changeText() {
@@ -247,6 +250,22 @@ function onInput(event) {
   }
 }
 
+function changeTheme(){
+  document.body.classList.toggle("dark-mode");
+  calculatorElement.classList.toggle("dark-modeCalculator");
+  displaySectionElement.classList.toggle("dark-modeDisplaySection");
+  modelNameButton.classList.toggle("dark-modeModelName");
+  buttonsElements.forEach(function(currentButton){
+    if (currentButton.className === "numberButton"){
+      currentButton.className = "dark-modeNumberButton";
+    } else if (currentButton.className === "dark-modeNumberButton"){
+      currentButton.className = "numberButton";
+    } else {
+      currentButton.classList.toggle("dark-modeButtonSection");
+    }
+  })
+}
+
 changeText()//wait effect
 //1.2 events
 document.addEventListener("keydown", onInput) //document = window?
@@ -254,3 +273,5 @@ document.addEventListener("keydown", onInput) //document = window?
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
 })
+
+modelNameButton.addEventListener("click", changeTheme)
