@@ -25,6 +25,7 @@ const buttonsElements = document.querySelectorAll('.buttonSection button');
 const numberButtonElements = document.querySelectorAll('.buttonSection .numberButton');
 const operatorButtonElements = document.querySelectorAll('.buttonSection .operatorButton');
 const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
+const clearButtonElement = document.querySelector('#ac');
 const equalButtonElement = document.querySelector('.buttonSection .equalButton');
 const modelNameButtons = document.querySelectorAll('.modelName button');
 const productIdElement = document.querySelector('.modelName .productId');
@@ -112,6 +113,7 @@ function clear(){
   resultElement.textContent = initialResultValue;
   firstOperandHasDecimals = false;
   secondOperandHasDecimals = false;
+  clearButtonElement.textContent = "AC";
   changeText()
 }
 
@@ -122,6 +124,7 @@ function del(){
     console.log("no digits")
     currentDigits = 0;
     changeText()
+    clearButtonElement.textContent = "AC";
     return;
   }  
   inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
@@ -154,12 +157,12 @@ function inputNumber(input){
     inputElement.textContent = "";
     inputElement.textContent += input;
     currentDigits += 1;
+    clearButtonElement.textContent = "CE";
     console.log("currentDigits",currentDigits)
     console.log("number logged",input)
     return
   }
 
-  stopWaitForInput()
   currentDigits += 1;
   console.log("currentDigits",currentDigits)
   console.log("number logged",input)
@@ -247,6 +250,7 @@ function onInput(event) {
       break;
     case "Delete":
     case "AC":
+    case "CE":
     case "Escape":
       clear();
       break;
