@@ -9,12 +9,16 @@ let resultValue;
 let firstOperand;
 let secondOperand;
 let currentOperator;
-let currentDigits = 0;
 let firstOperandHasDecimals = false;
 let secondOperandHasDecimals = false;
 let isDarkMode = false;
+let lastInputType;
+let numberOfOperators = 0;
+
 let nIntervId; // variable to store our intervalID
 
+const calculatorRegex = /^\d+([\+\*\-\/]{1})([0-9])+$/g;
+const maxOperators = 1;
 const maxDecimalDigits = 1;
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
@@ -80,24 +84,21 @@ function divide(x,y){
   }
 }
 
-function getCurrentInput(){
-  return inputElement.textContent;
-}
-
-function setResult(input){
-  resultElement.textContent = input; 
-}
-
 function displayResult(){
+  
+/*   let firstOperand =  */
+
+
   if (!secondOperand){
     return
   }
 
   console.log(firstOperand,currentOperator,secondOperand,"=",resultValue)
   resultElement.textContent = resultValue;
+  inputElement.textContent = resultValue + currentOperator
 
-  operand1 = resultValue;
-  operand2 = null;
+  firstOperand = resultValue;
+  secondOperand = null;
 }
 
 function clear(){
@@ -106,7 +107,6 @@ function clear(){
   resultValue = 0;
   firstOperand = null;
   secondOperand = null;
-  currentDigits = 0;
   currentOperator = "";
   inputElement.textContent = initialInputValue;
   resultElement.textContent = initialResultValue;
@@ -118,17 +118,13 @@ function clear(){
 
 function del(){
   console.log("del")
-  if (currentDigits <= 1){
+  if (inputElement.textContent.length === 1){
     inputElement.textContent = "_"
-    console.log("no digits")
-    currentDigits = 0;
     changeText()
     clearButtonElement.textContent = "AC";
     return;
   }  
   inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
-  currentDigits -= 1;
-  console.log("currentDigits",currentDigits)
 }
 
 function operate(operator, operand1, operand2){
@@ -155,39 +151,19 @@ function inputNumber(input){
     stopWaitForInput()
     inputElement.textContent = "";
     inputElement.textContent += input;
-    currentDigits += 1;
     clearButtonElement.textContent = "CE";
-    console.log("currentDigits",currentDigits)
-    console.log("number logged",input)
     return
   }
 
-  currentDigits += 1;
-  console.log("currentDigits",currentDigits)
-  console.log("number logged",input)
-  if (!firstOperand){
+/*   if (!firstOperand){ */
     inputElement.textContent += input;
-  } else if (!secondOperand){
-    inputElement.textContent = "";
-    inputElement.textContent += input;
-  }
+/*   } else if (!secondOperand){
+    resultElement.textContent = "";
+    resultElement.textContent += input;
+  } */
 }
 
 function onNumberPress(input){ //todo: remove redundant ifs
-/*   if (currentDigits >= maxDigits){
-    console.log("max digits reached");
-    return;
-  } */
-/*   if (input == "."){
-    return;
-  if (!firstOperandHasDecimals){
-    firstOperandHasDecimals = true;
-    return;
-  } else if (!secondOperandHasDecimals){
-      secondOperandHasDecimals = true;
-    return;
-    }
-  } */
   inputNumber(input);
 }
 
@@ -204,20 +180,31 @@ if operator clicked
    what this function does at the end:
      operand1 = operand1 (operator) operand2 // eg 1+2
      operand2 = empty
-*///if (!currentOperator
-  currentOperator = input;
-  currentDigits = 0;
+*/
   
-  if (!firstOperand){
+  if (resultValue){
+/*     inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1)+input;
+ */    return
+  }
+
+  inputElement.textContent += input
+/*   if (!firstOperand){
     firstOperand = +inputElement.textContent;
+    inputElement.textContent = firstOperand + input;
     console.log(firstOperand,secondOperand)
     return
   } else if (!secondOperand){
-    secondOperand = +inputElement.textContent;
+    secondOperand = +resultElement.textContent;
     console.log(firstOperand,secondOperand)
-  }
-  operate(currentOperator,firstOperand,secondOperand);
-  displayResult()
+  } */ /* else {
+    firstOperand = resultValue;
+    inputElement.textContent = firstOperand + currentOperator
+    secondOperand = null;
+  } */
+
+/*   operate(input,firstOperand,secondOperand);
+  displayResult() */
+  
 }
 
 function onInput(event) {
@@ -243,6 +230,7 @@ function onInput(event) {
     case "x":
     case "/":
     case "÷":
+    case "×":  
       onOperatorPress(input);
       break;
     case "DEL":

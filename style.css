@@ -78,10 +78,25 @@ body{
   border-radius: 6px 6px 6px 6px;
   background-color: rgb(210, 255, 143);
   color: black;
-  padding:16px;
+  padding-left:16px;
+  padding-right:16px;
+  padding-top:16px;
+  padding-bottom:4px;
+  gap:8px;
   font-size: 32px;
   display: flex;
   flex-flow: column nowrap;
+}
+
+.inputValue{
+  text-align: start;
+  font-size: 24px;
+}
+
+.result{
+  text-align: end;
+  font-size: 36px;
+  font-weight: 900;
 }
 
 .dark-modeDisplaySection{
@@ -204,17 +219,6 @@ body{
 
 .dark-modeEqualButton{
   background-color:#d98200;
-}
-
-.inputValue{
-  text-align: start;
-  font-size: 24px;
-}
-
-.result{
-  text-align: end;
-  font-size: 36px;
-  font-weight: 900;
 }
 
 footer{
