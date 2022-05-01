@@ -22,14 +22,19 @@ const resultElement = document.querySelector('.result');
 const initialInputValue = "_";
 const initialResultValue = 0;
 const buttonsElements = document.querySelectorAll('.buttonSection button');
+const numberButtonElements = document.querySelectorAll('.buttonSection .numberButton');
+const operatorButtonElements = document.querySelectorAll('.buttonSection .operatorButton');
+const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
+const equalButtonElement = document.querySelector('.buttonSection .equalButton');
 const modelNameButton = document.querySelector('.modelName button');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
+const githubIcon = document.querySelector("footer i")
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
-//1.1 functions
 
+//1.1 functions
 function changeText() {
   // check if already an interval has been set up
   if (!nIntervId) {
@@ -256,22 +261,26 @@ function changeTheme(){
   displaySectionElement.classList.toggle("dark-modeDisplaySection");
   modelNameButton.classList.toggle("dark-modeModelName");
   buttonsElements.forEach(function(currentButton){
-    if (currentButton.className === "numberButton"){
-      currentButton.className = "dark-modeNumberButton";
-    } else if (currentButton.className === "dark-modeNumberButton"){
-      currentButton.className = "numberButton";
-    } else {
-      currentButton.classList.toggle("dark-modeButtonSection");
-    }
+    currentButton.classList.toggle("dark-modeButtonSection");
   })
+  numberButtonElements.forEach(function(currentButton){
+    currentButton.classList.toggle("dark-modeNumberButton");
+  })
+  operatorButtonElements.forEach(function(currentButton){
+    currentButton.classList.toggle("dark-modeOperatorButton");
+  })
+  functionButtonElements.forEach(function(currentButton){
+    currentButton.classList.toggle("dark-modeFunctionButton");
+  })
+  equalButtonElement.classList.toggle("dark-modeEqualButton");
+  githubIcon.classList.toggle("dark-mode-fa-github");
 }
 
 changeText()//wait effect
+
 //1.2 events
 document.addEventListener("keydown", onInput) //document = window?
-
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
 })
-
 modelNameButton.addEventListener("click", changeTheme)
