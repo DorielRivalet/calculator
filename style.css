@@ -6,13 +6,13 @@ body{
   align-items: center;
   text-align: center;
   height: 100vh;
-  background-color: rgb(255, 245, 236);
+  background-color: rgb(255, 213, 171);
   color: black;
 }
 
 .dark-mode {
-  background-color: rgb(41, 41, 255);
-  color: white;
+  background-color: #121212;
+  color: rgb(222, 222, 222);
 }
 
 .calculator{
@@ -29,8 +29,9 @@ body{
 }
 
 .dark-modeCalculator{
+  box-shadow: 1px 1px 15px -2px rgb(0, 47, 122);
   border: 2px solid rgb(89, 164, 255);
-  background-color: hsl(234, 94%, 63%);
+  background-color: hsl(234, 37%, 25%);
   color:whitesmoke;
 }
 
@@ -64,7 +65,7 @@ body{
 .displaySection{
   border: 2px solid black;
   border-radius: 6px 6px 6px 6px;
-  background-color: rgb(169, 233, 74);
+  background-color: rgb(210, 255, 143);
   color: black;
   padding:16px;
   font-size: 32px;
@@ -167,15 +168,31 @@ body{
 }
 
 .operatorButton{
-  background-color: aquamarine;
+  background-color: rgb(155, 198, 184);
 }
 
 .functionButton{
-  background-color: crimson;
+  background-color: rgb(205, 76, 76);
 }
 
 .equalButton{
   background-color: rgb(185, 187, 255);
+}
+
+.dark-modeNumberButton{
+  background-color: rgb(93, 133, 168);
+}
+
+.dark-modeOperatorButton{
+  background-color:#8db5ff;
+}
+
+.dark-modeFunctionButton{
+  background-color:#c49fff;
+}
+
+.dark-modeEqualButton{
+  background-color:#d98200;
 }
 
 .inputValue{
@@ -232,24 +249,6 @@ button{
   border-color: whitesmoke;
 }
 
-.numberButton{
-  background-color: aliceblue;
-}
-
-.operatorButton{
-  background-color: aquamarine;
-}
-
-.functionButton{
-  background-color: crimson;
-}
-
-.dark-modeNumberButton{
-  background-color: rgb(93, 133, 168);
-  border-color: rgb(97, 64, 150);
-  color:antiquewhite;
-}
-
 .dark-modeButtonSection{
   border-color: rgb(97, 64, 150);
   color:antiquewhite;
@@ -261,4 +260,8 @@ button{
 
 .fa-github {
   font-size: 48px;
+}
+
+.dark-mode-fa-github {
+  color: #efefef;
 }
