@@ -73,6 +73,7 @@ body{
 }
 
 .displaySection{
+  overflow-x:auto;
   border: 2px solid black;
   border-radius: 6px 6px 6px 6px;
   background-color: rgb(210, 255, 143);
