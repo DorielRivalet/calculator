@@ -15,7 +15,6 @@ let secondOperandHasDecimals = false;
 let isDarkMode = false;
 let nIntervId; // variable to store our intervalID
 
-const maxDigits = 18;
 const maxDecimalDigits = 1;
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
@@ -169,15 +168,16 @@ function inputNumber(input){
   if (!firstOperand){
     inputElement.textContent += input;
   } else if (!secondOperand){
-    inputElement.textContent = input;
+    inputElement.textContent = "";
+    inputElement.textContent += input;
   }
 }
 
 function onNumberPress(input){ //todo: remove redundant ifs
-  if (currentDigits >= maxDigits){
+/*   if (currentDigits >= maxDigits){
     console.log("max digits reached");
     return;
-  }
+  } */
 /*   if (input == "."){
     return;
   if (!firstOperandHasDecimals){
@@ -204,9 +204,10 @@ if operator clicked
    what this function does at the end:
      operand1 = operand1 (operator) operand2 // eg 1+2
      operand2 = empty
-*/
+*///if (!currentOperator
   currentOperator = input;
   currentDigits = 0;
+  
   if (!firstOperand){
     firstOperand = +inputElement.textContent;
     console.log(firstOperand,secondOperand)
