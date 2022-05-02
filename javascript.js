@@ -58,20 +58,20 @@ function stopWaitForInput() {
 }
 
 function add(x,y){
-  return +x + +y //+ converts string to number
+  return Number(x) + Number(y) //+ converts string to number
 }
 
 function substract(x,y){
-  return +x - +y
+  return Number(x) - Number(y)
 }
 
 function multiply(x,y){
-  return +x * +y
+  return Number(x) * Number(y)
 }
 
 function divide(x,y){
-  if (+y !== 0){
-    return +x / +y;
+  if (Number(y) !== 0){
+    return Number(x) / Number(y);
   } else {
     console.log("cannot divide by 0");
     return NaN
@@ -83,12 +83,12 @@ function displayResult(){
     return
   }
 
-  let inputRegex = /^\d+(\.\d+)?([\+\×\-\÷]{1})\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
+  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
   let currentInput = inputElement.textContent;
   let isCorrectSyntax = inputRegex.test(currentInput);
 
   if (!isCorrectSyntax){ //drawback: doesnt support scientific notation
-    let inputRegex2 = /^[0-9]\d*(\.\d+)?$/g;
+    let inputRegex2 = /^-?[0-9]\d*(\.\d+)?$/g;
     let isCorrectSyntax2 = inputRegex2.test(currentInput);
     if (isCorrectSyntax2){
       Ans = Number.parseFloat(currentInput);
@@ -102,10 +102,23 @@ function displayResult(){
     }
   }
 
-  let currentOperator = currentInput[currentInput.search(operatorRegex)];
-  let numbers = currentInput.split(currentOperator);
-  let firstOperand = numbers[0];
-  let secondOperand = numbers[1];
+  let currentOperator;
+  let numbers;
+  let firstOperand;
+  let secondOperand;
+
+  if (currentInput[0] === "-"){ //bit of a hacky solution
+    let newCurrentInput = currentInput.slice(1);
+    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
+    numbers = newCurrentInput.split(currentOperator);
+    firstOperand = "-"+numbers[0];
+    secondOperand = numbers[1];
+  } else {
+    currentOperator = currentInput[currentInput.search(operatorRegex)];
+    numbers = currentInput.split(currentOperator);
+    firstOperand = numbers[0];
+    secondOperand = numbers[1];
+  }
  
   Ans = operate(currentOperator,firstOperand,secondOperand);
   console.log(firstOperand,currentOperator,secondOperand,"=",Ans)
@@ -137,11 +150,13 @@ function deleteInput(){
 
 function switchPower(){
   if (currentState === "Off"){
+    powerButtonElement.textContent = "OFF";
     currentState = "On";
     inputElement.style.opacity = 1;
     resultElement.style.opacity = 1;
     initializeWaitForInput();//wait for input effect
   } else {
+    powerButtonElement.textContent = "ON";
     currentState = "Off";
     clearInput()
     stopWaitForInput();
@@ -187,6 +202,22 @@ function inputNumber(input){
   inputElement.textContent += input;
 }
 
+function inputOperator(input){
+  if (inputElement.textContent === "_"){
+    stopWaitForInput()
+    inputElement.textContent = "0"+input;
+    clearButtonElement.textContent = "CE";
+    return
+  }
+  if (currentState === "Standby"){
+    currentState = "On";
+    inputElement.textContent = "";
+    inputElement.textContent += Ans+input;
+    return
+  }
+  inputElement.textContent += input;
+}
+
 function onNumberPress(input){
   if (currentState === "Error" || !input){
     return
@@ -198,15 +229,7 @@ function onOperatorPress(input){
   if (currentState === "Error"){
     return
   }
-  
-  if (currentState === "Standby"){
-    currentState = "On";
-    inputElement.textContent = "";
-    inputElement.textContent += Ans+input;
-    return
-  }
-
-  inputElement.textContent += input
+  inputOperator(input)
 }
 
 function onInput(event) {
