@@ -3,23 +3,16 @@
 //1.2 events
 
 //1.0 variables
-
-let inputValue;
-let resultValue;
 let firstOperand;
 let secondOperand;
-let currentOperator;
-let firstOperandHasDecimals = false;
-let secondOperandHasDecimals = false;
+let Ans;
 let isDarkMode = false;
+let currentState = "Off"; // 0/1/2 Off/On/Error. enums. probably would need to use typescript for this instead.
 let lastInputType;
-let numberOfOperators = 0;
-
 let nIntervId; // variable to store our intervalID
 
-const calculatorRegex = /^\d+([\+\*\-\/]{1})([0-9])+$/g;
-const maxOperators = 1;
-const maxDecimalDigits = 1;
+const calculatorRegex = /^\d+(\.\d{1,4})?([\+\*\-\/]{1})\d+(\.\d{1,4})?$/g; //written with help of https://regexr.com/ cheatsheet
+const operatorRegex = /([\+\*\-\/]{1})/g;
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
 const initialInputValue = "_";
@@ -30,6 +23,8 @@ const operatorButtonElements = document.querySelectorAll('.buttonSection .operat
 const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
 const clearButtonElement = document.querySelector('#ac');
 const equalButtonElement = document.querySelector('.buttonSection .equalButton');
+const ansButtonElement = document.querySelector('#ans');
+const powerButtonElement = document.querySelector('#power');
 const modelNameButtons = document.querySelectorAll('.modelName button');
 const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
@@ -39,8 +34,11 @@ const githubIcon = document.querySelector("footer i");
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
 
+inputElement.style.opacity = "0";
+resultElement.style.opacity = "0";
+
 //1.1 functions
-function changeText() {
+function initializeWaitForInput() {
   // check if already an interval has been set up
   if (!nIntervId) {
     nIntervId = setInterval(waitForInput, 500);
@@ -50,9 +48,9 @@ function changeText() {
 function waitForInput() {
   const oElem = inputElement;
   if (oElem.style.opacity === "1") {
-    oElem.style.opacity = "0";
+    oElem.style.opacity = 0;
   } else {
-    oElem.style.opacity = "1";
+    oElem.style.opacity = 1;
   }
 }
 
@@ -64,20 +62,20 @@ function stopWaitForInput() {
 }
 
 function add(x,y){
-  return x+y
+  return +x + +y
 }
 
 function substract(x,y){
-  return x-y
+  return +x - +y
 }
 
 function multiply(x,y){
-  return x*y
+  return +x * +y
 }
 
 function divide(x,y){
-  if (y !== 0){
-    return x/y;
+  if (+y !== 0){
+    return +x / +y;
   } else {
     console.log("cannot divide by 0");
     return NaN
@@ -85,62 +83,92 @@ function divide(x,y){
 }
 
 function displayResult(){
-  
-/*   let firstOperand =  */
-
-
-  if (!secondOperand){
+  if (currentState === "Error"){
     return
   }
 
-  console.log(firstOperand,currentOperator,secondOperand,"=",resultValue)
-  resultElement.textContent = resultValue;
-  inputElement.textContent = resultValue + currentOperator
+  let currentInput = inputElement.textContent;
 
-  firstOperand = resultValue;
-  secondOperand = null;
+  if (!calculatorRegex.test(currentInput)){
+    inputElement.textContent = "Error";
+    currentState = "Error";
+    return
+  }
+
+  let currentOperator = currentInput[currentInput.search(operatorRegex)];
+  let numbers = currentInput.split(currentOperator);
+  firstOperand = numbers[0];
+  secondOperand = numbers[1];
+ 
+  Ans = operate(currentOperator,firstOperand,secondOperand);
+
+  console.log(firstOperand,currentOperator,secondOperand,"=",Ans)
+  resultElement.textContent = Ans;
+  //inputElement.textContent = resultValue + currentOperator;
+
+  //firstOperand = resultValue;
+  //secondOperand = null;
 }
 
-function clear(){
-  console.log("clear");
-  inputValue = 0;
-  resultValue = 0;
-  firstOperand = null;
-  secondOperand = null;
-  currentOperator = "";
+function clearInput(){
+  if (currentState === "Error"){
+    currentState = "On";
+    initializeWaitForInput()
+  }
   inputElement.textContent = initialInputValue;
   resultElement.textContent = initialResultValue;
-  firstOperandHasDecimals = false;
-  secondOperandHasDecimals = false;
+  firstOperand = null;
+  secondOperand = null;
   clearButtonElement.textContent = "AC";
-  changeText()
 }
 
-function del(){
-  console.log("del")
+function deleteInput(){
+  if (currentState === "Error"){
+    return;
+  }
   if (inputElement.textContent.length === 1){
-    inputElement.textContent = "_"
-    changeText()
+    inputElement.textContent = "_";
     clearButtonElement.textContent = "AC";
+    initializeWaitForInput()
     return;
   }  
   inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
 }
 
+function switchState(){
+  if (currentState === "Off"){
+    currentState = "On";
+    inputElement.style.opacity = 1;
+    resultElement.style.opacity = 1;
+    initializeWaitForInput();//wait effect
+  } else {
+    currentState = "Off";
+    clearInput()
+    stopWaitForInput();
+    inputElement.style.opacity = 0;
+    resultElement.style.opacity = 0;
+  }
+}
+
 function operate(operator, operand1, operand2){
+
+  let currentResult;
+
   switch(operator){
     case "+":
-      resultValue = add(operand1,operand2);
+      currentResult = add(operand1,operand2);
       break;
     case "-":
-      resultValue = substract(operand1,operand2);
+      currentResult = substract(operand1,operand2);
       break;
     case "*":
-      resultValue = multiply(operand1,operand2);
+      currentResult = multiply(operand1,operand2);
       break;
     case "/":
-      resultValue = divide(operand1,operand2);
+      currentResult = divide(operand1,operand2);
   }
+
+  return currentResult
 }
 
 function inputNumber(input){
@@ -154,20 +182,20 @@ function inputNumber(input){
     clearButtonElement.textContent = "CE";
     return
   }
-
-/*   if (!firstOperand){ */
-    inputElement.textContent += input;
-/*   } else if (!secondOperand){
-    resultElement.textContent = "";
-    resultElement.textContent += input;
-  } */
+  inputElement.textContent += input;
 }
 
-function onNumberPress(input){ //todo: remove redundant ifs
+function onNumberPress(input){
+  if (currentState === "Error"){
+    return
+  }
   inputNumber(input);
 }
 
 function onOperatorPress(input){
+  if (currentState === "Error"){
+    return
+  }
   /*
 if operator clicked
   if operand1 is empty
@@ -182,7 +210,7 @@ if operator clicked
      operand2 = empty
 */
   
-  if (resultValue){
+  if (Ans){
 /*     inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1)+input;
  */    return
   }
@@ -208,8 +236,10 @@ if operator clicked
 }
 
 function onInput(event) {
+  if (currentState === "Off"){
+    return
+  }
   let input = event.key || event.target.textContent;
-  console.log(input)
   switch (input){
     case "0":
     case "1":
@@ -235,13 +265,14 @@ function onInput(event) {
       break;
     case "DEL":
     case "Backspace":
-      del();
+      deleteInput();
       break;
     case "Delete":
     case "AC":
     case "CE":
     case "Escape":
-      clear();
+      clearInput();
+      initializeWaitForInput();
       break;
     case "Enter":
     case "=":
@@ -253,30 +284,19 @@ function changeTheme(){
   document.body.classList.toggle("dark-mode");
   calculatorElement.classList.toggle("dark-modeCalculator");
   displaySectionElement.classList.toggle("dark-modeDisplaySection");
-  modelNameButtons.forEach(function(currentButton){
-    currentButton.classList.toggle("dark-modeModelName");
-  })
-  buttonsElements.forEach(function(currentButton){
-    currentButton.classList.toggle("dark-modeButtonSection");
-  })
-  numberButtonElements.forEach(function(currentButton){
-    currentButton.classList.toggle("dark-modeNumberButton");
-  })
-  operatorButtonElements.forEach(function(currentButton){
-    currentButton.classList.toggle("dark-modeOperatorButton");
-  })
-  functionButtonElements.forEach(function(currentButton){
-    currentButton.classList.toggle("dark-modeFunctionButton");
-  })
+  modelNameButtons.forEach(currentButton => currentButton.classList.toggle("dark-modeModelName"));
+  buttonsElements.forEach(currentButton => currentButton.classList.toggle("dark-modeButtonSection"));
+  numberButtonElements.forEach(currentButton => currentButton.classList.toggle("dark-modeNumberButton"));
+  operatorButtonElements.forEach(currentButton => currentButton.classList.toggle("dark-modeOperatorButton"));
+  functionButtonElements.forEach(currentButton => currentButton.classList.toggle("dark-modeFunctionButton"));
   equalButtonElement.classList.toggle("dark-modeEqualButton");
   githubIcon.classList.toggle("dark-mode-fa-github");
 }
 
-changeText()//wait effect
-
 //1.2 events
-document.addEventListener("keydown", onInput) //document = window?
+document.addEventListener("keydown", onInput); //document = window?
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
-})
-productIdElement.addEventListener("click", changeTheme)
+});
+productIdElement.addEventListener("click", changeTheme);
+powerButtonElement.addEventListener("click", switchState);
