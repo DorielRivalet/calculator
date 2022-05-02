@@ -58,23 +58,20 @@ function stopWaitForInput() {
 }
 
 function add(x,y){
-  return Number(x) + Number(y) //+ converts string to number
+  return Number(x) + Number(y); //+ converts string to number
 }
 
 function substract(x,y){
-  return Number(x) - Number(y)
+  return Number(x) - Number(y);
 }
 
 function multiply(x,y){
-  return Number(x) * Number(y)
+  return Number(x) * Number(y);
 }
 
 function divide(x,y){
   if (Number(y) !== 0){
     return Number(x) / Number(y);
-  } else {
-    console.log("cannot divide by 0");
-    return NaN
   }
 }
 
@@ -85,12 +82,12 @@ function displayResult(){
 
   let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
   let currentInput = inputElement.textContent;
-  let isCorrectSyntax = inputRegex.test(currentInput);
+  let isSyntaxCorrect = inputRegex.test(currentInput);
 
-  if (!isCorrectSyntax){ //drawback: doesnt support scientific notation
+  if (!isSyntaxCorrect){ //drawback: doesnt support scientific notation
     let inputRegex2 = /^-?[0-9]\d*(\.\d+)?$/g;
-    let isCorrectSyntax2 = inputRegex2.test(currentInput);
-    if (isCorrectSyntax2){
+    let isSyntaxCorrect2 = inputRegex2.test(currentInput);
+    if (isSyntaxCorrect2){
       Ans = Number.parseFloat(currentInput);
       resultElement.textContent = Ans;
       currentState = "Standby";
@@ -121,8 +118,13 @@ function displayResult(){
   }
  
   Ans = operate(currentOperator,firstOperand,secondOperand);
+  if (!Ans){
+    inputElement.textContent = "Math ERROR";
+    currentState = "Error";
+    return
+  }
   console.log(firstOperand,currentOperator,secondOperand,"=",Ans)
-  resultElement.textContent = Ans;
+  resultElement.textContent = Math.round(Ans * 10) / 10;
   currentState = "Standby";
 }
 
