@@ -185,7 +185,10 @@ function operate(operator, operand1, operand2){
   return currentResult
 }
 
-function inputNumber(input){
+function onNumberPress(input){
+  if (currentState === "Error" || !input){
+    return
+  }
   if (inputElement.textContent === "_") {
     stopWaitForInput()
     inputElement.textContent = "";
@@ -202,7 +205,10 @@ function inputNumber(input){
   inputElement.textContent += input;
 }
 
-function inputOperator(input){
+function onOperatorPress(input){
+  if (currentState === "Error"){
+    return
+  }
   if (inputElement.textContent === "_"){
     stopWaitForInput()
     inputElement.textContent = "0"+input;
@@ -216,20 +222,6 @@ function inputOperator(input){
     return
   }
   inputElement.textContent += input;
-}
-
-function onNumberPress(input){
-  if (currentState === "Error" || !input){
-    return
-  }
-  inputNumber(input);
-}
-
-function onOperatorPress(input){
-  if (currentState === "Error"){
-    return
-  }
-  inputOperator(input)
 }
 
 function onInput(event) {
