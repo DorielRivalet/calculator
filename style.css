@@ -110,11 +110,19 @@ body{
   grid-column-gap: 8px;
   grid-row-gap: 8px;
   padding: 8px;
-  grid-template-areas: "a a b b"
+  grid-template-areas: "power ans a b"
                         "c d e f"
                         "g h i j"
                         "k l m n"
                         "o p q r";
+}
+
+#power {
+  grid-area: power;
+}
+
+#ans {
+  grid-area: ans;
 }
 
 #ac {
