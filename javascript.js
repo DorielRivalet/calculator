@@ -5,7 +5,7 @@
 //1.0 variables
 let Ans;
 let isDarkMode = false;
-let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Enums
+let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
 let nIntervId; // variable to store our intervalID
 
 const operatorRegex = /([\+\×\-\÷]{1})/g;
@@ -114,9 +114,8 @@ function displayResult(){
 }
 
 function clearInput(){
-  if (currentState === "Error"){
+  if (currentState === "Error" || currentState === "Standby"){
     currentState = "On";
-    initializeWaitForInput()
   }
   inputElement.textContent = initialInputValue;
   resultElement.textContent = initialResultValue;
@@ -141,7 +140,7 @@ function switchPower(){
     currentState = "On";
     inputElement.style.opacity = 1;
     resultElement.style.opacity = 1;
-    initializeWaitForInput();//wait effect
+    initializeWaitForInput();//wait for input effect
   } else {
     currentState = "Off";
     clearInput()
