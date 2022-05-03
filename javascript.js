@@ -100,7 +100,7 @@ function clearInput(){
 
 function calculateResult(){
   if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === "_"){
-    return
+    return false
   }
 
   let result;
@@ -233,7 +233,7 @@ function operate(operator, operand1, operand2){
 }
 
 function onNumberPress(input){
-  if (currentState === "Error" || !input){
+  if (currentState === "Error" || input === undefined){
     return
   }
   if (inputElement.textContent === "_") {
