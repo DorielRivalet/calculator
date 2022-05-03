@@ -10,6 +10,7 @@ let nIntervId; // variable to store our intervalID
 
 const operatorRegex = /([\+\×\-\÷]{1})/g;
 
+//DOM
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
 const buttonsElements = document.querySelectorAll('.buttonSection button');
@@ -34,7 +35,7 @@ inputElement.style.opacity = 0;
 resultElement.style.opacity = 0;
 
 //1.1 functions
-function initializeWaitForInput() {
+function initializeWaitForInput() { //this adds a waiting effect when starting the calculator
   // check if already an interval has been set up
   if (!nIntervId) {
     nIntervId = setInterval(waitForInput, 500);
@@ -75,59 +76,6 @@ function divide(x,y){
   }
 }
 
-function displayResult(){
-  if (currentState === "Error" || currentState === "Standby"){
-    return
-  }
-
-  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
-  let currentInput = inputElement.textContent;
-  let isSyntaxCorrect = inputRegex.test(currentInput);
-
-  if (!isSyntaxCorrect){ //drawback: doesnt support scientific notation
-    let inputRegex2 = /^-?[0-9]\d*(\.\d+)?$/g;
-    let isSyntaxCorrect2 = inputRegex2.test(currentInput);
-    if (isSyntaxCorrect2){
-      Ans = Number.parseFloat(currentInput);
-      resultElement.textContent = Ans;
-      currentState = "Standby";
-      return;
-    } else {
-      inputElement.textContent = "Syntax ERROR";
-      currentState = "Error";
-      return;
-    }
-  }
-
-  let currentOperator;
-  let numbers;
-  let firstOperand;
-  let secondOperand;
-
-  if (currentInput[0] === "-"){ //bit of a hacky solution
-    let newCurrentInput = currentInput.slice(1);
-    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
-    numbers = newCurrentInput.split(currentOperator);
-    firstOperand = "-"+numbers[0];
-    secondOperand = numbers[1];
-  } else {
-    currentOperator = currentInput[currentInput.search(operatorRegex)];
-    numbers = currentInput.split(currentOperator);
-    firstOperand = numbers[0];
-    secondOperand = numbers[1];
-  }
- 
-  Ans = operate(currentOperator,firstOperand,secondOperand);
-  if (!Ans){
-    inputElement.textContent = "Math ERROR";
-    currentState = "Error";
-    return
-  }
-  console.log(firstOperand,currentOperator,secondOperand,"=",Ans)
-  resultElement.textContent = Math.round(Ans * 10) / 10;
-  currentState = "Standby";
-}
-
 function clearInput(){
   if (currentState === "Error" || currentState === "Standby"){
     currentState = "On";
@@ -135,6 +83,84 @@ function clearInput(){
   inputElement.textContent = initialInputValue;
   resultElement.textContent = initialResultValue;
   clearButtonElement.textContent = "AC";
+}
+
+function calculateResult(){
+  if (currentState === "Error" || currentState === "Standby"){
+    return
+  }
+
+  let result;
+  let currentInput = inputElement.textContent;
+  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
+  // /^-?\d+(\.\d+)? is the first operator
+  // ([\+\×\-\÷]{1}) is the operand
+  // -?\d+(\.\d+)?$/g is the second operator
+
+  let onlyFirstOperandRegex = /^-?[0-9]\d*(\.\d+)?$/g;
+  let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
+  let isSyntaxCorrect = inputRegex.test(currentInput);
+
+  if(onlyInputFirstOperand){
+    result = Number.parseFloat(currentInput);
+    return result;
+  }
+
+  if (!isSyntaxCorrect){ //drawback: doesnt support scientific notation
+    return "Syntax ERROR";
+  }
+
+  let currentOperator;
+  let numbers;
+  let firstOperand;
+  let secondOperand;
+
+  if (currentInput[0] === "-"){ //solution for negative numbers
+    let newCurrentInput = currentInput.slice(1);
+    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
+    numbers = newCurrentInput.split(currentOperator,3);
+    firstOperand = "-"+numbers[0];
+    secondOperand = numbers[1];
+    if (secondOperand === ""){
+      secondOperand = "-"+numbers[2];
+    }
+  } else {
+    currentOperator = currentInput[currentInput.search(operatorRegex)];
+    numbers = currentInput.split(currentOperator,3);
+    firstOperand = numbers[0];
+    secondOperand = numbers[1];
+    if (secondOperand === ""){
+      secondOperand = "-"+numbers[2];
+    }
+  }
+ 
+  result = operate(currentOperator,firstOperand,secondOperand);
+
+  if (!result){
+    return "Math ERROR";
+  }
+
+  console.log(firstOperand,currentOperator,secondOperand,"=",result)
+  return result
+}
+
+function displayResult(result){
+  if (!result){
+    return
+  }
+  switch(result){
+    case "Syntax ERROR":
+    case "Math ERROR":
+      inputElement.textContent = result;
+      resultElement.textContent = "-";
+      currentState = "Error";
+      break;
+    default:
+      result = Math.round(result * 10000) / 10000;
+      resultElement.textContent = result;
+      currentState = "Standby";
+      Ans = result;
+  }
 }
 
 function deleteInput(){
@@ -267,7 +293,7 @@ function onInput(event) {
       break;
     case "Enter":
     case "=":
-      displayResult();
+      displayResult(calculateResult());
       break;
     case "ANS":
       onNumberPress(Ans);
