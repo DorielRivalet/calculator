@@ -75,9 +75,10 @@ function multiply(x,y){
 }
 
 function divide(x,y){
-  if (Number(y) !== 0){
-    return Number(x) / Number(y);
+  if (Number(y) === 0){
+    return false
   }
+  return Number(x) / Number(y);
 }
 
 function power(x,y){
@@ -98,18 +99,18 @@ function clearInput(){
 }
 
 function calculateResult(){
-  if (currentState === "Error" || currentState === "Standby"){
+  if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === "_"){
     return
   }
 
   let result;
   let currentInput = inputElement.textContent;
-  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷\%\^]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
+  let inputRegex = /^[+\-]?\d+(\.\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
   // /^-?\d+(\.\d+)? is the first operator
   // ([\+\×\-\÷]{1}) is the operand
   // -?\d+(\.\d+)?$/g is the second operator
 
-  let onlyFirstOperandRegex = /^-?[0-9]\d*(\.\d+)?$/g;
+  let onlyFirstOperandRegex = /^[+\-]?[0-9]\d*(\.\d+)?$/g;
   let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
   let isSyntaxCorrect = inputRegex.test(currentInput);
 
@@ -118,7 +119,7 @@ function calculateResult(){
     return result;
   }
 
-  if (!isSyntaxCorrect){ //drawback: doesnt support scientific notation
+  if (!isSyntaxCorrect){ //this regex doesnt support scientific notation
     return "Syntax ERROR";
   }
 
@@ -148,7 +149,7 @@ function calculateResult(){
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
-  if (!result && result !== 0){
+  if (result === false){
     return "Math ERROR";
   }
 
@@ -157,7 +158,7 @@ function calculateResult(){
 }
 
 function displayResult(result){
-  if (!result){
+  if (result === false){
     return
   }
   switch(result){
