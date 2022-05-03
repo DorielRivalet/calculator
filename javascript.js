@@ -8,7 +8,7 @@ let isDarkMode = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
 let nIntervId; // variable to store our intervalID
 
-const operatorRegex = /([\+\×\-\÷]{1})/g;
+const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
 
 //DOM
 const inputElement = document.querySelector('.inputValue');
@@ -20,6 +20,10 @@ const functionButtonElements = document.querySelectorAll('.buttonSection .functi
 const clearButtonElement = document.querySelector('#ac');
 const equalButtonElement = document.querySelector('.buttonSection .equalButton');
 const powerButtonElement = document.querySelector('#power');
+const plusButtonElement = document.querySelector('#plus');
+const minusButtonElement = document.querySelector('#minus');
+const multiplyButtonElement = document.querySelector('#multiply');
+const divideButtonElement = document.querySelector('#divide');
 const modelNameButtons = document.querySelectorAll('.modelName button');
 const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
@@ -76,6 +80,14 @@ function divide(x,y){
   }
 }
 
+function power(x,y){
+  return Number(x) ** Number(y);
+}
+
+function modulo(x,y){
+  return Number(x) % Number(y);
+}
+
 function clearInput(){
   if (currentState === "Error" || currentState === "Standby"){
     currentState = "On";
@@ -92,7 +104,7 @@ function calculateResult(){
 
   let result;
   let currentInput = inputElement.textContent;
-  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
+  let inputRegex = /^-?\d+(\.\d+)?([\+\×\-\÷\%\^]{1})-?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
   // /^-?\d+(\.\d+)? is the first operator
   // ([\+\×\-\÷]{1}) is the operand
   // -?\d+(\.\d+)?$/g is the second operator
@@ -136,7 +148,7 @@ function calculateResult(){
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
-  if (!result){
+  if (!result && result !== 0){
     return "Math ERROR";
   }
 
@@ -209,6 +221,12 @@ function operate(operator, operand1, operand2){
     case "/":
     case "÷":
       currentResult = divide(operand1,operand2);
+      break;
+    case "^":
+      currentResult = power(operand1,operand2);
+      break;
+    case "%":
+      currentResult = modulo(operand1,operand2);
   }
   return currentResult
 }
@@ -277,7 +295,9 @@ function onInput(event) {
     case "x":
     case "/":
     case "÷":
-    case "×":  
+    case "×":
+    case "%":
+    case "^": 
       onOperatorPress(input);
       break;
     case "DEL":
@@ -297,10 +317,41 @@ function onInput(event) {
       break;
     case "ANS":
       onNumberPress(Ans);
+      break;
+    case "e":
+    case "ℇ":
+      onNumberPress(2.7182);
+      break;
+    case "p":
+    case "π":
+      onNumberPress(3.1415);
+  }
+}
+
+function switchButtons(){
+  if (isDarkMode){
+    divideButtonElement.textContent = "^";
+    divideButtonElement.setAttribute("title","Power [^]")
+    multiplyButtonElement.textContent = "%";
+    multiplyButtonElement.setAttribute("title","Modulo [%]")
+    minusButtonElement.textContent = "π";
+    minusButtonElement.setAttribute("title","Pi [p]")
+    plusButtonElement.textContent = "ℇ";
+    plusButtonElement.setAttribute("title","Euler's number [e]")
+  } else {
+    divideButtonElement.textContent = "÷";
+    divideButtonElement.setAttribute("title","Divide [/]")
+    multiplyButtonElement.textContent = "×";
+    multiplyButtonElement.setAttribute("title","Multiply [*|x]")
+    minusButtonElement.textContent = "-";
+    minusButtonElement.setAttribute("title","Substract [-]")
+    plusButtonElement.textContent = "+";
+    plusButtonElement.setAttribute("title","Add [+]")
   }
 }
 
 function toggleTheme(){
+  isDarkMode = !isDarkMode;
   document.body.classList.toggle("dark-mode");
   calculatorElement.classList.toggle("dark-modeCalculator");
   displaySectionElement.classList.toggle("dark-modeDisplaySection");
@@ -311,6 +362,7 @@ function toggleTheme(){
   functionButtonElements.forEach(currentButton => currentButton.classList.toggle("dark-modeFunctionButton"));
   equalButtonElement.classList.toggle("dark-modeEqualButton");
   githubIcon.classList.toggle("dark-mode-fa-github");
+  switchButtons()
 }
 
 //1.2 events
