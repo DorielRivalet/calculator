@@ -17,8 +17,8 @@ body{
 
 .calculator{
   box-shadow: 1px 1px 15px -2px rgb(0, 0, 0);
-  margin:32px;
-  padding:8px;
+  margin-top: 32px;
+  padding:16px;
   background-color: hsl(0, 0%, 86%);
   border: 2px solid black;
   border-radius: 8px 8px 8px 8px;
@@ -26,6 +26,8 @@ body{
   flex-flow:column;
   width: 60vh;
   max-width: 60vh;
+  gap: 8px;
+  z-index: 1;
 }
 
 .dark-modeCalculator{
@@ -51,7 +53,7 @@ body{
 
 .modelName .brandName{
   font-family:Georgia, 'Times New Roman', Times, serif;
-  font-size: 24px;
+  font-size: 32px;
 }
 
 .modelName .productId{
@@ -75,10 +77,12 @@ body{
 
 .displaySection{
   overflow-x:auto;
-  border: 2px solid black;
-  border-radius: 6px 6px 6px 6px;
+  border: 4px solid hsl(0, 0%, 66%);
+  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
+  0 0 0 8px hsl(0, 0%, 76%);
+  border-radius: 2px 2px 2px 2px;
   background-color: rgb(210, 255, 143);
-  color: black;
+  color: rgba(0, 0, 0, 0.755);
   padding-left:16px;
   padding-right:16px;
   padding-top:16px;
@@ -87,6 +91,42 @@ body{
   font-size: 32px;
   display: flex;
   flex-flow: column nowrap;
+}
+
+/*::-webkit-scrollbar the scrollbar.
+::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
+::-webkit-scrollbar-thumb the draggable scrolling handle.
+::-webkit-scrollbar-track the track (progress bar) of the scrollbar.
+::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
+::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
+::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.*/
+
+::-webkit-scrollbar {
+  height: 12px;
+}
+
+::-webkit-scrollbar-button{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgba(145, 255, 0, 0.303);
+}
+
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-corner{
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-resizer{
+  background-color: transparent;
 }
 
 .inputValue{
@@ -101,7 +141,9 @@ body{
 }
 
 .dark-modeDisplaySection{
-  border: 2px solid rgb(89, 164, 255);
+  border: 4px solid hsl(234, 37%, 45%);
+  box-shadow: inset 0 0 0 4px hsl(234, 37%, 55%),
+  0 0 0 8px hsl(234, 37%, 35%);
 }
 
 .buttonSection{
@@ -238,6 +280,7 @@ footer{
   width: 100%;
   font-size: 18px;
   margin-top: auto;
+  z-index:1;
 }
 
 a:hover{
@@ -288,4 +331,77 @@ button{
 
 .dark-mode-fa-github {
   color: #efefef;
+}
+
+@keyframes move-background {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+@-webkit-keyframes move-background {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+@-moz-keyframes move-background {    
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+    @-webkit-keyframes move-background {
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
+}
+
+.background-container{
+  display:none;
+	position: fixed;
+	top: 0;
+	left:0;
+	bottom: 0;
+	right: 0;
+}
+
+.stars {
+ background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+ position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+  z-index: 0;
+}
+
+.twinkling{
+	width:10000px;
+	height: 100%;
+	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+	background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    
+    -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;
 }

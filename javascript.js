@@ -7,10 +7,12 @@ let Ans;
 let isDarkMode = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
 let nIntervId; // variable to store our intervalID
+let historyLog = []; //todo
 
 const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
 
 //DOM
+const starryBackgroundElement = document.querySelector(".background-container");
 const inputElement = document.querySelector('.inputValue');
 const resultElement = document.querySelector('.result');
 const buttonsElements = document.querySelectorAll('.buttonSection button');
@@ -339,6 +341,7 @@ function switchButtons(){
     minusButtonElement.setAttribute("title","Pi [p]")
     plusButtonElement.textContent = "ℇ";
     plusButtonElement.setAttribute("title","Euler's number [e]")
+    starryBackgroundElement.style.display = "block";
   } else {
     divideButtonElement.textContent = "÷";
     divideButtonElement.setAttribute("title","Divide [/]")
@@ -348,6 +351,7 @@ function switchButtons(){
     minusButtonElement.setAttribute("title","Substract [-]")
     plusButtonElement.textContent = "+";
     plusButtonElement.setAttribute("title","Add [+]")
+    starryBackgroundElement.style.display = "none";
   }
 }
 
