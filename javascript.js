@@ -7,7 +7,7 @@ let Ans;
 let isDarkMode = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
 let nIntervId; // variable to store our intervalID
-let historyLog = []; //todo
+let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
 
 const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
 
