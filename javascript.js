@@ -107,12 +107,12 @@ function calculateResult(){
 
   let result;
   let currentInput = inputElement.textContent;
-  let inputRegex = /^[+\-]?\d+(\.\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d+(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
-  // /^-?\d+(\.\d+)? is the first operator
-  // ([\+\×\-\÷]{1}) is the operand
-  // -?\d+(\.\d+)?$/g is the second operator
+  let inputRegex = /^[+\-]?\d*(\.\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d*(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
+  // ^[+\-]?\d*(\.\d+)? is the first operator
+  // ([\+\×\-\÷\%\^]{1}) is the operand
+  // [+\-]?\d*(\.\d+)?$ is the second operator
 
-  let onlyFirstOperandRegex = /^[+\-]?[0-9]\d*(\.\d+)?$/g;
+  let onlyFirstOperandRegex = /^[+\-]?\d*(\.\d+)?$/g;
   let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
   let isSyntaxCorrect = inputRegex.test(currentInput);
 
