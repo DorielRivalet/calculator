@@ -1,13 +1,37 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
+
 body{
   display:flex;
   flex-flow:column nowrap;
   flex:1;
-  font-family:'Courier New', Courier, monospace;
+  font-family:'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
   align-items: center;
   text-align: center;
   height: 100vh;
   background-color: rgb(255, 213, 171);
-  color: black;
+  color: rgb(14, 14, 14);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: rgb(107, 0, 0);
+  border-radius: 4px 4px 4px 4px;
+}
+
+::-webkit-scrollbar-track{
+  background-color: rgb(46, 46, 46);
+  border-radius: 4px 4px 4px 4px;
+}
+
+::-webkit-scrollbar-track-piece{
+  background-color: rgb(46, 0, 0);
+  border-radius: 4px 4px 4px 4px;
 }
 
 .dark-mode {
@@ -16,11 +40,12 @@ body{
 }
 
 .calculator{
-  box-shadow: 1px 1px 15px -2px rgb(0, 0, 0);
+  box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
+  0 0 0 4px hsl(240, 100%, 81%);
   margin-top: 32px;
   padding:16px;
   background-color: hsl(0, 0%, 86%);
-  border: 2px solid black;
+  border: 2px solid hsl(240, 100%, 75%);
   border-radius: 8px 8px 8px 8px;
   display:flex;
   flex-flow:column;
@@ -31,7 +56,7 @@ body{
 }
 
 .dark-modeCalculator{
-  box-shadow: 1px 1px 15px -2px rgb(0, 47, 122);
+  box-shadow: 0px 0px 64px 16px rgba(138, 210, 255,50%);
   border: 2px solid rgb(89, 164, 255);
   background-color: hsl(234, 37%, 25%);
   color:whitesmoke;
@@ -52,8 +77,10 @@ body{
 }
 
 .modelName .brandName{
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Audiowide', cursive;
   font-size: 32px;
+  font-weight: lighter;
+  text-shadow: 2px 2px 0px rgba(255,0,0,0.75), -2px -2px 0px rgba(0,0,255,0.75);
 }
 
 .modelName .productId{
@@ -86,9 +113,10 @@ body{
   padding-left:16px;
   padding-right:16px;
   padding-top:16px;
-  padding-bottom:4px;
-  gap:8px;
+  padding-bottom:8px;
+  gap:16px;
   font-size: 32px;
+  font-family: 'Press Start 2P', cursive;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -99,33 +127,34 @@ body{
 ::-webkit-scrollbar-track the track (progress bar) of the scrollbar.
 ::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
 ::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
-::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.*/
+::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
+https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-div*/
 
-::-webkit-scrollbar {
+#display::-webkit-scrollbar {
   height: 12px;
 }
 
-::-webkit-scrollbar-button{
+#display::-webkit-scrollbar-button{
   background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb{
+#display::-webkit-scrollbar-thumb{
   background-color: rgba(145, 255, 0, 0.303);
 }
 
-::-webkit-scrollbar-track{
+#display::-webkit-scrollbar-track{
   background-color: transparent;
 }
 
-::-webkit-scrollbar-track-piece{
+#display::-webkit-scrollbar-track-piece{
   background-color: transparent;
 }
 
-::-webkit-scrollbar-corner{
+#display::-webkit-scrollbar-corner{
   background-color: transparent;
 }
 
-::-webkit-scrollbar-resizer{
+#display::-webkit-scrollbar-resizer{
   background-color: transparent;
 }
 
@@ -162,18 +191,26 @@ body{
 
 #power {
   grid-area: power;
+  border-radius: 256px;
+  margin-bottom: 8px;
 }
 
 #ans {
   grid-area: ans;
+  border-radius: 256px;
+  margin-bottom: 8px;
 }
 
 #ac {
   grid-area: a;
+  border-radius: 256px;
+  margin-bottom: 8px;
 }
 
 #del {
   grid-area: b;
+  border-radius: 256px;
+  margin-bottom: 8px;
 }
 
 #seven {
@@ -240,6 +277,28 @@ body{
   grid-area: r;
 }
 
+.buttonSection button{
+  padding:16px;
+  font-size: 16px;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: bolder;
+  border-radius: 4px 4px 4px 4px;
+  cursor:pointer;
+}
+
+button{
+  border-color: whitesmoke;
+}
+
+.dark-modeButtonSection{
+  border-color: rgb(97, 64, 150);
+  color:antiquewhite;
+}
+
+.buttonSection button:hover{
+  filter: brightness(110%);
+}
+
 .numberButton{
   background-color: aliceblue;
 }
@@ -279,6 +338,8 @@ footer{
   gap: 8px;
   width: 100%;
   font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
   margin-top: auto;
   z-index:1;
 }
@@ -301,28 +362,6 @@ a:visited{
 a:link{
   text-decoration: none;
   color: black;
-}
-
-.buttonSection button{
-  padding:16px;
-  font-size: 16px;
-  font-family:'Courier New', Courier, monospace;
-  font-weight: bolder;
-  border-radius: 4px 4px 4px 4px;
-  cursor:pointer;
-}
-
-button{
-  border-color: whitesmoke;
-}
-
-.dark-modeButtonSection{
-  border-color: rgb(97, 64, 150);
-  color:antiquewhite;
-}
-
-.buttonSection button:hover{
-  filter: brightness(110%);
 }
 
 .fa-github {
