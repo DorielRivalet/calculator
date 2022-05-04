@@ -2,6 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
 @import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
 
+/* CSS Document */
+
+/*-------------------------------------
+INDEX
+01. Body
+
+-------------------------------------*/
+
+
+
+/*====================================================================
+01. Body
+※
+====================================================================*/
+
 body{
   display:flex;
   flex-flow:column nowrap;
@@ -11,8 +26,11 @@ body{
   align-items: center;
   text-align: center;
   height: 100vh;
+  margin:0px;
   background-color: rgb(255, 213, 171);
+  background-image: url("../img/page-background.jpg");
   color: rgb(14, 14, 14);
+  gap:32px;
 }
 
 ::-webkit-scrollbar {
@@ -80,7 +98,7 @@ body{
   font-family: 'Audiowide', cursive;
   font-size: 32px;
   font-weight: lighter;
-  text-shadow: 2px 2px 0px rgba(255,0,0,0.75), -2px -2px 0px rgba(0,0,255,0.75);
+  text-shadow: 2px 2px 0px rgba(255,0,0,0.75), -2px -2px 0px rgba(77, 112, 255, 0.75);
 }
 
 .modelName .productId{
@@ -106,7 +124,7 @@ body{
   overflow-x:auto;
   border: 4px solid hsl(0, 0%, 66%);
   box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
-  0 0 0 8px hsl(0, 0%, 76%);
+  0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
   background-color: rgb(210, 255, 143);
   color: rgba(0, 0, 0, 0.755);
@@ -128,7 +146,7 @@ body{
 ::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
 ::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
 ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
-https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-div*/
+from https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-div*/
 
 #display::-webkit-scrollbar {
   height: 12px;
@@ -332,16 +350,21 @@ button{
 }
 
 footer{
+  width:100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
   font-size: 18px;
   font-style: normal;
   font-weight: normal;
   margin-top: auto;
   z-index:1;
+  background-color: #20096E7F;
+	color: #fff;
+	filter:alpha(opacity=0.93);
+	-moz-opacity: 0.93;
+	opacity: 0.93;
 }
 
 a:hover{
@@ -366,12 +389,14 @@ a:link{
 
 .fa-github {
   font-size: 48px;
+  color: #fff;
 }
 
 .dark-mode-fa-github {
   color: #efefef;
 }
 
+/*https://codepen.io/agoodwin/pen/NMJoER*/
 @keyframes move-background {
   from {
 		-webkit-transform: translate3d(0px, 0px, 0px);

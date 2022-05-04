@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="keywords" content="The Odin Project, Calculator, Github, Doriel Rivalet, HTML, CSS, JavaScript">
+  <meta name="keywords" content="The Odin Project, Calculator, GitHub, Doriel Rivalet, HTML, HTML5, CSS, CSS3, JavaScript">
   <meta name="copyright" content="© Doriel Rivalet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Let's do math! | THE ODIN PROJECT FOUNDATIONS</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <!-- for github icon-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- for custom fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Press+Start+2P&display=swap" rel="stylesheet">
-  <script src="./javascript.js" defer></script>
-  <link rel="shortcut icon" href="./calculator.ico">
+  <script defer src="./js/javascript.js" ></script>
+    <!-- favicon-->
+  <link rel="shortcut icon" href="./img/calculator.ico">
 </head>
 
 <body>
+  <!-- from https://codepen.io/agoodwin/pen/NMJoER-->
   <div class="background-container">
     <div class="stars"></div>
     <div class="twinkling"></div>
   </div>
+  <!-- calculator-->
   <div class="calculator">
     <div class="topSection">
+
       <div class="modelName">
         <button class="brandName">Einherjar</button>
         <button class="productId">L0-K1</button>
@@ -31,8 +37,8 @@
         <div class="inputValue">_</div>
         <div class="result">0</div>
       </div>
-    </div>
 
+    </div>
     <div class="buttonSection">
       <button title="Turn ON/OFF" id="power" class="functionButton">ON</button>
       <button title="Input Previous Result Value" id="ans" class="functionButton">ANS</button>
@@ -61,12 +67,13 @@
     </div>
   </div>
 
+
+</body>
+  <!-- footer-->
   <footer class="footer">
     <p>Copyright © <script>document.write(new Date().getFullYear())</script> Doriel Rivalet</p>
     <a href="https://github.com/DorielRivalet/calculator" target="_blank">
       <i class="fa fa-github"></i>
     </a>
   </footer>
-
-</body>
 </html>
