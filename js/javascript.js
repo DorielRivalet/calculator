@@ -107,12 +107,13 @@ function calculateResult(){
 
   let result;
   let currentInput = inputElement.textContent;
-  let inputRegex = /^[+\-]?\d*(\.\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d*(\.\d+)?$/g;//written with help of https://regexr.com/ cheatsheet
-  // ^[+\-]?\d*(\.\d+)? is the first operator
+  //written with help of https://regexr.com/ cheatsheet
+  let inputRegex = /^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$/g;
+  // ^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)? is the first operator
   // ([\+\×\-\÷\%\^]{1}) is the operand
-  // [+\-]?\d*(\.\d+)?$ is the second operator
+  // [+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$ is the second operator
 
-  let onlyFirstOperandRegex = /^[+\-]?\d*(\.\d+)?$/g;
+  let onlyFirstOperandRegex = /^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$/g;
   let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
   let isSyntaxCorrect = inputRegex.test(currentInput);
 
@@ -328,6 +329,10 @@ function onInput(event) {
     case "p":
     case "π":
       onNumberPress(3.1415);
+      break;
+    case "E":
+    case "s":
+      onNumberPress("e");
   }
 }
 
@@ -359,6 +364,7 @@ function toggleTheme(){
   isDarkMode = !isDarkMode;
   document.body.classList.toggle("dark-mode");
   calculatorElement.classList.toggle("dark-modeCalculator");
+  productIdElement.classList.toggle("dark-modeProductId");
   displaySectionElement.classList.toggle("dark-modeDisplaySection");
   modelNameButtons.forEach(currentButton => currentButton.classList.toggle("dark-modeModelName")); //arrow functions
   buttonsElements.forEach(currentButton => currentButton.classList.toggle("dark-modeButtonSection"));

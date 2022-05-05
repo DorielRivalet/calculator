@@ -40,11 +40,15 @@ body{
 ::-webkit-scrollbar-thumb{
   background-color: rgb(107, 0, 0);
   border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 ::-webkit-scrollbar-track{
   background-color: rgb(46, 46, 46);
   border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
 }
 
 ::-webkit-scrollbar-track-piece{
@@ -104,8 +108,15 @@ body{
 .modelName .productId{
   font-style: normal;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 16px;
+  font-size: 22px;
   cursor:pointer;
+  /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
+  text-shadow: 0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white;
+}
+
+.modelName .dark-modeProductId{
+  color: white;
+  text-shadow: 0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255);
 }
 
 .modelName button{
@@ -158,10 +169,14 @@ from https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-d
 
 #display::-webkit-scrollbar-thumb{
   background-color: rgba(145, 255, 0, 0.303);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
 }
 
 #display::-webkit-scrollbar-track{
   background-color: transparent;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
 }
 
 #display::-webkit-scrollbar-track-piece{
