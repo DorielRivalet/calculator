@@ -1,15 +1,21 @@
-//1.0 variables
-//1.1 functions
-//1.2 events
+/* JS Document */
 
-//1.0 variables
-let Ans;
-let isDarkMode = false;
-let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
-let nIntervId; // variable to store our intervalID
-let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
+/*-------------------------------------
+INDEX
+01. Variables
+02. Functions
+03. Events
 
-const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
+-------------------------------------*/
+
+
+/*====================================================================
+01. Variables
+※ We start by declaring their names and if their values are either constant or going to change,  and then assigning their values to DOM nodes.
+※ Ans stands for the previous calculator answer.
+※ Dark Mode is activated via clicking the L0-K1 button.
+※ Calculator states are used for handling the behaviour of functions after certain actions.
+====================================================================*/
 
 //DOM
 const starryBackgroundElement = document.querySelector(".background-container");
@@ -31,7 +37,7 @@ const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector("footer i");
-
+const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
 const initialInputValue = "_";
 const initialResultValue = 0;
 
@@ -40,9 +46,31 @@ resultElement.textContent = initialResultValue;
 inputElement.style.opacity = 0;
 resultElement.style.opacity = 0;
 
-//1.1 functions
-function initializeWaitForInput() { //this adds a waiting effect when starting the calculator
-  // check if already an interval has been set up
+let Ans;
+let isDarkMode = false;
+let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
+let nIntervId; // variable to store our intervalID
+let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
+
+
+/*====================================================================
+02. Functions
+※ The WaitForInput and its previous and next functions handles a waiting effect when turning on the calculator.
+※ The common algorithm flow is as follows:
+  1) Wait for calculator to be turned on.
+  2) Process user input as either a keyboard key or a button press.
+  3) Check if the input is either a number, an operator, or a function (such as Ans, Equals, Clear or Delete).
+  4) Add the input to the display element (or delete it if pressing the Power, Clear or Delete buttons)
+  5) When pressing the Equal button, evaluate the current input.
+  6) If the current input passes the regex test, then perform the calculations according to the input.
+  7) Display the result and store the result in the Ans variable if successful.
+  8) Change the calculator state to either Error or Standby according to regex test or calculation test pass/fail.
+  9) Go back to 2), or 1) if pressing the Power Button at anytime.
+====================================================================*/
+
+//https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+function initializeWaitForInput() { 
+// check if already an interval has been set up
   if (!nIntervId) {
     nIntervId = setInterval(waitForInput, 500);
   }
@@ -105,6 +133,10 @@ function calculateResult(){
     return false
   }
 
+  if (inputElement.textContent.search(/\i+/) === "i"){//todo
+
+  }
+
   let result;
   let currentInput = inputElement.textContent;
   //written with help of https://regexr.com/ cheatsheet
@@ -126,12 +158,14 @@ function calculateResult(){
     return "Syntax ERROR";
   }
 
+  //lazy initialization
   let currentOperator;
   let numbers;
   let firstOperand;
   let secondOperand;
 
-  if (currentInput[0] === "-"){ //solution for negative numbers
+  //solution for negative numbers
+  if (currentInput[0] === "-"){ 
     let newCurrentInput = currentInput.slice(1);
     currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
     numbers = newCurrentInput.split(currentOperator,3);
@@ -156,7 +190,8 @@ function calculateResult(){
     return "Math ERROR";
   }
 
-  console.log(firstOperand,currentOperator,secondOperand,"=",result)
+  //string interpolation
+  console.log(`${firstOperand} ${currentOperator} ${secondOperand} = ${result}`);
   return result
 }
 
@@ -290,7 +325,7 @@ function onInput(event) {
     case "7":
     case "8":
     case "9":
-    case ".":
+    case ".": //techniqually not a number. used for making decimals.
       onNumberPress(input);
       break;
     case "+":
@@ -300,8 +335,8 @@ function onInput(event) {
     case "/":
     case "÷":
     case "×":
-    case "%":
-    case "^": 
+    case "%": //modulo
+    case "^": //exponent
       onOperatorPress(input);
       break;
     case "DEL":
@@ -317,26 +352,106 @@ function onInput(event) {
       break;
     case "Enter":
     case "=":
-      displayResult(calculateResult());
+      displayResult(calculateResult());//calculateResult returns the result value which displayResult then displays.
       break;
-    case "ANS":
+    case "ANS": //previous stored answer, or undefined if not stored.
       onNumberPress(Ans);
       break;
-    case "e":
+    case "e": //number times (10 to the x power). scientific notation.
+      onNumberPress("e");
+      break;
+    case "E"://https://en.wikipedia.org/wiki/List_of_mathematical_constants
     case "ℇ":
-      onNumberPress(2.7182);
+      onNumberPress(2.71828182845904523536); //Euler's Number
       break;
     case "p":
     case "π":
-      onNumberPress(3.1415);
+      onNumberPress(3.14159265358979323846); //Pi
       break;
-    case "E":
+    case "a":
+      onNumberPress(1.20205690315959428539); //Artin's constant
+      break;
+    case "b":
+      onNumberPress(1.902160583104); // Brun's constant
+      break;
+    case "c":
+      onNumberPress(0.23571113171923293137); // Copeland–Erdős constant
+      break;
+    case "d":
+      onNumberPress(0.73908513321516064165); // Dottie number
+      break;
+    case "f":
+      onNumberPress(1.18745235112650105459); // Foias constant
+      break;
+    case "g":
+      onNumberPress(1.61803398874989484820); // Golden ratio
+      break;
+    case "G":
+      onNumberPress(0.83462684167407318628); // Gauss' constant
+      break;
+    case "h":
+      onNumberPress(0.35323637185499598454); // Hafner–Sarnak–McCurley constant
+      break;
+    case "i":
+      onNumberPress(0 + 1i); 
+      break;
+    case "j":
+      onNumberPress(1.6180);
+      break;
+    case "k":
+      onNumberPress(2.4142);
+      break;
+    case "l":
+      onNumberPress(0.5671);
+      break;
+    case "m":
+      onNumberPress(1.2020);
+      break;
+    case "n":
+      onNumberPress(1.6180);
+      break;
     case "s":
-      onNumberPress("e");
+      onNumberPress(2.4142);
+      break;
+    case "o":
+      onNumberPress(0.5671);
+      break;
+    case "p":
+      onNumberPress(1.2020);
+      break;
+    case "q":
+      onNumberPress(1.6180);
+      break;
+    case "r":
+      onNumberPress(2.4142);
+      break;
+    case "s":
+      onNumberPress(0.5671);
+      break;
+    case "t":
+      onNumberPress(1.2020);
+      break;
+    case "u":
+      onNumberPress(1.2020);
+      break;
+    case "v":
+      onNumberPress(0.5671);
+      break;
+    case "w":
+      onNumberPress(1.2020);
+      break;
+    case "x":
+      onNumberPress(1.6180);
+      break;
+    case "y":
+      onNumberPress(2.4142);
+      break;
+    case "z":
+      onNumberPress(0.5671);
   }
 }
 
-function switchButtons(){
+function toggleDarkModeButtons(){
   if (isDarkMode){
     divideButtonElement.textContent = "^";
     divideButtonElement.setAttribute("title","Power [^]")
@@ -373,10 +488,13 @@ function toggleTheme(){
   functionButtonElements.forEach(currentButton => currentButton.classList.toggle("dark-modeFunctionButton"));
   equalButtonElement.classList.toggle("dark-modeEqualButton");
   githubIcon.classList.toggle("dark-mode-fa-github");
-  switchButtons()
+  toggleDarkModeButtons()
 }
 
-//1.2 events
+/*====================================================================
+03. Events
+====================================================================*/
+
 document.addEventListener("keydown", onInput); //document = window?
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
