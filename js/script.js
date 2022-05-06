@@ -1,21 +1,21 @@
 /* JavaScript Document */
 
-/*-------------------------------------
+/*⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒
 INDEX
 01. Variables
 02. Functions
 03. Events
 
--------------------------------------*/
+⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒*/
 
 
-/*====================================================================
+/*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 01. Variables
 ※ We start by declaring their names and if their values are either constant or going to change,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
 ※ Ans stands for the previous calculator answer.
 ※ Dark Mode is activated via clicking the L0-K1 button.
 ※ Calculator states are used for handling the behaviour of functions after certain actions.
-====================================================================*/
+=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
 //DOM
 const starryBackgroundElement = document.querySelector(".background-container");
@@ -55,7 +55,7 @@ let nIntervId; // variable to store our intervalID
 let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
 
 
-/*====================================================================
+/*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 02. Functions
 ※ The WaitForInput and its previous and next functions handles a waiting effect when turning on the calculator.
 ※ Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct. 
@@ -69,7 +69,7 @@ let historyLog = []; //todo: history, custom fonts and display background color 
   7) Display the result and store the result in the Ans variable if successful.
   8) Change the calculator state to either Error or Standby according to regex test or calculation test pass/fail.
   9) Go back to 2), or 1) if pressing the Power Button at anytime.
-====================================================================*/
+=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
 //https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 function initializeWaitForInput() { 
@@ -137,7 +137,7 @@ function calculateResult(){
   }
 
   if (inputElement.textContent.includes("i")){
-    return "Math_ERROR";
+    return "Math_ERROR"; //only real numbers!!!
   }
 
   let result;
@@ -159,7 +159,6 @@ function calculateResult(){
     } else {
       return "Syntax_ERROR";
     }
-    
   }
   
   if (!isSyntaxCorrect){ 
@@ -191,6 +190,30 @@ function calculateResult(){
       secondOperand = "-"+numbers[2];
     }
   }
+//https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
+   if (numbers[0].slice(-1) === "e"){
+    let newCurrentInput = currentInput.slice(numbers[0].length+1);
+    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
+    let newNumbers = newCurrentInput.split(currentOperator,4);
+    if (firstOperand[0] === "-"){
+      firstOperand = "-"+numbers[0];
+    } else {
+      firstOperand = numbers[0];
+    }
+    firstOperand += currentInput[firstOperand.length];
+    if (newNumbers[0] === ""){
+      firstOperand += newNumbers[1];
+    } else {
+      firstOperand += newNumbers[0];
+    }
+    secondOperand = newNumbers[1];
+    if (secondOperand === ""){
+      secondOperand = "-"+newNumbers[2];
+    }
+    if (secondOperand === ""){
+      secondOperand = "-"+newNumbers[3];
+    }
+  }
 
   if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
     return "Syntax_ERROR";
@@ -198,7 +221,7 @@ function calculateResult(){
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
-  if (result === false){
+  if (result === false || result === NaN){
     return "Math_ERROR";
   }
 
@@ -412,61 +435,55 @@ function onInput(event) {
       onNumberPress(0.35323637185499598454); // Hafner–Sarnak–McCurley constant
       break;
     case "i":
-      onNumberPress("i"); 
+      onNumberPress("i"); // Imaginary unit
       break;
-    case "j":
+/*     case "j":
       onNumberPress(1.6180);
-      break;
+      break; */
     case "k":
-      onNumberPress(2.4142);
+      onNumberPress(0.11494204485329620070); // Kepler–Bouwkamp constant
       break;
     case "l":
-      onNumberPress(0.5671);
+      onNumberPress(0.66274341934918158097); // Laplace limit
       break;
     case "m":
-      onNumberPress(1.2020);
+      onNumberPress(0.955316618124509278163); // Magic angle
       break;
     case "n":
-      onNumberPress(1.6180);
-      break;
-    case "s":
-      onNumberPress(2.4142);
+      onNumberPress(1.70521114010536776428); // Niven's constant
       break;
     case "o":
-      onNumberPress(0.5671);
+      onNumberPress(0.56714329040978387299); // Omega constant
       break;
-    case "p":
-      onNumberPress(1.2020);
-      break;
-    case "q":
+/*     case "q":
       onNumberPress(1.6180);
-      break;
+      break; */
     case "r":
-      onNumberPress(2.4142);
+      onNumberPress(262537412640768743.999999999999250073); // Ramanujan's constant
       break;
     case "s":
-      onNumberPress(0.5671);
+      onNumberPress(2.41421356237309504880); // Silver ratio
       break;
     case "t":
-      onNumberPress(1.2020);
+      onNumberPress(0.66016181584686957392); // Twin prime constant
       break;
     case "u":
-      onNumberPress(1.2020);
+      onNumberPress(2.29558714939263807403); // Universal parabolic constant
       break;
     case "v":
-      onNumberPress(0.5671);
+      onNumberPress(4.53236014182719380962); // Van der Pauw constant
       break;
     case "w":
-      onNumberPress(1.2020);
+      onNumberPress(2.09455148154232659148); // Wallis's constant
       break;
-    case "x":
+/*     case "x":
       onNumberPress(1.6180);
       break;
     case "y":
       onNumberPress(2.4142);
-      break;
+      break; */
     case "z":
-      onNumberPress(0.5671);
+      onNumberPress(1.95996398454005423552); // Z score for the 97.5 percentile point
   }
 }
 
@@ -510,11 +527,11 @@ function toggleTheme(){
   toggleDarkModeButtons()
 }
 
-/*====================================================================
+/*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 03. Events
 ※ DOM Manipulation: Adding event listeners to the DOM Nodes and Nodelists; which are referenced through variable names, whose values where gotten via the query selector subroutine.
 ※ Since buttonsElements is a nodelist, we can use the forEach method to add an event listener to each button element.
-====================================================================*/
+=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
 document.addEventListener("keydown", onInput); //document = window?
 buttonsElements.forEach(function(currentButton){
