@@ -19,7 +19,8 @@ INDEX
 
 //DOM
 const starryBackgroundElement = document.querySelector(".background-container");
-const inputElement = document.querySelector('.inputValue');
+const inputElement = document.querySelector('.userInputValue');
+const waitEffectElement = document.querySelector('.waitingEffect');
 const resultElement = document.querySelector('.result');
 const buttonsElements = document.querySelectorAll('.buttonSection button');
 const numberButtonElements = document.querySelectorAll('.buttonSection .numberButton');
@@ -38,12 +39,13 @@ const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector("footer i");
 const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
-const initialInputValue = "_";
+const initialInputValue = "";
 const initialResultValue = 0;
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
 inputElement.style.opacity = 0;
+waitEffectElement.style.opacity = 0;
 resultElement.style.opacity = 0;
 
 let Ans;
@@ -78,7 +80,7 @@ function initializeWaitForInput() {
 }
 
 function waitForInput() {
-  const oElem = inputElement;
+  const oElem = waitEffectElement;
   if (oElem.style.opacity === "1") {
     oElem.style.opacity = 0;
   } else {
@@ -89,7 +91,7 @@ function waitForInput() {
 function stopWaitForInput() {
   clearInterval(nIntervId);
   // release our intervalID from the variable
-  inputElement.style.opacity = 1;
+  waitEffectElement.style.opacity = 0;
   nIntervId = null;
 }
 
@@ -130,12 +132,12 @@ function clearInput(){
 }
 
 function calculateResult(){
-  if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === "_"){
+  if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === ""){
     return false
   }
 
   if (inputElement.textContent.includes("i")){
-    return "Math ERROR";
+    return "Math_ERROR";
   }
 
   let result;
@@ -152,11 +154,16 @@ function calculateResult(){
 
   if(onlyInputFirstOperand){
     result = Number.parseFloat(currentInput);
-    return result;
+    if (result){
+      return result;
+    } else {
+      return "Syntax_ERROR";
+    }
+    
   }
   
   if (!isSyntaxCorrect){ 
-    return "Syntax ERROR";
+    return "Syntax_ERROR";
   }
 
   //lazy initialization
@@ -184,11 +191,15 @@ function calculateResult(){
       secondOperand = "-"+numbers[2];
     }
   }
+
+  if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
+    return "Syntax_ERROR";
+  }
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
   if (result === false){
-    return "Math ERROR";
+    return "Math_ERROR";
   }
 
   //string interpolation
@@ -201,8 +212,8 @@ function displayResult(result){
     return
   }
   switch(result){
-    case "Syntax ERROR":
-    case "Math ERROR":
+    case "Syntax_ERROR":
+    case "Math_ERROR":
       inputElement.textContent = result;
       resultElement.textContent = "-";
       currentState = "Error";
@@ -221,7 +232,7 @@ function deleteInput(){
     return;
   }
   if (inputElement.textContent.length === 1){
-    inputElement.textContent = "_";
+    inputElement.textContent = "";
     clearButtonElement.textContent = "AC";
     initializeWaitForInput()
     return;
@@ -234,6 +245,7 @@ function switchPower(){
     powerButtonElement.textContent = "OFF";
     currentState = "On";
     inputElement.style.opacity = 1;
+    waitEffectElement.style.opacity = 1;
     resultElement.style.opacity = 1;
     initializeWaitForInput();//wait for input effect
   } else {
@@ -242,6 +254,7 @@ function switchPower(){
     clearInput()
     stopWaitForInput();
     inputElement.style.opacity = 0;
+    waitEffectElement.style.opacity = 0;
     resultElement.style.opacity = 0;
   }
 }
@@ -276,8 +289,8 @@ function onNumberPress(input){
   if (currentState === "Error" || input === undefined){
     return
   }
-  if (inputElement.textContent === "_") {
-    stopWaitForInput()
+  if (inputElement.textContent === "") {
+    //stopWaitForInput()
     inputElement.textContent = "";
     inputElement.textContent += input;
     clearButtonElement.textContent = "CE";
@@ -285,6 +298,7 @@ function onNumberPress(input){
   }
   if (currentState === "Standby"){
     currentState = "On";
+    initializeWaitForInput();
     inputElement.textContent = "";
     inputElement.textContent += input;
     return
@@ -296,14 +310,15 @@ function onOperatorPress(input){
   if (currentState === "Error"){
     return
   }
-  if (inputElement.textContent === "_"){
-    stopWaitForInput()
+  if (inputElement.textContent === ""){
+    //stopWaitForInput()
     inputElement.textContent = "0"+input;
     clearButtonElement.textContent = "CE";
     return
   }
   if (currentState === "Standby"){
     currentState = "On";
+    initializeWaitForInput();
     inputElement.textContent = "";
     inputElement.textContent += Ans+input;
     return
@@ -356,6 +371,7 @@ function onInput(event) {
     case "Enter":
     case "=":
       displayResult(calculateResult());//calculateResult returns the result value which displayResult then displays.
+      stopWaitForInput();
       break;
     case "ANS": //previous stored answer, or undefined if not stored.
       onNumberPress(Ans);
