@@ -81,6 +81,30 @@ body{
   max-width: 60vh;
   gap: 8px;
   z-index: 1;
+  position:relative;
+}
+/*https://stackoverflow.com/questions/27298934/3d-box-shadow-effect*/
+.calculator:after,
+.calculator:before {
+  content: '';
+  background: grey;
+  position: absolute;
+}
+.calculator:before {
+  width: 100%;
+  height: 10px;
+  left: 5px;
+  bottom: 0;
+  transform: translatey(100%) skewx(45deg);
+  border-radius: 4px 4px 4px 4px;
+}
+.calculator:after {
+  width: 10px;
+  height: 100%;
+  right: 0;
+  transform: translatex(100%) skewy(45deg);
+  top: 5px;
+  border-radius: 4px 4px 4px 4px;
 }
 
 .dark-modeCalculator{
