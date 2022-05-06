@@ -1,4 +1,4 @@
-/* JS Document */
+/* JavaScript Document */
 
 /*-------------------------------------
 INDEX
@@ -11,7 +11,7 @@ INDEX
 
 /*====================================================================
 01. Variables
-※ We start by declaring their names and if their values are either constant or going to change,  and then assigning their values to DOM nodes.
+※ We start by declaring their names and if their values are either constant or going to change,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
 ※ Ans stands for the previous calculator answer.
 ※ Dark Mode is activated via clicking the L0-K1 button.
 ※ Calculator states are used for handling the behaviour of functions after certain actions.
@@ -48,7 +48,7 @@ resultElement.style.opacity = 0;
 
 let Ans;
 let isDarkMode = false;
-let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums
+let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums. With Ruby or TypeScript?
 let nIntervId; // variable to store our intervalID
 let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
 
@@ -56,6 +56,7 @@ let historyLog = []; //todo: history, custom fonts and display background color 
 /*====================================================================
 02. Functions
 ※ The WaitForInput and its previous and next functions handles a waiting effect when turning on the calculator.
+※ Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct. 
 ※ The common algorithm flow is as follows:
   1) Wait for calculator to be turned on.
   2) Process user input as either a keyboard key or a button press.
@@ -133,8 +134,8 @@ function calculateResult(){
     return false
   }
 
-  if (inputElement.textContent.search(/\i+/) === "i"){//todo
-
+  if (inputElement.textContent.includes("i")){
+    return "Math ERROR";
   }
 
   let result;
@@ -153,8 +154,8 @@ function calculateResult(){
     result = Number.parseFloat(currentInput);
     return result;
   }
-
-  if (!isSyntaxCorrect){ //this regex doesnt support scientific notation
+  
+  if (!isSyntaxCorrect){ 
     return "Syntax ERROR";
   }
 
@@ -207,6 +208,7 @@ function displayResult(result){
       currentState = "Error";
       break;
     default:
+      //todo add stackoverflow link
       result = Math.round(result * 10000) / 10000;
       resultElement.textContent = result;
       currentState = "Standby";
@@ -313,7 +315,8 @@ function onInput(event) {
   if (currentState === "Off"){
     return
   }
-  let input = event.key || event.target.textContent;
+  //since the || operator here returns the first truthy value, we can use it to make the input variable value be event.key if event.key exists, or event.target.textContent otherwise if it doesn't (or do nothing if both values are falsy). The order here doesn't matter though, as let input = event.target.textContent || event.key; also works the same for our use case.
+  let input = event.key || event.target.textContent; 
   switch (input){
     case "0":
     case "1":
@@ -393,7 +396,7 @@ function onInput(event) {
       onNumberPress(0.35323637185499598454); // Hafner–Sarnak–McCurley constant
       break;
     case "i":
-      onNumberPress(0 + 1i); 
+      onNumberPress("i"); 
       break;
     case "j":
       onNumberPress(1.6180);
@@ -476,7 +479,7 @@ function toggleDarkModeButtons(){
 }
 
 function toggleTheme(){
-  isDarkMode = !isDarkMode;
+  isDarkMode = !isDarkMode; //if true then turn to false (which is the same as !true), if false then turn to true (which is the same as !false).
   document.body.classList.toggle("dark-mode");
   calculatorElement.classList.toggle("dark-modeCalculator");
   productIdElement.classList.toggle("dark-modeProductId");
@@ -493,6 +496,8 @@ function toggleTheme(){
 
 /*====================================================================
 03. Events
+※ DOM Manipulation: Adding event listeners to the DOM Nodes and Nodelists; which are referenced through variable names, whose values where gotten via the query selector subroutine.
+※ Since buttonsElements is a nodelist, we can use the forEach method to add an event listener to each button element.
 ====================================================================*/
 
 document.addEventListener("keydown", onInput); //document = window?
