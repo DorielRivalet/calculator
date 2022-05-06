@@ -2,20 +2,24 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
 @import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
 
-/* CSS Document */
+/* 
+Cascading
+  Style
+    Sheets
+Document */
 
-/*-------------------------------------
+/*⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒
 INDEX
 01. Body
 
--------------------------------------*/
+⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒*/
 
 
 
-/*====================================================================
+/*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 01. Body
 ※
-====================================================================*/
+ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
 body{
   display:flex;
@@ -28,11 +32,13 @@ body{
   height: 100vh;
   margin:0px;
   background-color: rgb(255, 213, 171);
-  background-image: url("../img/page-background.jpg");
+  /*brown paper background, courtesy of numberphile (not)*/
+  background-image: url("../img/page-background.jpg"); 
   color: rgb(14, 14, 14);
   gap:32px;
 }
 
+/*https://codepen.io/tholman/pen/DgOpWz*/
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -111,11 +117,12 @@ body{
   font-size: 22px;
   cursor:pointer;
   /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
-  text-shadow: 0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white,0 0 3px white;
+  text-shadow: 0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19);
+  color: whitesmoke;
 }
 
 .modelName .dark-modeProductId{
-  color: white;
+  color: whitesmoke;
   text-shadow: 0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255);
 }
 
@@ -157,7 +164,8 @@ body{
 ::-webkit-scrollbar-track-piece the track (progress bar) NOT covered by the handle.
 ::-webkit-scrollbar-corner the bottom corner of the scrollbar, where both horizontal and vertical scrollbars meet.
 ::-webkit-resizer the draggable resizing handle that appears at the bottom corner of some elements.
-from https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-div*/
+from https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-div
+https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 
 #display::-webkit-scrollbar {
   height: 12px;
@@ -191,7 +199,13 @@ from https://stackoverflow.com/questions/38023932/custom-scrollbar-only-in-one-d
   background-color: transparent;
 }
 
-.inputValue{
+.inputSection{
+  display:flex;
+  flex-flow:row nowrap;
+}
+
+.userInputValue, .waitingEffect{
+  display:inline-block;
   text-align: start;
   font-size: 24px;
 }
@@ -401,7 +415,7 @@ a:link{
   text-decoration: none;
   color: black;
 }
-
+/*fa means fontawesome*/
 .fa-github {
   font-size: 48px;
   color: #fff;
