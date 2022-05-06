@@ -142,13 +142,14 @@ function calculateResult(){
 
   let result;
   let currentInput = inputElement.textContent;
+  //https://stackoverflow.com/questions/638565/parsing-scientific-notation-sensibly
   //written with help of https://regexr.com/ cheatsheet
-  let inputRegex = /^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?([\+\×\-\÷\%\^]{1})[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$/g;
-  // ^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)? is the first operator
-  // ([\+\×\-\÷\%\^]{1}) is the operand
-  // [+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$ is the second operator
+  let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\-\÷\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  // first operand: /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?
+  // operator: ([\+\×\-\÷\%\^]{1}) 
+  // second operand: [+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
 
-  let onlyFirstOperandRegex = /^[+\-]?\d*(\.\d+)?(\e[+\-]?\d+)?$/g;
+  let onlyFirstOperandRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
   let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
   let isSyntaxCorrect = inputRegex.test(currentInput);
 
@@ -190,8 +191,8 @@ function calculateResult(){
       secondOperand = "-"+numbers[2];
     }
   }
-//https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
-   if (numbers[0].slice(-1) === "e"){
+  //https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
+/*   if (numbers[0].slice(-1) === "e"){
     let newCurrentInput = currentInput.slice(numbers[0].length+1);
     currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
     let newNumbers = newCurrentInput.split(currentOperator,4);
@@ -213,7 +214,7 @@ function calculateResult(){
     if (secondOperand === ""){
       secondOperand = "-"+newNumbers[3];
     }
-  }
+  } */
 
   if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
     return "Syntax_ERROR";
@@ -221,7 +222,7 @@ function calculateResult(){
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
-  if (result === false || result === NaN){
+  if (result === false || Number.isNaN(result)){
     return "Math_ERROR";
   }
 
@@ -314,7 +315,6 @@ function onNumberPress(input){
   }
   if (inputElement.textContent === "") {
     //stopWaitForInput()
-    inputElement.textContent = "";
     inputElement.textContent += input;
     clearButtonElement.textContent = "CE";
     return
@@ -397,6 +397,7 @@ function onInput(event) {
       stopWaitForInput();
       break;
     case "ANS": //previous stored answer, or undefined if not stored.
+    case "A":
       onNumberPress(Ans);
       break;
     case "e": //number times (10 to the x power). scientific notation.
