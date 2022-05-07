@@ -22,20 +22,15 @@ INDEX
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
 body{
-  display:flex;
-  flex-flow:column nowrap;
-  flex:1;
   font-family:'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
-  align-items: center;
-  text-align: center;
   height: 100vh;
   margin:0px;
   background-color: rgb(255, 213, 171);
   /*brown paper background, courtesy of numberphile (not)*/
   background-image: url("../img/page-background.jpg"); 
   color: rgb(14, 14, 14);
-  gap:32px;
+  box-sizing: border-box;
 }
 
 /*https://codepen.io/tholman/pen/DgOpWz*/
@@ -66,22 +61,95 @@ body{
   background-color: #121212;
   color: rgb(222, 222, 222);
 }
+/*flap idea from http://esquaria.net/special/instbest002/ */
+#link_circletop {
+  -webkit-text-size-adjust: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-family: 'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none !important;
+  outline-color: initial !important;
+  text-decoration: underline;
+  text-decoration-color: initial;
+  display: block;
+  position: fixed;
+  top: -60.69595px;
+  left: -60.69595px;
+  z-index: 51;
+  width: 120.19px;
+  height: 120.19px;
+  transform-origin: 50% 50%;
+  transform: rotate(-45deg);
+  transition-property: all;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+  background-color: rgba(13, 14, 14,.75);
+  color: rgb(232, 230, 227);
+}
+
+/*fa means fontawesome*/
+.fa-github {
+-webkit-text-size-adjust: 100%;
+font-style: normal;
+font-weight: normal;
+font-family: 'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
+-webkit-font-smoothing: antialiased;
+font-size: 32px;
+letter-spacing: 0.05em;
+text-align: center;
+color: rgb(232, 230, 227);
+box-sizing: border-box;
+display: block;
+width: 100%;
+height: 100%;
+line-height: 1;
+transform-origin: 50% 50%;
+transform: scale(0.3, 0.3) translate3d(0, 113.05px, 0) rotate(45deg);
+fill: rgb(232, 230, 227);
+}
+
+.dark-mode-fa-github {
+  color: #efefef;
+}
+
+.fa-github:before {
+  content: "\f09b";
+  font-size: 128px;
+}
+
+.calculatorSection{
+  display:flex;
+  flex-flow:column nowrap;
+  flex:1 0;
+  align-items: center;
+  text-align: center;
+  padding-bottom:32px;
+}
 
 .calculator{
   box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
   0 0 0 4px hsl(240, 100%, 81%);
   margin-top: 32px;
-  padding:16px;
+  padding:20px;
   background-color: hsl(0, 0%, 86%);
   border: 2px solid hsl(240, 100%, 75%);
   border-radius: 8px 8px 8px 8px;
   display:flex;
   flex-flow:column;
+  flex:1 0;
   width: 60vh;
   max-width: 60vh;
+  min-width: 60vh;
   gap: 8px;
   z-index: 1;
   position:relative;
+  box-sizing: border-box;
 }
 /*https://stackoverflow.com/questions/27298934/3d-box-shadow-effect*/
 .calculator:after,
@@ -140,13 +208,14 @@ body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 22px;
   cursor:pointer;
-  /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
-  text-shadow: 0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19),0 0 3px rgb(19, 19, 19);
-  color: whitesmoke;
+/*https://html-css-js.com/css/generator/text-shadow/*/
+  color: #a0a0a0;
+  text-shadow: #e0e0e0 2px 2px 0;
 }
 
 .modelName .dark-modeProductId{
   color: whitesmoke;
+  /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
   text-shadow: 0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255);
 }
 
@@ -179,6 +248,7 @@ body{
   font-family: 'Press Start 2P', cursive;
   display: flex;
   flex-flow: column nowrap;
+  color:rgba(0,0,0,.7);
 }
 
 /*::-webkit-scrollbar the scrollbar.
@@ -420,6 +490,11 @@ footer{
 	opacity: 0.93;
 }
 
+#creator{
+  color: crimson;
+  text-shadow: 1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black;
+}
+
 a:hover{
   text-decoration: none;
   color: black;
@@ -439,15 +514,7 @@ a:link{
   text-decoration: none;
   color: black;
 }
-/*fa means fontawesome*/
-.fa-github {
-  font-size: 48px;
-  color: #fff;
-}
 
-.dark-mode-fa-github {
-  color: #efefef;
-}
 
 /*https://codepen.io/agoodwin/pen/NMJoER*/
 @keyframes move-background {

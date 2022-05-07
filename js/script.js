@@ -37,7 +37,7 @@ const modelNameButtons = document.querySelectorAll('.modelName button');
 const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
-const githubIcon = document.querySelector("footer i");
+const githubIcon = document.querySelector(".fa-github");
 const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
 const initialInputValue = "";
 const initialResultValue = 0;
@@ -243,8 +243,8 @@ function displayResult(result){
       currentState = "Error";
       break;
     default:
-      //todo add stackoverflow link
-      result = Math.round(result * 10000) / 10000;
+      //https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
+      result = Math.round((result + Number.EPSILON) * 10000) / 10000;
       resultElement.textContent = result;
       currentState = "Standby";
       Ans = result;
