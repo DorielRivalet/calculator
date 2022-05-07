@@ -191,28 +191,21 @@ function calculateResult(){
       secondOperand = "-"+numbers[2];
     }
   }
-  //https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
-  if (numbers[0].slice(-1) === "e"){
-    let newCurrentInput = currentInput.slice(numbers[0].length+1);
+  
+  if (firstOperand.slice(-1) === "e"){
+    let newCurrentInput;
+    if (currentInput[firstOperand.length] === "-" || currentInput[firstOperand.length] === "+"){
+      newCurrentInput = currentInput.slice(firstOperand.length+1);
+    } else {
+      newCurrentInput = currentInput.slice(firstOperand.length);
+    }
     currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
-    let newNumbers = newCurrentInput.split(currentOperator,4);
-    if (firstOperand[0] === "-"){
-      firstOperand = "-"+numbers[0];
-    } else {
-      firstOperand = numbers[0];
-    }
+    let newNumbers = newCurrentInput.split(currentOperator,3);
     firstOperand += currentInput[firstOperand.length];
-    if (newNumbers[0] === ""){
-      firstOperand += newNumbers[1];
-    } else {
-      firstOperand += newNumbers[0];
-    }
+    firstOperand += newNumbers[0];
     secondOperand = newNumbers[1];
     if (secondOperand === ""){
       secondOperand = "-"+newNumbers[2];
-    }
-    if (secondOperand === ""){
-      secondOperand = "-"+newNumbers[3];
     }
   }
 
