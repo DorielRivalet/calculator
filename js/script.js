@@ -52,7 +52,7 @@ let Ans;
 let isDarkMode = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums. With Ruby or TypeScript?
 let nIntervId; // variable to store our intervalID
-let historyLog = []; //todo: history, custom fonts and display background color picker settings cog icon. text shadow  blue red chromatic aberration
+let historyLog = []; //todo: history, and display background color picker settings cog icon.
 
 
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
@@ -178,20 +178,15 @@ function calculateResult(){
     currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
     numbers = newCurrentInput.split(currentOperator,3);
     firstOperand = "-"+numbers[0];
-    secondOperand = numbers[1];
-    if (secondOperand === ""){
-      secondOperand = "-"+numbers[2];
-    }
+    secondOperand = currentInput.slice(firstOperand.length+1);
   } else {
     currentOperator = currentInput[currentInput.search(operatorRegex)];
     numbers = currentInput.split(currentOperator,3);
     firstOperand = numbers[0];
-    secondOperand = numbers[1];
-    if (secondOperand === ""){
-      secondOperand = "-"+numbers[2];
-    }
+    secondOperand = currentInput.slice(firstOperand.length+1);
   }
   
+  //solution for negative exponents in the scientific notation
   if (firstOperand.slice(-1) === "e"){
     let newCurrentInput;
     if (currentInput[firstOperand.length] === "-" || currentInput[firstOperand.length] === "+"){
@@ -203,10 +198,7 @@ function calculateResult(){
     let newNumbers = newCurrentInput.split(currentOperator,3);
     firstOperand += currentInput[firstOperand.length];
     firstOperand += newNumbers[0];
-    secondOperand = newNumbers[1];
-    if (secondOperand === ""){
-      secondOperand = "-"+newNumbers[2];
-    }
+    secondOperand = currentInput.slice(firstOperand.length+1);
   }
 
   if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
