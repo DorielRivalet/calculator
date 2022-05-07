@@ -564,7 +564,15 @@ button{
   transform-origin: 50% 50%;
   fill: rgb(232, 230, 227);
   transform: scale(0.45, 0.45) translate3d(-70px, 0px, 0) rotate(45deg);
+  transition: transform 0.3s ease-in-out;
 }
+
+#cog a .icon:hover{
+  transition: transform 1s ease-in-out;
+  transform: scale(0.45, 0.45) translate3d(-70px, 0px, 0) rotate(180deg);
+}
+
+
 
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
