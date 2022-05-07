@@ -192,7 +192,7 @@ function calculateResult(){
     }
   }
   //https://stackoverflow.com/questions/3884632/how-to-get-the-last-character-of-a-string
-/* TODO  if (numbers[0].slice(-1) === "e"){
+  if (numbers[0].slice(-1) === "e"){
     let newCurrentInput = currentInput.slice(numbers[0].length+1);
     currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
     let newNumbers = newCurrentInput.split(currentOperator,4);
@@ -214,7 +214,7 @@ function calculateResult(){
     if (secondOperand === ""){
       secondOperand = "-"+newNumbers[3];
     }
-  } */
+  }
 
   if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
     return "Syntax_ERROR";
