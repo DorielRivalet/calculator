@@ -48,8 +48,8 @@ const githubIcon = document.querySelector(".fa-github");
 const OPERATOR_REGEX = /([\+\×\-\÷\%\^]{1})/g;
 const initialInputValue = "";
 const initialResultValue = 0;
-const initialScreenTextColor = "#d2ff8f";
-const initialScreenBackgroundColor = "#00000096";
+const initialScreenTextColor = "#00000096";
+const initialScreenBackgroundColor = "#d2ff8f";
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
@@ -544,6 +544,8 @@ function toggleSettingsModal(){
 function restoreDefaultSettings(){
   screen.style.color = initialScreenTextColor;
   screen.style.backgroundColor = initialScreenBackgroundColor;
+  screenTextColor.value = initialScreenTextColor;
+  screenBackgroundColor.value = initialScreenBackgroundColor;
 }
 
 function watchColorPicker(event) {
@@ -572,6 +574,6 @@ productIdElement.addEventListener("click", toggleTheme); //easter egg
 powerButtonElement.addEventListener("click", switchPower);
 cogIcon.addEventListener('click', toggleSettingsModal);
 /* screenTextColor.addEventListener("input", updateFirst, false); */
-screenTextColor.addEventListener("change", watchColorPicker, false);
-screenBackgroundColor.addEventListener("change", watchColorPicker, false);
+screenTextColor.addEventListener("input", watchColorPicker, false);
+screenBackgroundColor.addEventListener("input", watchColorPicker, false);
 defaultSettingsButton.addEventListener("click", restoreDefaultSettings);
