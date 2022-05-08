@@ -18,6 +18,9 @@ INDEX
 =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
 //DOM
+const settingsModal = document.getElementById('settingsModal');
+const cogIcon = document.getElementById('cogIcon');
+const overlay = document.getElementById('overlay');
 const starryBackgroundElement = document.querySelector(".background-container");
 const inputElement = document.querySelector('.userInputValue');
 const waitEffectElement = document.querySelector('.waitingEffect');
@@ -50,6 +53,7 @@ resultElement.style.opacity = 0;
 
 let Ans;
 let isDarkMode = false;
+let isSettingsModalActive = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums. With Ruby or TypeScript?
 let nIntervId; // variable to store our intervalID
 let historyLog = []; //todo: history, and display background color picker settings cog icon.
@@ -513,6 +517,24 @@ function toggleTheme(){
   toggleDarkModeButtons()
 }
 
+function toggleSettingsModal(){
+  if (!isSettingsModalActive){
+    isSettingsModalActive = true;
+    settingsModal.classList.add('active');
+    overlay.classList.add('active');
+    overlay.addEventListener('click', function(){
+      isSettingsModalActive = false;
+      settingsModal.classList.remove('active');
+      overlay.classList.remove('active');}
+    );
+  } else {
+    isSettingsModalActive = false;
+    settingsModal.classList.remove('active');
+    overlay.classList.remove('active');
+    overlay.removeEventListener('click');
+  }
+}
+
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 03. Events
 ※ DOM Manipulation: Adding event listeners to the DOM Nodes and Nodelists; which are referenced through variable names, whose values where gotten via the query selector subroutine.
@@ -525,3 +547,4 @@ buttonsElements.forEach(function(currentButton){
 });
 productIdElement.addEventListener("click", toggleTheme); //easter egg
 powerButtonElement.addEventListener("click", switchPower);
+cogIcon.addEventListener('click', toggleSettingsModal);

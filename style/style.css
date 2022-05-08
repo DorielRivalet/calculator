@@ -101,7 +101,7 @@ body{
   position: fixed;
   top: -60.69595px;
   left: -60.69595px;
-  z-index: 2;
+  z-index: 4;
   width: 120.19px;
   height: 120.19px;
   transform-origin: 50% 50%;
@@ -540,7 +540,7 @@ button{
   text-decoration-color: initial;
   display: block;
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   width: 120.19px;
   height: 120.19px;
   transform-origin: 50% 50%;
@@ -579,12 +579,46 @@ button{
   transform: scale(0.45, 0.45) translate3d(-70px, 0px, 0) rotate(180deg);
 }
 
-.settingsContainer{
+.settingsModal{
   display: flex;
   flex-flow: column nowrap;
   margin-top:96px;
-  width: 30%;
-  z-index:1;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+  margin: 0;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 30px;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+}
+
+.settingsModal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.overlay.active {
+  display: block;
 }
 
 .settingsMenu{
@@ -633,7 +667,7 @@ footer{
   font-style: normal;
   font-weight: normal;
   margin-top: auto;
-  z-index:1;
+  z-index:3;
   background-color: #20096E7F;
 	color: #fff;
 	filter:alpha(opacity=0.93);
