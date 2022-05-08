@@ -20,6 +20,10 @@ INDEX
 //DOM
 const settingsModal = document.getElementById('settingsModal');
 const defaultSettingsButton = document.getElementById('defaultSettings');
+const colorOptionsElement = document.querySelector('.colorOptions');
+const historyLogElement = document.getElementById('historyLog');
+const colorsTabButton = document.getElementById('colorsTab');
+const historyTabButton = document.getElementById('historyTab');
 const cogIcon = document.getElementById('cogIcon');
 const overlay = document.getElementById('overlay');
 const screen = document.getElementById("display");
@@ -62,7 +66,7 @@ let isDarkMode = false;
 let isSettingsModalActive = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums. With Ruby or TypeScript?
 let nIntervId; // variable to store our intervalID
-let historyLog = []; //todo: history, and display background color picker settings cog icon.
+let historyLog = []; //todo: history
 
 
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
@@ -221,8 +225,12 @@ function calculateResult(){
     return "Math_ERROR";
   }
 
+  
+  let currentData = [firstOperand,currentOperator,secondOperand];
+  historyLog.push(currentData);
   //string interpolation
   console.log(`${firstOperand} ${currentOperator} ${secondOperand} = ${result}`);
+  console.table(historyLog);
   return result
 }
 
@@ -528,6 +536,20 @@ function removeModal(){
   settingsModal.classList.remove('active');
   overlay.classList.remove('active');
   overlay.removeEventListener('click',removeModal);
+  historyLogElement.classList.remove('active');
+}
+
+function switchTabs(event){
+  console.log(event.target.id);
+  switch (event.target.id){
+    case "historyTab":
+      historyLogElement.classList.add('active');
+      colorOptionsElement.classList.add('inactive');
+      break;
+    case "colorsTab":
+      historyLogElement.classList.remove('active');
+      colorOptionsElement.classList.remove('inactive');
+  }
 }
 
 function toggleSettingsModal(){
@@ -536,6 +558,8 @@ function toggleSettingsModal(){
     settingsModal.classList.add('active');
     overlay.classList.add('active');
     overlay.addEventListener('click', removeModal);
+    historyTabButton.addEventListener('click', switchTabs);
+    colorsTabButton.addEventListener('click', switchTabs);
   } else {
     removeModal();
   }
