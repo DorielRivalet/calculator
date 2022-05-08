@@ -90,6 +90,7 @@ body{
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
 #link_circletop {
+  cursor: help;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   font-size: 1.4rem;
@@ -230,7 +231,7 @@ body{
   font-style: normal;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 22px;
-  cursor:pointer;
+  cursor:copy;
 /*https://html-css-js.com/css/generator/text-shadow/*/
   color: #a0a0a0;
   text-shadow: #e0e0e0 2px 2px 0;
@@ -653,7 +654,7 @@ button{
 }
 
 .tabs button:hover{
-  color:aliceblue;
+  color:crimson;
   filter: brightness(110%);
 }
 
@@ -671,7 +672,7 @@ button{
 }
 
 #commits:hover{
-  color:aliceblue;
+  color:crimson;
   filter: brightness(110%);
 }
 
@@ -710,6 +711,10 @@ button{
   text-shadow: none;
 }
 
+.colorPicker{
+  cursor:cell;
+}
+
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 06. Footer
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
@@ -735,6 +740,7 @@ footer{
 
 #creator{
   color: crimson;
+  cursor: help;
 }
 
 a:hover{
