@@ -260,8 +260,8 @@ body{
   box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
   0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
-  background-color: rgb(210, 255, 143);
-  color: rgba(0, 0, 0, 0.755);
+  background-color: #d2ff8f;
+  color:#00000096;
   padding-left:16px;
   padding-right:16px;
   padding-top:16px;
@@ -272,8 +272,12 @@ body{
   display: flex;
   flex-grow: 0;
   flex-flow: column nowrap;
-  color:rgba(0,0,0,.7);
 }
+
+/* .displaySection::after{
+  background: rgb(255,255,255);
+  background: linear-gradient(315deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+} */
 
 /*::-webkit-scrollbar the scrollbar.
 ::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
@@ -356,25 +360,25 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 
 #power {
   grid-area: power;
-  border-radius: 256px;
+  border-radius: 100%;
   margin-bottom: 8px;
 }
 
 #ans {
   grid-area: ans;
-  border-radius: 256px;
+  border-radius: 100%;
   margin-bottom: 8px;
 }
 
 #ac {
   grid-area: a;
-  border-radius: 256px;
+  border-radius: 100%;
   margin-bottom: 8px;
 }
 
 #del {
   grid-area: b;
-  border-radius: 256px;
+  border-radius: 100%;
   margin-bottom: 8px;
 }
 
@@ -592,7 +596,7 @@ button{
   top: 50%;
   left: 50%;
   width: 300px;
-  padding: 30px;
+  padding: 16px;
   border-radius: 10px;
   text-align: center;
   font-size: 30px;
@@ -624,7 +628,7 @@ button{
 .settingsMenu{
   display: flex;
   flex-flow: column nowrap;
-  margin-right:32px;
+  gap:8px;
 }
 
 .settingsMenu .tabs{
@@ -633,6 +637,7 @@ button{
 }
 
 .tabs button{
+  cursor: pointer;
   font-size: 18px;
   color:#efefef;
   background-color: transparent;
@@ -647,11 +652,54 @@ button{
   border-right:none;
 }
 
-.settingsMenu .menuContent{
-  color:#121212;
-  background-color: rgb(255, 255, 255); background-image: linear-gradient(90deg, transparent 79px, rgb(171, 206, 212) 79px, rgb(171, 206, 212) 81px, transparent 81px), linear-gradient(rgb(238, 238, 238) 0.1em, transparent 0.1em); background-size: 100% 1.2em; --darkreader-inline-bgcolor:#181a1b; --darkreader-inline-bgimage:linear-gradient(90deg, rgba(0, 0, 0, 0) 79px, #2b4e54 79px, #2b4e54 81px, rgba(0, 0, 0, 0) 81px), , linear-gradient(#222426 0.1em, rgba(0, 0, 0, 0) 0.1em);
+.tabs button:hover{
+  color:aliceblue;
+  filter: brightness(110%);
 }
 
+#commits{
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 18px;
+  color:#efefef;
+  background-color: transparent;
+  border-right:1px solid #efefef;
+  border-left:none;
+  border-top:none;
+  border-bottom:none;
+  text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
+}
+
+#commits:hover{
+  color:aliceblue;
+  filter: brightness(110%);
+}
+
+.settingsMenu .menuContent{
+  border-radius: 8px 8px 8px 8px;
+  overflow-y: scroll;
+  color:#bd2222;
+  padding: 8px;
+  font-size: 18px;
+  text-shadow: 1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef;
+  text-align: start;
+  background: radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent) 0% 0% / 100px 100px, radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent) 50px 50px / 100px 100px, linear-gradient(rgb(168, 177, 187) 8px, transparent 8px) 0px -4px / 50px 50px, linear-gradient(90deg, rgb(168, 177, 187) 8px, transparent 8px) -4px 0px / 50px 50px slategray; --darkreader-inline-bgimage:radial-gradient(circle, rgba(0, 0, 0, 0) 20%, #596673 20%, #596673 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)), , radial-gradient(circle, rgba(0, 0, 0, 0) 20%, #596673 20%, #596673 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)), , linear-gradient(#3f4851 8px, rgba(0, 0, 0, 0) 8px), , linear-gradient(90deg, #3f4851 8px, rgba(0, 0, 0, 0) 8px); --darkreader-inline-bgcolor:#596673;
+}
+
+.menuContent div{
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+#defaultSettings{
+  border: 1px solid #efefef;
+  background:transparent;
+  border-radius: 8px 8px 8px 8px;
+  color:#efefef;
+  text-align: center;
+  text-shadow: none;
+}
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 06. Footer
