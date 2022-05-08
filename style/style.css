@@ -696,7 +696,7 @@ button{
   background-size: 20px 20px;
 }
 
-.menuContent div{
+.menuContent div div{
   display:flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -713,6 +713,23 @@ button{
 
 .colorPicker{
   cursor:cell;
+}
+
+.colorOptions.inactive{
+  display:none;
+}
+
+#historyLog{
+  display:none;
+  overflow-y: scroll;
+}
+
+#historyLog.active{
+  display:block;
+}
+
+#historyLog div{
+  overflow-x: auto;
 }
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
