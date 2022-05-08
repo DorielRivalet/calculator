@@ -678,12 +678,21 @@ button{
 .settingsMenu .menuContent{
   border-radius: 8px 8px 8px 8px;
   overflow-y: scroll;
-  color:#bd2222;
+  color:#efefef;
   padding: 8px;
   font-size: 18px;
-  text-shadow: 1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef,1px 1px 0 #efefef;
+  text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
   text-align: start;
-  background: radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent) 0% 0% / 100px 100px, radial-gradient(circle, transparent 20%, slategray 20%, slategray 80%, transparent 80%, transparent) 50px 50px / 100px 100px, linear-gradient(rgb(168, 177, 187) 8px, transparent 8px) 0px -4px / 50px 50px, linear-gradient(90deg, rgb(168, 177, 187) 8px, transparent 8px) -4px 0px / 50px 50px slategray; --darkreader-inline-bgimage:radial-gradient(circle, rgba(0, 0, 0, 0) 20%, #596673 20%, #596673 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)), , radial-gradient(circle, rgba(0, 0, 0, 0) 20%, #596673 20%, #596673 80%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0)), , linear-gradient(#3f4851 8px, rgba(0, 0, 0, 0) 8px), , linear-gradient(90deg, #3f4851 8px, rgba(0, 0, 0, 0) 8px); --darkreader-inline-bgcolor:#596673;
+  /*https://projects.verou.me/css3patterns/#carbon*/
+  background:
+  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background-color: #131313;
+  background-size: 20px 20px;
 }
 
 .menuContent div{
