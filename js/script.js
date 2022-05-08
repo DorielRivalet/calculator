@@ -19,8 +19,12 @@ INDEX
 
 //DOM
 const settingsModal = document.getElementById('settingsModal');
+const defaultSettingsButton = document.getElementById('defaultSettings');
 const cogIcon = document.getElementById('cogIcon');
 const overlay = document.getElementById('overlay');
+const screen = document.getElementById("display");
+const screenTextColorPicker = document.getElementById('screenTextColor');
+const screenBackgroundColorPicker = document.getElementById('screenBackgroundColor');
 const starryBackgroundElement = document.querySelector(".background-container");
 const inputElement = document.querySelector('.userInputValue');
 const waitEffectElement = document.querySelector('.waitingEffect');
@@ -41,9 +45,11 @@ const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector(".fa-github");
-const operatorRegex = /([\+\×\-\÷\%\^]{1})/g;
+const OPERATOR_REGEX = /([\+\×\-\÷\%\^]{1})/g;
 const initialInputValue = "";
 const initialResultValue = 0;
+const initialScreenTextColor = "#d2ff8f";
+const initialScreenBackgroundColor = "#00000096";
 
 inputElement.textContent = initialInputValue;
 resultElement.textContent = initialResultValue;
@@ -179,12 +185,12 @@ function calculateResult(){
   //solution for negative numbers
   if (currentInput[0] === "-"){ 
     let newCurrentInput = currentInput.slice(1);
-    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
+    currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
     numbers = newCurrentInput.split(currentOperator,3);
     firstOperand = "-"+numbers[0];
     secondOperand = currentInput.slice(firstOperand.length+1);
   } else {
-    currentOperator = currentInput[currentInput.search(operatorRegex)];
+    currentOperator = currentInput[currentInput.search(OPERATOR_REGEX)];
     numbers = currentInput.split(currentOperator,3);
     firstOperand = numbers[0];
     secondOperand = currentInput.slice(firstOperand.length+1);
@@ -198,7 +204,7 @@ function calculateResult(){
     } else {
       newCurrentInput = currentInput.slice(firstOperand.length);
     }
-    currentOperator = newCurrentInput[newCurrentInput.search(operatorRegex)];
+    currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
     let newNumbers = newCurrentInput.split(currentOperator,3);
     firstOperand += currentInput[firstOperand.length];
     firstOperand += newNumbers[0];
@@ -517,23 +523,40 @@ function toggleTheme(){
   toggleDarkModeButtons()
 }
 
+function removeModal(){
+  isSettingsModalActive = false;
+  settingsModal.classList.remove('active');
+  overlay.classList.remove('active');
+  overlay.removeEventListener('click',removeModal);
+}
+
 function toggleSettingsModal(){
   if (!isSettingsModalActive){
     isSettingsModalActive = true;
     settingsModal.classList.add('active');
     overlay.classList.add('active');
-    overlay.addEventListener('click', function(){
-      isSettingsModalActive = false;
-      settingsModal.classList.remove('active');
-      overlay.classList.remove('active');}
-    );
+    overlay.addEventListener('click', removeModal);
   } else {
-    isSettingsModalActive = false;
-    settingsModal.classList.remove('active');
-    overlay.classList.remove('active');
-    overlay.removeEventListener('click');
+    removeModal();
   }
 }
+
+function restoreDefaultSettings(){
+  screen.style.color = initialScreenTextColor;
+  screen.style.backgroundColor = initialScreenBackgroundColor;
+}
+
+function watchColorPicker(event) {
+  switch(event.target.id){
+    case "screenTextColor":
+      screen.style.color = event.target.value;
+      break;
+    case "screenBackgroundColor":
+      screen.style.backgroundColor = event.target.value;
+  }
+}
+
+
 
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 03. Events
@@ -548,3 +571,7 @@ buttonsElements.forEach(function(currentButton){
 productIdElement.addEventListener("click", toggleTheme); //easter egg
 powerButtonElement.addEventListener("click", switchPower);
 cogIcon.addEventListener('click', toggleSettingsModal);
+/* screenTextColor.addEventListener("input", updateFirst, false); */
+screenTextColor.addEventListener("change", watchColorPicker, false);
+screenBackgroundColor.addEventListener("change", watchColorPicker, false);
+defaultSettingsButton.addEventListener("click", restoreDefaultSettings);
