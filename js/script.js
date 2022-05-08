@@ -17,6 +17,12 @@ INDEX
 ※ Calculator states are used for handling the behaviour of functions after certain actions.
 =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
+
+const OPERATOR_REGEX = /([\+\×\-\÷\%\^]{1})/g;
+const INITIAL_INPUT_VALUE = "";
+const INITIAL_RESULT_VALUE = 0;
+const INITIAL_SCREEN_TEXT_COLOR = "#00000096";
+const INITIAL_SCREEN_BACKGROUND_COLOR = "#d2ff8f";
 //DOM
 const settingsModal = document.getElementById('settingsModal');
 const defaultSettingsButton = document.getElementById('defaultSettings');
@@ -49,14 +55,9 @@ const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector(".fa-github");
-const OPERATOR_REGEX = /([\+\×\-\÷\%\^]{1})/g;
-const initialInputValue = "";
-const initialResultValue = 0;
-const initialScreenTextColor = "#00000096";
-const initialScreenBackgroundColor = "#d2ff8f";
 
-inputElement.textContent = initialInputValue;
-resultElement.textContent = initialResultValue;
+inputElement.textContent = INITIAL_INPUT_VALUE;
+resultElement.textContent = INITIAL_RESULT_VALUE;
 inputElement.style.opacity = 0;
 waitEffectElement.style.opacity = 0;
 resultElement.style.opacity = 0;
@@ -140,8 +141,8 @@ function clearInput(){
   if (currentState === "Error" || currentState === "Standby"){
     currentState = "On";
   }
-  inputElement.textContent = initialInputValue;
-  resultElement.textContent = initialResultValue;
+  inputElement.textContent = INITIAL_INPUT_VALUE;
+  resultElement.textContent = INITIAL_RESULT_VALUE;
   clearButtonElement.textContent = "AC";
 }
 
@@ -566,10 +567,10 @@ function toggleSettingsModal(){
 }
 
 function restoreDefaultSettings(){
-  screen.style.color = initialScreenTextColor;
-  screen.style.backgroundColor = initialScreenBackgroundColor;
-  screenTextColor.value = initialScreenTextColor;
-  screenBackgroundColor.value = initialScreenBackgroundColor;
+  screen.style.color = INITIAL_SCREEN_TEXT_COLOR;
+  screen.style.backgroundColor = INITIAL_SCREEN_BACKGROUND_COLOR;
+  screenTextColor.value = INITIAL_SCREEN_TEXT_COLOR;
+  screenBackgroundColor.value = INITIAL_SCREEN_BACKGROUND_COLOR;
 }
 
 function watchColorPicker(event) {
