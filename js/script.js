@@ -13,7 +13,7 @@ INDEX
 01. Variables
 ※ Creating variables: We start by declaring their names and if their values are either constant or going to change later on in the program,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
 ※ Anytime we assign something to a variable, we are doing three things:
-  1) Creating the variable name in the current scopes's lookup table (where all variable names are defined).
+  1) Creating the variable name in the current scope's lookup table (where all variable names are defined).
   2) Evaluating the expression to the right of the equals, and placing the result at some location in the browser's allocated memory.
   3) Assigning the variable name in that lookup table to reference that specific memory location.
 ※ Ans stands for the previous calculator answer.
@@ -154,6 +154,7 @@ function inputFromHistoryLog(event){
   resultElement.textContent = pastOperationArray[1];
   initializeWaitForInput();
   currentState = "On";
+  inputElement.style.textAlign = "start";
 }
 
 function createClearHistoryLogButton(){
@@ -182,6 +183,7 @@ function clearHistory(){
 function clearInput(){
   if (currentState === "Error" || currentState === "Standby"){
     currentState = "On";
+    inputElement.style.textAlign = "start";
   }
   inputElement.textContent = INITIAL_INPUT_VALUE;
   resultElement.textContent = INITIAL_RESULT_VALUE;
@@ -194,7 +196,7 @@ function calculateResult(){
   }
 
   if (inputElement.textContent.includes("i")){
-    return "Math_ERROR"; //only real numbers!!!
+    return "Math ERROR"; //only real numbers!!!
   }
 
   let result;
@@ -203,7 +205,7 @@ function calculateResult(){
   //written with help of https://regexr.com/ cheatsheet
   let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\x\*\-\÷\/\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
   // first operand: /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?
-  // operator: ([\+\×\-\÷\%\^]{1}) 
+  // operator: ([\+\×\x\*\-\÷\/\%\^]{1})
   // second operand: [+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
 
   let onlyFirstOperandRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
@@ -215,12 +217,12 @@ function calculateResult(){
     if (result){
       return result;
     } else {
-      return "Syntax_ERROR";
+      return "Syntax ERROR";
     }
   }
   
   if (!isSyntaxCorrect){ 
-    return "Syntax_ERROR";
+    return "Syntax ERROR";
   }
 
   //lazy initialization
@@ -259,13 +261,13 @@ function calculateResult(){
   }
 
   if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
-    return "Syntax_ERROR";
+    return "Syntax ERROR";
   }
  
   result = operate(currentOperator,firstOperand,secondOperand);
 
   if (result === false || Number.isNaN(result)){
-    return "Math_ERROR";
+    return "Math ERROR";
   }
 
   if (historyLogElement.textContent === HISTORY_LOG_INITIAL_TEXT){
@@ -283,11 +285,12 @@ function displayResult(result){
     return
   }
   switch(result){
-    case "Syntax_ERROR":
-    case "Math_ERROR":
+    case "Syntax ERROR":
+    case "Math ERROR":
       inputElement.textContent = result;
-      resultElement.textContent = "-";
+      resultElement.textContent = "";
       currentState = "Error";
+      inputElement.style.textAlign = "end";
       break;
     default:
       //https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
@@ -318,6 +321,7 @@ function switchPower(){
     inputElement.style.opacity = 1;
     waitEffectElement.style.opacity = 1;
     resultElement.style.opacity = 1;
+    inputElement.style.textAlign = "start";
     initializeWaitForInput();//wait for input effect
   } else {
     powerButtonElement.textContent = "ON";
