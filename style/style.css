@@ -16,13 +16,13 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
   font-weight: normal;
 }
 
-/* https://www.fontget.com/font/technology-1/ */
+/* https://www.fontspace.com/digital-7-font-f7087 */
 @font-face {
-  font-family: 'Technology-BoldItalic';
-  font-style: normal;
+  font-family: 'Digital7-Mono';
+  font-style: italic;
   font-weight: normal;
-  src: local('Technology-BoldItalic'), 
-       url('/fonts/Technology-BoldItalic.woff') format('woff');
+  src: local('Digital7-Mono'), 
+       url('/fonts/Digital7Monoitalic-8xKz.ttf') format('truetype');
 }
 
 /* css variables for color palette */
@@ -68,6 +68,19 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
   --creator:crimson;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 /* 
 Cascading
   Style
@@ -98,12 +111,13 @@ body{
   font-family:'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   height: 100vh;
-  margin:0px;
+  margin:0;
   background-color: rgb(255, 213, 171);
   /*brown paper background, courtesy of numberphile (not)*/
   background-image: url("../img/page-background.jpg"); 
   color: rgb(14, 14, 14);
   box-sizing: border-box;
+  margin-bottom: 32px;
 }
 
 .dark-mode {
@@ -112,10 +126,15 @@ body{
 }
 
 .mainSection{
-  display:flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-flow: row;
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
 }
 
 
@@ -219,13 +238,12 @@ body{
   flex:1 0;
   align-items: center;
   text-align: center;
-  padding-bottom:32px;
 }
 
 .calculator{
   box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
   0 0 0 4px hsl(240, 100%, 81%);
-  margin-top: 32px;
+  margin-top: 64px;
   padding:20px;
   background-color: var(--calculator);
   border: 2px solid hsl(240, 100%, 75%);
@@ -243,6 +261,7 @@ body{
   background: grey;
   position: absolute;
 }
+
 .calculator:before {
   width: 100%;
   height: 10px;
@@ -322,6 +341,7 @@ body{
   font-family: 'Press Start 2P', cursive;
   white-space: nowrap;
   overflow-x:auto;
+  overflow-y: hidden;
   border: 4px solid hsl(0, 0%, 66%);
   box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
   0 0 0 6px hsl(0, 0%, 76%);
@@ -329,12 +349,15 @@ body{
   background-color: var(--screen-background);
   color:var(--screen-font);
   opacity: 0.6;
-  padding-left:16px;
+  padding-left:12px;
   padding-right:16px;
   padding-top:8px;
+  padding-bottom: 0;
+  box-sizing: content-box;
   display: flex;
-  height:120px;
+  height:125px;
   flex-grow: 0;
+  gap:0;
   flex-flow: column nowrap;
 }
 
@@ -386,6 +409,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 }
 
 .inputSection{
+  box-sizing: content-box;
   display:flex;
   flex-flow:row nowrap;
   font-family: "LEDCalculator";
@@ -397,13 +421,15 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 .userInputValue, .waitingEffect{
   display:inline-block;
   text-align: start;
+  box-sizing: content-box;
 }
 
 .result{
-  font-family: 'Technology-BoldItalic';
+  box-sizing: content-box;
+  font-family: 'Digital7-Mono';
+  font-style: italic;
   text-align: end;
   font-size: 64px;
-  font-weight: 900;
 }
 
 .dark-modeDisplaySection{
@@ -652,6 +678,7 @@ button{
 }
 
 .settingsModal{
+  box-sizing: content-box;
   display: flex;
   flex-flow: column nowrap;
   font-family: 'Roboto', sans-serif;
@@ -696,14 +723,18 @@ button{
   display: flex;
   flex-flow: column nowrap;
   gap:8px;
+  box-sizing: content-box;
 }
 
 .settingsMenu .tabs{
   display:flex;
   justify-items: flex-start;
+  box-sizing: content-box;
 }
 
 .tabs button{
+  padding:4px;
+  box-sizing: content-box;
   cursor: pointer;
   font-size: 18px;
   color:var(--btn);
@@ -866,10 +897,14 @@ button{
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
 footer{
-  width:100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  padding: 16px;
   gap: 8px;
   font-size: 18px;
   font-style: normal;
