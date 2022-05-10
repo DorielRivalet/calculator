@@ -11,19 +11,28 @@ INDEX
 
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
 01. Variables
-※ We start by declaring their names and if their values are either constant or going to change,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
+※ Creating variables: We start by declaring their names and if their values are either constant or going to change later on in the program,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
+※ Anytime we assign something to a variable, we are doing three things:
+  1) Creating the variable name in the current scopes's lookup table (where all variable names are defined).
+  2) Evaluating the expression to the right of the equals, and placing the result at some location in the browser's allocated memory.
+  3) Assigning the variable name in that lookup table to reference that specific memory location.
 ※ Ans stands for the previous calculator answer.
 ※ Dark Mode is activated via clicking the L0-K1 button.
 ※ Calculator states are used for handling the behaviour of functions after certain actions.
 =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
+// see config.js
+const OPERATOR_REGEX = config.OPERATOR_REGEX;
+const INITIAL_INPUT_VALUE = config.INITIAL_INPUT_VALUE;
+const INITIAL_RESULT_VALUE = config.INITIAL_RESULT_VALUE;
+const INITIAL_SCREEN_TEXT_COLOR = config.INITIAL_SCREEN_TEXT_COLOR;
+const INITIAL_SCREEN_BACKGROUND_COLOR = config.INITIAL_SCREEN_BACKGROUND_COLOR;
 
-const OPERATOR_REGEX = /([\+\×\-\÷\%\^]{1})/g;
-const INITIAL_INPUT_VALUE = "";
-const INITIAL_RESULT_VALUE = 0;
-const INITIAL_SCREEN_TEXT_COLOR = "#00000096";
-const INITIAL_SCREEN_BACKGROUND_COLOR = "#d2ff8f";
-//DOM
+/*
+Document
+Object
+Model   
+*/
 const settingsModal = document.getElementById('settingsModal');
 const defaultSettingsButton = document.getElementById('defaultSettings');
 const colorOptionsElement = document.querySelector('.colorOptions');
@@ -67,11 +76,10 @@ let isDarkMode = false;
 let isSettingsModalActive = false;
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error. Need Enums. With Ruby or TypeScript?
 let nIntervId; // variable to store our intervalID
-let historyLog = []; //todo: history
 
 
 /*=^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=
-02. Functions
+02. Functions (also called subroutines, or methods when talking about objects)
 ※ The WaitForInput and its previous and next functions handles a waiting effect when turning on the calculator.
 ※ Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct. 
 ※ The common algorithm flow is as follows:
@@ -135,6 +143,12 @@ function power(x,y){
 
 function modulo(x,y){
   return Number(x) % Number(y);
+}
+
+function clearHistory(){
+  let clearHistoryButton = document.querySelector(".clearHistoryButton");
+  clearHistoryButton.removeEventListener('click', clearHistory);
+  historyLogElement.textContent = config.HISTORY_LOG_INITIAL_TEXT;
 }
 
 function clearInput(){
@@ -226,12 +240,19 @@ function calculateResult(){
     return "Math_ERROR";
   }
 
-  
-  let currentData = [firstOperand,currentOperator,secondOperand];
-  historyLog.push(currentData);
+  if (historyLogElement.textContent === config.HISTORY_LOG_INITIAL_TEXT){
+    historyLogElement.textContent = "";
+    let clearHistoryButton = document.createElement("button");
+    clearHistoryButton.textContent = "Clear history";
+    clearHistoryButton.classList.add('clearHistoryButton');
+    clearHistoryButton.addEventListener('click', clearHistory);
+    historyLogElement.append(clearHistoryButton);
+  }
+
+  let currentData = document.createElement("div");
   //string interpolation
-  console.log(`${firstOperand} ${currentOperator} ${secondOperand} = ${result}`);
-  console.table(historyLog);
+  currentData.textContent = `${firstOperand} ${currentOperator} ${secondOperand} = ${result}`;
+  historyLogElement.append(currentData);
   return result
 }
 
@@ -538,18 +559,18 @@ function removeModal(){
   overlay.classList.remove('active');
   overlay.removeEventListener('click',removeModal);
   historyLogElement.classList.remove('active');
+  colorOptionsElement.classList.remove('active');
 }
 
 function switchTabs(event){
-  console.log(event.target.id);
   switch (event.target.id){
     case "historyTab":
       historyLogElement.classList.add('active');
-      colorOptionsElement.classList.add('inactive');
+      colorOptionsElement.classList.remove('active');
       break;
     case "colorsTab":
       historyLogElement.classList.remove('active');
-      colorOptionsElement.classList.remove('inactive');
+      colorOptionsElement.classList.add('active');
   }
 }
 
@@ -558,6 +579,7 @@ function toggleSettingsModal(){
     isSettingsModalActive = true;
     settingsModal.classList.add('active');
     overlay.classList.add('active');
+    colorOptionsElement.classList.add('active');
     overlay.addEventListener('click', removeModal);
     historyTabButton.addEventListener('click', switchTabs);
     colorsTabButton.addEventListener('click', switchTabs);
