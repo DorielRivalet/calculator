@@ -1,4 +1,7 @@
-/* https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css */
+/* 
+https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css 
+https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+*/
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
 @import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
@@ -6,7 +9,8 @@
 /* https://www.fontget.com/font/led-calculator/ */
 @font-face {
   font-family: "LEDCalculator";
-  src: local('LEDCalculator'), url('/fonts/LEDCalculator.woff') format('woff');
+  src: local('LEDCalculator'), 
+       url('/fonts/LEDCalculator.woff') format('woff');
   src: url('/fonts/LEDCalculator.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
@@ -14,28 +18,54 @@
 
 /* https://www.fontget.com/font/technology-1/ */
 @font-face {
-  font-family: 'Technology-Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Technology-Bold'), url('/fonts/Technology-Bold.woff') format('woff');
-}
-@font-face {
   font-family: 'Technology-BoldItalic';
   font-style: normal;
   font-weight: normal;
-  src: local('Technology-BoldItalic'), url('/fonts/Technology-BoldItalic.woff') format('woff');
+  src: local('Technology-BoldItalic'), 
+       url('/fonts/Technology-BoldItalic.woff') format('woff');
 }
-@font-face {
-  font-family: 'Technology-Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Technology-Italic'), url('/fonts/Technology-Italic.woff') format('woff');
-}
-@font-face {
-  font-family: 'Technology';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Technology'), url('/fonts/Technology.woff') format('woff');
+
+/* css variables for color palette */
+:root {
+  --background: #f6f6f6;
+  --font: #222;
+  --border: #333;
+  --scrollbar-thumb:rgb(107, 0, 0);
+  --scrollbar-track:rgb(46, 46, 46);
+  --screen-background: #d2ff8f;
+  --screen-font: #000000;
+  --calculator: hsl(0, 0%, 86%);
+  --btn: #efefef;
+  --btn-hover: crimson;
+  --btn-border:whitesmoke;
+  --btn-hover-border:#a00000;
+  --product-id:#a0a0a0;
+  --cog:rgb(200, 195, 188);
+  --cog-item:rgb(232, 230, 227);
+
+  --number-button: aliceblue;
+  --operator-button: rgb(155, 198, 184);
+  --function-button: rgb(205, 76, 76);
+  --equal-button: rgb(185, 187, 255);
+
+  --dark-background: #121212;
+  --dark-font: rgb(222, 222, 222);
+  --dark-calculator-background:hsl(234, 37%, 25%);
+  --dark-calculator-font:whitesmoke;
+  --dark-btn:antiquewhite;
+  --dark-btn-border:rgb(97, 64, 150);
+
+  --dark-number-button: rgb(93, 133, 168);
+  --dark-operator-button: #8db5ff;
+  --dark-function-button: #c49fff;
+  --dark-equal-button: #d98200;
+
+  --footer-font:#eee;
+  --footer-background:#20096E7F;
+
+  --github-icon:#efefef;
+  --commits:#efefef;
+  --creator:crimson;
 }
 
 /* 
@@ -77,8 +107,8 @@ body{
 }
 
 .dark-mode {
-  background-color: #121212;
-  color: rgb(222, 222, 222);
+  background-color: var(--dark-background);
+  color: var(--dark-font);
 }
 
 .mainSection{
@@ -98,21 +128,21 @@ body{
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: rgb(107, 0, 0);
+  background-color: var(--scrollbar-thumb);
   border-radius: 4px 4px 4px 4px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
 ::-webkit-scrollbar-track{
-  background-color: rgb(46, 46, 46);
+  background-color: var(--scrollbar-track);
   border-radius: 4px 4px 4px 4px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
   box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
 }
 
 ::-webkit-scrollbar-track-piece{
-  background-color: rgb(46, 0, 0);
+  background-color: var(--scrollbar-track);
   border-radius: 4px 4px 4px 4px;
 }
 
@@ -147,7 +177,7 @@ body{
   transition-duration: 0.6s;
   transition-timing-function: ease;
   background-color: rgba(13, 14, 14,.75);
-  color: rgb(232, 230, 227);
+  color: var(--github-icon);
 }
 
 
@@ -157,7 +187,7 @@ body{
   font-size: 32px;
   letter-spacing: 0.05em;
   text-align: center;
-  color: rgb(232, 230, 227);
+  color: var(--github-icon);
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -165,12 +195,12 @@ body{
   line-height: 1;
   transform-origin: 50% 50%;
   transform: scale(0.3, 0.3) translate3d(0, 113.05px, 0) rotate(45deg);
-  fill: rgb(232, 230, 227);
 }
 
 .dark-mode-fa-github {
-  color: #efefef;
+  color: var(--github-icon);
 }
+
 /*github icon size*/
 .fa-github:before {
   content: "\f09b";
@@ -197,7 +227,7 @@ body{
   0 0 0 4px hsl(240, 100%, 81%);
   margin-top: 32px;
   padding:20px;
-  background-color: hsl(0, 0%, 86%);
+  background-color: var(--calculator);
   border: 2px solid hsl(240, 100%, 75%);
   border-radius: 8px 8px 8px 8px;
   width: 400px;
@@ -233,8 +263,8 @@ body{
 .dark-modeCalculator{
   box-shadow: 0px 0px 64px 16px rgba(138, 210, 255,50%);
   border: 2px solid rgb(89, 164, 255);
-  background-color: hsl(234, 37%, 25%);
-  color:whitesmoke;
+  background-color: var(--dark-calculator-background);
+  color:var(--dark-calculator-font);
 }
 
 .topSection{
@@ -246,7 +276,8 @@ body{
 }
 
 .modelName{
-  padding:16px;
+  padding-top:16px;
+  padding-bottom: 16px;
   display:flex;
   justify-content: space-between;
 }
@@ -264,12 +295,12 @@ body{
   font-size: 16px;
   cursor:copy;
 /*https://html-css-js.com/css/generator/text-shadow/*/
-  color: #a0a0a0;
+  color: var(--product-id);
   text-shadow: #e0e0e0 2px 2px 0;
 }
 
 .modelName .dark-modeProductId{
-  color: whitesmoke;
+  color: var(--dark-calculator-font);
   /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
   text-shadow: 0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255);
 }
@@ -283,23 +314,26 @@ body{
 }
 
 .dark-modeModelName{
-  color: whitesmoke;
+  color: var(--dark-calculator-font);
 }
 
 .displaySection{
+  /*font default in case the other 2 doesn't load*/
+  font-family: 'Press Start 2P', cursive;
   white-space: nowrap;
   overflow-x:auto;
   border: 4px solid hsl(0, 0%, 66%);
   box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
   0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
-  background-color: #d2ff8f;
-  color:#000000;
+  background-color: var(--screen-background);
+  color:var(--screen-font);
   opacity: 0.6;
   padding-left:16px;
   padding-right:16px;
   padding-top:8px;
   display: flex;
+  height:120px;
   flex-grow: 0;
   flex-flow: column nowrap;
 }
@@ -490,13 +524,13 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 }
 
 button{
-  border-color: whitesmoke;
+  border-color: var(--btn-border);
   text-shadow: 1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke;
 }
 
 .dark-modeButtonSection{
-  border-color: rgb(97, 64, 150);
-  color:antiquewhite;
+  border-color: var(--dark-btn-border);
+  color:var(--dark-btn);
   text-shadow: 1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black;
 }
 
@@ -505,35 +539,35 @@ button{
 }
 
 .numberButton{
-  background-color: aliceblue;
+  background-color: var(--number-button);
 }
 
 .operatorButton{
-  background-color: rgb(155, 198, 184);
+  background-color: var(--operator-button);
 }
 
 .functionButton{
-  background-color: rgb(205, 76, 76);
+  background-color: var(--function-button);
 }
 
 .equalButton{
-  background-color: rgb(185, 187, 255);
+  background-color: var(--equal-button);
 }
 
 .dark-modeNumberButton{
-  background-color: rgb(93, 133, 168);
+  background-color: var(--dark-number-button);
 }
 
 .dark-modeOperatorButton{
-  background-color:#8db5ff;
+  background-color: var(--dark-operator-button);
 }
 
 .dark-modeFunctionButton{
-  background-color:#c49fff;
+  background-color: var(--dark-function-button);
 }
 
 .dark-modeEqualButton{
-  background-color:#d98200;
+  background-color: var(--dark-equal-button);
 }
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
@@ -546,7 +580,7 @@ button{
   letter-spacing: 0.05em;
   line-height: 1.6;
   text-align: center;
-  color: rgb(200, 195, 188);
+  color: var(--cog);
   margin: 0;
   padding: 0;
   border: 0;
@@ -587,7 +621,7 @@ button{
   transition-duration: 0.6s;
   transition-timing-function: ease;
   background-color: rgba(13, 14, 14,.75);
-  color: rgb(232, 230, 227);
+  color: var(--cog-item);
   top: -60px;
   right: -60px;
 }
@@ -600,14 +634,14 @@ button{
   font-size: 100%;
   font-style: normal;
   font-weight: normal;
-  color: rgb(232, 230, 227);
+  color: var(--cog-item);
   box-sizing: border-box;
   display: block;
   width: 100%;
   height: 100%;
   line-height: 1;
   transform-origin: 50% 50%;
-  fill: rgb(232, 230, 227);
+  fill: var(--cog-item);
   transform: scale(0.45, 0.45) translate3d(-70px, 0px, 0) rotate(45deg);
   transition: transform 0.3s ease-in-out;
 }
@@ -672,7 +706,7 @@ button{
 .tabs button{
   cursor: pointer;
   font-size: 18px;
-  color:#efefef;
+  color:var(--btn);
   background-color: transparent;
   border-right:1px solid #efefef;
   border-left:none;
@@ -686,7 +720,7 @@ button{
 }
 
 .tabs button:hover{
-  color:crimson;
+  color:var(--btn-hover);
   filter: brightness(110%);
 }
 
@@ -694,7 +728,7 @@ button{
   padding-left: 4px;
   padding-right: 4px;
   font-size: 18px;
-  color:#efefef;
+  color:var(--btn);
   background-color: transparent;
   border-right:1px solid #efefef;
   border-left:none;
@@ -704,7 +738,7 @@ button{
 }
 
 #commits:hover{
-  color:crimson;
+  color:var(--btn-hover);
   filter: brightness(110%);
 }
 
@@ -713,7 +747,7 @@ button{
   border-radius: 8px 8px 8px 8px;
   overflow-y: auto;
   overflow-x: hidden;
-  color:#efefef;
+  color:var(--btn);
   padding: 8px;
   font-size: 18px;
   text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
@@ -735,7 +769,7 @@ button{
   border: 1px solid #efefef;
   background:transparent;
   border-radius: 4px 4px 4px 4px;
-  color:#efefef;
+  color:var(--btn);
   text-align: center;
   text-shadow: none;
 /*https://stackoverflow.com/questions/3622756/button-center-css */
@@ -746,8 +780,8 @@ button{
 
 .menuContent div button:hover{
   filter:brightness(110%);
-  color:crimson;
-  border-color: #a00000;
+  color:var(--btn-hover);
+  border-color: var(--btn-hover-border);
 }
 
 .colorPicker{
@@ -822,7 +856,7 @@ button{
 
 #historyLog div:hover{
   filter: brightness(110%);
-  color:crimson;
+  color:var(--btn-hover);
 }
 
 
@@ -842,8 +876,8 @@ footer{
   font-weight: normal;
   margin-top: auto;
   z-index:3;
-  background-color: #20096E7F;
-	color: #fff;
+  background-color: var(--footer-background);
+	color: var(--footer-font);
 	filter:alpha(opacity=0.93);
 	-moz-opacity: 0.93;
 	opacity: 0.93;
@@ -851,28 +885,32 @@ footer{
 }
 
 #creator{
-  color: crimson;
+  color: var(--creator);
   cursor: help;
+}
+
+#creator:hover{
+  text-shadow: 1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke;
 }
 
 a:hover{
   text-decoration: none;
-  color: black;
+  color: var(--font);
 }
 
 a:active{
   text-decoration: none;
-  color: black;
+  color: var(--font);
 }
 
 a:visited{
   text-decoration: none;
-  color: black;
+  color: var(--font);
 }
 
 a:link{
   text-decoration: none;
-  color: black;
+  color: var(--font);
 }
 
 
