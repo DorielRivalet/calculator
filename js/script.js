@@ -27,7 +27,7 @@ const INITIAL_INPUT_VALUE = config.INITIAL_INPUT_VALUE;
 const INITIAL_RESULT_VALUE = config.INITIAL_RESULT_VALUE;
 const INITIAL_SCREEN_TEXT_COLOR = config.INITIAL_SCREEN_TEXT_COLOR;
 const INITIAL_SCREEN_BACKGROUND_COLOR = config.INITIAL_SCREEN_BACKGROUND_COLOR;
-
+const HISTORY_LOG_INITIAL_TEXT = config.HISTORY_LOG_INITIAL_TEXT;
 /*
 Document
 Object
@@ -64,6 +64,7 @@ const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector(".fa-github");
+const historyLogTooltipsContainer = document.getElementById('historyLogTooltips');
 
 inputElement.textContent = INITIAL_INPUT_VALUE;
 resultElement.textContent = INITIAL_RESULT_VALUE;
@@ -145,10 +146,37 @@ function modulo(x,y){
   return Number(x) % Number(y);
 }
 
+function inputFromHistoryLog(event){
+  //https://stackoverflow.com/questions/6623231/remove-all-white-spaces-from-text
+  let pastOperationContent = event.target.textContent.replace(/\s/g,'');
+  let pastOperationArray = pastOperationContent.split("=");
+  inputElement.textContent = pastOperationArray[0];
+  resultElement.textContent = pastOperationArray[1];
+  initializeWaitForInput();
+  currentState = "On";
+}
+
+function createClearHistoryLogButton(){
+  let clearHistoryLogButton = document.createElement("button");
+  clearHistoryLogButton.textContent = "Clear history";
+  clearHistoryLogButton.classList.add('clearHistoryButton');
+  clearHistoryLogButton.addEventListener('click', clearHistory);
+  historyLogElement.append(clearHistoryLogButton);
+}
+
+function logCurrentOperationToHistory(firstOperand,currentOperator,secondOperand,result){
+  let currentOperation = document.createElement("div");
+  //string interpolation
+  currentOperation.textContent = `${firstOperand} ${currentOperator} ${secondOperand} = ${result}`;
+  currentOperation.setAttribute('title','Select this equation to input into the calculator');
+  currentOperation.addEventListener('click',inputFromHistoryLog);
+  historyLogElement.append(currentOperation);
+}
+
 function clearHistory(){
   let clearHistoryButton = document.querySelector(".clearHistoryButton");
   clearHistoryButton.removeEventListener('click', clearHistory);
-  historyLogElement.textContent = config.HISTORY_LOG_INITIAL_TEXT;
+  historyLogElement.textContent = HISTORY_LOG_INITIAL_TEXT;
 }
 
 function clearInput(){
@@ -173,7 +201,7 @@ function calculateResult(){
   let currentInput = inputElement.textContent;
   //https://stackoverflow.com/questions/638565/parsing-scientific-notation-sensibly
   //written with help of https://regexr.com/ cheatsheet
-  let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\-\÷\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\x\*\-\÷\/\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
   // first operand: /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?
   // operator: ([\+\×\-\÷\%\^]{1}) 
   // second operand: [+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
@@ -240,19 +268,13 @@ function calculateResult(){
     return "Math_ERROR";
   }
 
-  if (historyLogElement.textContent === config.HISTORY_LOG_INITIAL_TEXT){
+  if (historyLogElement.textContent === HISTORY_LOG_INITIAL_TEXT){
     historyLogElement.textContent = "";
-    let clearHistoryButton = document.createElement("button");
-    clearHistoryButton.textContent = "Clear history";
-    clearHistoryButton.classList.add('clearHistoryButton');
-    clearHistoryButton.addEventListener('click', clearHistory);
-    historyLogElement.append(clearHistoryButton);
+    createClearHistoryLogButton();
   }
 
-  let currentData = document.createElement("div");
-  //string interpolation
-  currentData.textContent = `${firstOperand} ${currentOperator} ${secondOperand} = ${result}`;
-  historyLogElement.append(currentData);
+  logCurrentOperationToHistory(firstOperand,currentOperator,secondOperand,result);
+
   return result
 }
 
@@ -319,6 +341,7 @@ function operate(operator, operand1, operand2){
       break;
     case "*":
     case "×":
+    case "x":
       currentResult = multiply(operand1,operand2);
       break;
     case "/":
@@ -591,8 +614,8 @@ function toggleSettingsModal(){
 function restoreDefaultSettings(){
   screen.style.color = INITIAL_SCREEN_TEXT_COLOR;
   screen.style.backgroundColor = INITIAL_SCREEN_BACKGROUND_COLOR;
-  screenTextColor.value = INITIAL_SCREEN_TEXT_COLOR;
-  screenBackgroundColor.value = INITIAL_SCREEN_BACKGROUND_COLOR;
+  screenTextColorPicker.value = INITIAL_SCREEN_TEXT_COLOR;
+  screenBackgroundColorPicker.value = INITIAL_SCREEN_BACKGROUND_COLOR;
 }
 
 function watchColorPicker(event) {
@@ -620,7 +643,6 @@ buttonsElements.forEach(function(currentButton){
 productIdElement.addEventListener("click", toggleTheme); //easter egg
 powerButtonElement.addEventListener("click", switchPower);
 cogIcon.addEventListener('click', toggleSettingsModal);
-/* screenTextColor.addEventListener("input", updateFirst, false); */
 screenTextColor.addEventListener("input", watchColorPicker, false);
 screenBackgroundColor.addEventListener("input", watchColorPicker, false);
 defaultSettingsButton.addEventListener("click", restoreDefaultSettings);

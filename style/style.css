@@ -1,6 +1,42 @@
+/* https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css */
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
 @import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
+
+/* https://www.fontget.com/font/led-calculator/ */
+@font-face {
+  font-family: "LEDCalculator";
+  src: local('LEDCalculator'), url('/fonts/LEDCalculator.woff') format('woff');
+  src: url('/fonts/LEDCalculator.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* https://www.fontget.com/font/technology-1/ */
+@font-face {
+  font-family: 'Technology-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Technology-Bold'), url('/fonts/Technology-Bold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Technology-BoldItalic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Technology-BoldItalic'), url('/fonts/Technology-BoldItalic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Technology-Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Technology-Italic'), url('/fonts/Technology-Italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Technology';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Technology'), url('/fonts/Technology.woff') format('woff');
+}
 
 /* 
 Cascading
@@ -224,8 +260,8 @@ body{
 
 .modelName .productId{
   font-style: normal;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 22px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
   cursor:copy;
 /*https://html-css-js.com/css/generator/text-shadow/*/
   color: #a0a0a0;
@@ -258,14 +294,11 @@ body{
   0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
   background-color: #d2ff8f;
-  color:#00000096;
+  color:#000000;
+  opacity: 0.6;
   padding-left:16px;
   padding-right:16px;
-  padding-top:16px;
-  padding-bottom:8px;
-  gap:16px;
-  font-size: 32px;
-  font-family: 'Press Start 2P', cursive;
+  padding-top:8px;
   display: flex;
   flex-grow: 0;
   flex-flow: column nowrap;
@@ -321,17 +354,21 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
 .inputSection{
   display:flex;
   flex-flow:row nowrap;
+  font-family: "LEDCalculator";
+  font-size: 48px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .userInputValue, .waitingEffect{
   display:inline-block;
   text-align: start;
-  font-size: 24px;
 }
 
 .result{
+  font-family: 'Technology-BoldItalic';
   text-align: end;
-  font-size: 36px;
+  font-size: 64px;
   font-weight: 900;
 }
 
@@ -675,6 +712,7 @@ button{
   max-height: 400px;
   border-radius: 8px 8px 8px 8px;
   overflow-y: auto;
+  overflow-x: hidden;
   color:#efefef;
   padding: 8px;
   font-size: 18px;
@@ -692,13 +730,24 @@ button{
   background-size: 20px 20px;
 }
 
-#defaultSettings{
+.menuContent div button{
+  cursor:pointer;
   border: 1px solid #efefef;
   background:transparent;
-  border-radius: 8px 8px 8px 8px;
+  border-radius: 4px 4px 4px 4px;
   color:#efefef;
   text-align: center;
   text-shadow: none;
+/*https://stackoverflow.com/questions/3622756/button-center-css */
+  margin: 8px auto;
+  padding:4px;
+  display: block;
+}
+
+.menuContent div button:hover{
+  filter:brightness(110%);
+  color:crimson;
+  border-color: #a00000;
 }
 
 .colorPicker{
@@ -727,6 +776,7 @@ button{
 }
 
 #historyLog div{
+  cursor:copy;
   margin:4px;
   padding:4px;
   overflow-x: auto;
@@ -770,13 +820,9 @@ button{
   background-color: transparent;
 }
 
-.clearHistoryButton{
-  border: 1px solid #efefef;
-  background:transparent;
-  border-radius: 8px 8px 8px 8px;
-  color:#efefef;
-  text-align: center;
-  text-shadow: none;
+#historyLog div:hover{
+  filter: brightness(110%);
+  color:crimson;
 }
 
 
