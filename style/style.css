@@ -10,8 +10,8 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
 @font-face {
   font-family: "LEDCalculator";
   src: local('LEDCalculator'), 
-       url('/fonts/LEDCalculator.woff') format('woff');
-  src: url('/fonts/LEDCalculator.ttf') format('truetype');
+       url('../fonts/LEDCalculator.woff') format('woff');
+  src: url('../fonts/LEDCalculator.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
 }
@@ -22,7 +22,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
   font-style: italic;
   font-weight: normal;
   src: local('Digital7-Mono'), 
-       url('/fonts/Digital7Monoitalic-8xKz.ttf') format('truetype');
+       url('../fonts/Digital7Monoitalic-8xKz.ttf') format('truetype');
 }
 
 /* css variables for color palette */
