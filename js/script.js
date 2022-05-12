@@ -64,7 +64,6 @@ const productIdElement = document.querySelector('.modelName .productId');
 const calculatorElement = document.querySelector('.calculator');
 const displaySectionElement = document.querySelector('.displaySection');
 const githubIcon = document.querySelector(".fa-github");
-const historyLogTooltipsContainer = document.getElementById('historyLogTooltips');
 
 inputElement.textContent = INITIAL_INPUT_VALUE;
 resultElement.textContent = INITIAL_RESULT_VALUE;
@@ -190,7 +189,7 @@ function clearInput(){
   clearButtonElement.textContent = "AC";
 }
 
-function calculateResult(){
+function calculateResult(){//this function might be too big
   if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === ""){
     return false
   }
@@ -640,13 +639,13 @@ function watchColorPicker(event) {
 ※ Since buttonsElements is a nodelist, we can use the forEach method to add an event listener to each button element.
 =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
-document.addEventListener("keydown", onInput); //document = window?
+document.addEventListener("keydown", onInput);
 buttonsElements.forEach(function(currentButton){
   currentButton.addEventListener("click", onInput)
 });
 productIdElement.addEventListener("click", toggleTheme); //easter egg
 powerButtonElement.addEventListener("click", switchPower);
 cogIcon.addEventListener('click', toggleSettingsModal);
-screenTextColor.addEventListener("input", watchColorPicker, false);
-screenBackgroundColor.addEventListener("input", watchColorPicker, false);
+screenTextColorPicker.addEventListener("input", watchColorPicker, false);
+screenBackgroundColorPicker.addEventListener("input", watchColorPicker, false);
 defaultSettingsButton.addEventListener("click", restoreDefaultSettings);
