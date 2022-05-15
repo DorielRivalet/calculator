@@ -244,7 +244,7 @@ function calculateResult(){//this function might be too big
 		secondOperand = currentInput.slice(firstOperand.length+1);
 	}
   
-	//solution for negative exponents in the scientific notation
+	//workaround for negative exponents in the scientific notation
 	if (firstOperand.slice(-1) === "e"){
 		let newCurrentInput;
 		if (currentInput[firstOperand.length] === "-" || currentInput[firstOperand.length] === "+"){
