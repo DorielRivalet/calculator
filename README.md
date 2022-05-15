@@ -137,6 +137,23 @@
 <br>Course
 </h1>
 
+<p align="center">
+  <a href="https://discord.com/invite/fbFCkYabZB">
+    <img src="https://discordapp.com/api/guilds/505093832157691914/widget.png?style=shield" alt="Discord Server">
+  </a>
+</p>
+
+<p align="center">
+  <a href="project-overview">Project overview</a>
+  •
+  <a href="#creation-process">Creation process</a>
+  •
+  <a href="#debugging">Debugging</a>
+  •
+  <a href="#what-ive-learned">What I've learned</a>
+  •
+  <a href="#conclusion">Conclusion</a>
+</p>
 
 # <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview
 
@@ -154,11 +171,30 @@ src="./img/demo.gif">
 Supports scientific notation!
 </p>
 
+# Table of contents
+
+- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview](#-project-overview)
+- [Table of contents](#table-of-contents)
+  - [Creation process](#creation-process)
+    - [Prerequisites](#prerequisites)
+    - [Setting up local and remote repositories](#setting-up-local-and-remote-repositories)
+    - [Making the files](#making-the-files)
+    - [Creating boilerplate code](#creating-boilerplate-code)
+    - [Understanding the problem](#understanding-the-problem)
+    - [Designing the page](#designing-the-page)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
+    - [Handling calculation and display function logic](#handling-calculation-and-display-function-logic)
+  - [Debugging](#debugging)
+  - [What I've learned](#what-ive-learned)
+  - [Conclusion](#conclusion)
+
 ## Creation process
 
 ### Prerequisites
 
-- [Linux](https://www.theodinproject.com/lessons/foundations-prerequisites#os-installation)
+- [Linux Terminal](https://www.theodinproject.com/lessons/foundations-prerequisites#os-installation) (or Git Bash)
 - [Visual Studio Code](https://www.theodinproject.com/lessons/foundations-text-editors#vscode-installation) (or other editors)
 - [Git](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-1-install-git)
 - [GitHub account](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-2-configure-git-and-github)
@@ -166,7 +202,7 @@ Supports scientific notation!
 ### Setting up local and remote repositories
 
 - First, let's start by making a repository on GitHub.
-- Next, open the terminal with `Ctrl+Alt+T` and then clone it to a local folder with `git clone git@github.com:yourName/calculator.git`.
+- Next, open the terminal with `Ctrl+Alt+T` and then clone the GitHub repository to a local folder with `git clone git@github.com:yourName/calculator.git`.
 
 ### Making the files
 
@@ -204,7 +240,7 @@ Let's open *Visual Studio Code* and make it load all files of the present workin
 </html>
 ```
 
-### Understanding the probem
+### Understanding the problem
 
 Now that we have our files and boilerplate code set up, we can review the project's tasks:
 
@@ -317,11 +353,13 @@ flex-flow is shorthand for flex direction and flex wrap.
 <img style="display: block; margin: auto;"
 src="./img/flexFlow2.png">
 <p style="text-align: center;">
+Further designing the layout
 </p>
 
 <img style="display: block; margin: auto;"
 src="./img/flexFlow3.png">
 <p style="text-align: center;">
+End result
 </p>
 
 **Flexbox** code:
@@ -390,7 +428,7 @@ src="./img/flexFlow3.png">
 }
 ```
 
-**Grid**: for the button sections.
+**Grid**: layout for the button sections, done with grid-template-areas.
 
 ```css
 .buttonSection{
@@ -538,7 +576,7 @@ let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
 
 **Functions**: also called *subroutines*, or *methods* when talking about objects.
 
-- Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct. 
+- Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct.
 - The common algorithm flow is as follows:
   1. Wait for calculator to be turned on.
   2. Process user input as either a keyboard key or a button press.
@@ -743,10 +781,6 @@ buttonsElements.forEach(function(currentButton){
 powerButtonElement.addEventListener("click", switchPower);
 ```
 
-End result:
-
-
-
 ### Handling calculation and display function logic
 
 There's many ways to handle this, here's how it could be done with regex:
@@ -855,6 +889,225 @@ function displayResult(result){
 
 ***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](), which is beyond the scope of the project's objectives.***
 
-### Debugging
+## Debugging
+
+For debugging my code, I used the following:
+
+- JavaScript console library
+  - `console.log`, `console.table`
+- Google Chrome's DevTools (Inspect Element)
+  - Console, Breakpoints, Source,
+
+
 
 ## What I've learned
+
+List of concepts I've learned throurough this course (plus own research)
+
+- Web Infrastructure
+  - Client and server, packets.
+  - Web page -> Website -> Web Server
+  - IP Adress -> Router -> ISP
+  - DNS
+- Virtual Machines
+- Programming in general
+  - **Problem Solving (most important concept)**
+    - Divide and conquer approach
+    - How to ask good questions
+  - Pseudocode
+  - Bits and Bytes
+  - Compiler
+    - Lexical analyzer
+      - Tokens and lexemes
+        - Reserved words, Operators, Identifiers, Constants, Separators
+        - Example:
+
+        ```lua
+              newvalue = oldvalue + rate * 60
+
+        --[[  Token             Lexeme
+              Identifier      newvalue
+              assignOperation        =
+              Identifier      oldvalue
+              addOperation           +
+              identifier          rate
+              mulOperation           *
+              number                 6
+        ]] 
+        ```
+
+  - Variables
+    - Declaration and assignment
+    - Data types
+      - Enum
+      - Primitive
+        - Boolean [(which is stored as 1 byte instead of 1 bit)](https://softwareengineering.stackexchange.com/questions/185104/why-is-a-boolean-value-stored-as-a-byte-inside-of-a-computer-when-it-only-requir)
+          - Falsy and truthy values
+        - Integer
+          - 2 bytes
+            - short, int16
+            - unsigned short, uint16
+          - 4 bytes
+            - signed integer, int32
+            - unsigned integer, uint32
+            - float
+          - 8 bytes
+            - double
+        - Char and String
+          - String manipulation
+          - String concatenation
+          - String interpolation
+      - Composite
+        - Object
+        - Array
+  - Operators
+    - Logical
+      - `AND`(and,&&), `OR`(or,||), `NOT`(not,!), `XOR`(either x or y is true, and not both true), `NAND`(not and, !(x && y)), `NOR`(not or, !(x || y))
+    - Comparison
+      - `>`(greater than), `<`(lesser than), `>=`(greater or equal than), `<=`(lesser or equal than), `==`(equals), `!=`(not equals)
+    - Ternary operator: `(condition) ? IfTrue : IfFalse`
+  - Functions
+    - Arguments and parameters
+    - Recursion
+    - Nesting
+    - Coroutines
+    - Scope. Environment.
+    - Stack trace
+  - Passing data
+    - Pass by *value*: passing the *data* itself.
+    - Pass by *reference*: pass the *variable* that references the data.
+    - Pass by *share*: pass the *reference* itself, sharing the memory location the variable uses (this is the way JavaScript handles assignments and function parameters).
+  - Language Paradigms
+    - Functional (e.g. Haskell)
+    - Procedural, Imperative, Event-driven (e.g. JavaScript)
+      - Event listeners
+        - Callback functions
+        - Adding and removing
+          - Memory leaks
+            - Garbage collection
+    - Object-oriented (e.g. Java)
+      - Classes
+        - Instance
+        - Inheritance
+        - Singleton
+        - Properties, Methods and Events
+    - Multiparadigm
+  - Abstraction
+    - Examples: Analog -> Digital -> Binary -> Hexadecimal -> Assembly -> C -> C++ -> Java -> JavaScript. From standard libraries to custom frameworks.
+  - Learning concepts
+    - Reading documentation
+    - Asking in communities
+    - Analyzing other's code
+    - Implementing proof of concepts
+  - **Data structures**
+    - Arrays
+      - Push and pop
+    - Lists
+      - Key and value pairs
+    - Dictionaries and tables
+      - Indexing, retrieving, insertion
+  - **Algorithms**
+    - Sorting data
+    - Binary search
+    - Loops
+      - `for`
+        - Numeric: `for i=start, end, step`
+        - Generic: `for element in list`
+      - `while`, `repeat` or `do while`
+      - Nesting
+    - Conditionals
+      - `if` `else` `else if`
+      - `switch`
+      - Nesting
+  - Regular Expressions
+  - Modules, Libraries, Frameworks
+  - Code style
+    - Case
+      - `camelCase`, `PascalCase`
+    - Design patterns
+      - Creational, structural, behavioral, concurrency
+      - Anti-patterns
+    - Readability
+    - Source Code Comments
+- Debugging
+  - Chrome DevTools
+    - Inspector
+    - Breakpoints
+    - Console
+    - Device Mode
+  - `print`/`console`, `error` and `warn` functions
+  - Static analysis programs
+    - ESLint, semgrep
+- HTML (.html)
+  - Elements and tags
+- CSS (.css)
+  - Selectors (and properties holding values)
+  - Typography
+    - Typefaces
+      - Fonts
+      - Serif
+      - Sans-serif
+  - Character encoding
+    - UTF-8, ASCII, Unicode, Shift JIS
+  - Specificity
+  - Box Model
+    - Padding -> Border -> Margin
+  - Display types
+    - None
+    - Block
+    - Inline
+    - Flexbox
+      - Containers and items
+      - Main and cross axis
+      - Properties and/or shorthands
+        - `flex`, `flex-flow`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex-direction`, `justify-content`, `align-items`, `align-content`, `justify-items`, `gap`
+    - Grid
+      - `grid-template-columns`, `grid-template-rows`, `grid-column-gap`, `grid-row-gap`, `grid-template-areas`, `grid-area`
+- JavaScript (.js)
+  - Variables
+    - `var`, `let`, `const`
+    - `NaN`, `undefined`, `null`
+    - Postfixing and prefixing
+    - bigInt
+  - Operators
+    - Order of precedence
+    - Unary (one operand)
+      - `+`, `!`
+    - `==`(equal value) and `===`(equal value and data type)
+    - Nullish coalescing operator: `??` (and difference from ||, the OR operator)
+  - Functions
+    - Anonymous (without name)
+    - Arrow: `(input) => output`
+    - 
+- Learning strategies
+  - Active and passive learning
+  - Focus mode and diffuse mode
+  - Grit and motivation
+  - Fixed vs growth mindset
+- Command line interface (CLI)
+  - Flags: `-` and `--`. Example: `-f`, `--help`
+- Terminal commands
+  - `mv`(move), `rm`(remove), `mkdir`(make directory), `touch`, `pwd`(present working directory), `cd` (change directory), `code`, `chrome`, `cat`
+- File navigation
+  - `..` (to parent directory)
+  - `./folderName` (go to this folder relative to the present working directory)
+  - `~` (home directory)
+- Version Control
+  - Types and history of version control
+  - Git commands
+    - `init`, `push`(to), `pull`(from), `branch`, `reflog`, `log`, `commit`, `rebase`, `add`, `restore`, `status`, `remote`, `clone`, `fetch`
+  - Atomic commits , commit frequency
+  - Redaction of commit messages
+- GitHub
+  - Making a repository
+  - Making a GitHub Pages site
+  - Pull requests
+- Markdown (.md)
+  - Formatting
+  - Variants, Extensions, Flavors
+    - GitHub Flavored Markdown (GFM)
+  - Online Editors
+
+## Conclusion
+
+Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (eg. making a calculator object and store the values there).
