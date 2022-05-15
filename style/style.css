@@ -138,6 +138,7 @@ body{
 }
 
 
+
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 02. Main Scrollbar
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
@@ -164,7 +165,6 @@ body{
   background-color: var(--scrollbar-track);
   border-radius: 4px 4px 4px 4px;
 }
-
 
 
 
@@ -198,7 +198,6 @@ body{
   background-color: rgba(13, 14, 14,.75);
   color: var(--github-icon);
 }
-
 
 .fa-github {
   -webkit-text-size-adjust: 100%;
@@ -360,11 +359,6 @@ body{
   gap:0;
   flex-flow: column nowrap;
 }
-
-/* .displaySection::after{
-  background: rgb(255,255,255);
-  background: linear-gradient(315deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-} */
 
 /*::-webkit-scrollbar the scrollbar.
 ::-webkit-scrollbar-button the buttons on the scrollbar (arrows pointing upwards and downwards).
