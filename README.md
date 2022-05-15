@@ -144,7 +144,7 @@
 </p>
 
 <p align="center">
-  <a href="project-overview">Project overview</a>
+  <a href="#table-of-contents">Table of contents</a>
   •
   <a href="#creation-process">Creation process</a>
   •
@@ -155,7 +155,7 @@
   <a href="#conclusion">Conclusion</a>
 </p>
 
-# <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview
+# <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/>Project overview
 
 This repository contains a calculator made with HTML, CSS and JavaScript.
 
@@ -173,7 +173,7 @@ Supports scientific notation!
 
 # Table of contents
 
-- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview](#-project-overview)
+- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/>Project overview](#project-overview)
 - [Table of contents](#table-of-contents)
   - [Creation process](#creation-process)
     - [Prerequisites](#prerequisites)
@@ -588,8 +588,32 @@ let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
   8. Change the calculator state to either Error or Standby according to regex test or calculation test pass/fail.
   9. Go back to i., or ii. if pressing the Power Button at anytime.
 
-<img style="display: block; margin: auto;"
-src="./img/flowchart.png">
+```mermaid
+stateDiagram-v2
+    [*] --> Off
+    Off --> On
+    On --> Off
+    On --> Standby
+    Standby --> On
+    Standby --> Off
+    On --> Error
+    Error --> On
+    Error --> Off
+```
+
+Diagram for calculator states
+
+```mermaid
+graph LR
+    A[fa:fa-calculator onInput] -->|event| B{currentState == on}
+    B -->|true| C{event.key or event.target.textContent}
+    C -->|+ or - or * or /| D[onOperatorPress]
+    C -->|0 to 9 or Ans| E[onNumberPress]
+    C -->|= or Enter| F[displayResult]
+    C -->|DEL or Backspace| G[deleteInput]
+    C -->|Delete or AC or CE or Escape| H[clearInput]
+```
+
 <p style="text-align: center;">
 Algorithm flowchart for the onInput function
 </p>
@@ -887,35 +911,37 @@ function displayResult(result){
 }
 ```
 
-***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](), which is beyond the scope of the project's objectives.***
+***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](https://www.reddit.com/r/learnpython/comments/l1ybvx/comment/gk4b8lq/?utm_source=share&utm_medium=web2x&context=3), which is beyond the scope of the project's objectives.***
 
 ## Debugging
 
 For debugging my code, I used the following:
 
-- JavaScript console library
+- JavaScript console object
   - `console.log`, `console.table`
-- Google Chrome's DevTools (Inspect Element)
-  - Console, Breakpoints, Source,
-
-
+- Google Chrome's DevTools (*Inspect Element*)
+  - Inspector
+  - Elements
+  - Console
+    - Stack trace, errors
+  - Sources
+    - Breakpoints, Watch
 
 ## What I've learned
 
 List of concepts I've learned throurough this course (plus own research)
 
-- Web Infrastructure
+- [Web Infrastructure](https://www.theodinproject.com/lessons/foundations-how-does-the-web-work)
   - Client and server, packets.
   - Web page -> Website -> Web Server
   - IP Adress -> Router -> ISP
   - DNS
 - Virtual Machines
 - Programming in general
-  - **Problem Solving (most important concept)**
+  - [**Problem Solving (most important concept)**](https://www.theodinproject.com/lessons/foundations-problem-solving)
     - Divide and conquer approach
     - How to ask good questions
-  - Pseudocode
-  - Bits and Bytes
+    - Pseudocode
   - Compiler
     - Lexical analyzer
       - Tokens and lexemes
@@ -936,6 +962,7 @@ List of concepts I've learned throurough this course (plus own research)
         ]] 
         ```
 
+  - Literals
   - Variables
     - Declaration and assignment
     - Data types
@@ -957,35 +984,38 @@ List of concepts I've learned throurough this course (plus own research)
           - String manipulation
           - String concatenation
           - String interpolation
+          - Escaping
       - Composite
         - Object
         - Array
   - Operators
     - Logical
-      - `AND`(and,&&), `OR`(or,||), `NOT`(not,!), `XOR`(either x or y is true, and not both true), `NAND`(not and, !(x && y)), `NOR`(not or, !(x || y))
+      - `AND`(and, &&, ∧, ·, &), `OR`(or, ∥, ||, ∨, +), `NOT`(not,¬, ~, !), `XOR`(exclusive or, ↮, ⊕, ⊻, ≢. Either x or y is true, and not both true), `NAND`(not and, ⊼, !(x && y)), `NOR`(not or, ⊽, !(x || y))
     - Comparison
       - `>`(greater than), `<`(lesser than), `>=`(greater or equal than), `<=`(lesser or equal than), `==`(equals), `!=`(not equals)
     - Ternary operator: `(condition) ? IfTrue : IfFalse`
   - Functions
+    - Invocation, calls.
     - Arguments and parameters
     - Recursion
     - Nesting
     - Coroutines
     - Scope. Environment.
     - Stack trace
+    - [Varargs `(...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
   - Passing data
     - Pass by *value*: passing the *data* itself.
     - Pass by *reference*: pass the *variable* that references the data.
     - Pass by *share*: pass the *reference* itself, sharing the memory location the variable uses (this is the way JavaScript handles assignments and function parameters).
   - Language Paradigms
-    - Functional (e.g. Haskell)
-    - Procedural, Imperative, Event-driven (e.g. JavaScript)
+    - Functional (*e.g.*, Haskell)
+    - Procedural, Imperative, Event-driven (*e.g.*, JavaScript)
       - Event listeners
         - Callback functions
         - Adding and removing
           - Memory leaks
             - Garbage collection
-    - Object-oriented (e.g. Java)
+    - Object-oriented (*e.g.*, Java)
       - Classes
         - Instance
         - Inheritance
@@ -1015,6 +1045,9 @@ List of concepts I've learned throurough this course (plus own research)
         - Generic: `for element in list`
       - `while`, `repeat` or `do while`
       - Nesting
+      - Flow control
+        - `break` (the current loop)
+        - `continue` (to the next iteration)
     - Conditionals
       - `if` `else` `else if`
       - `switch`
@@ -1026,9 +1059,14 @@ List of concepts I've learned throurough this course (plus own research)
       - `camelCase`, `PascalCase`
     - Design patterns
       - Creational, structural, behavioral, concurrency
+      - Don't Repeat Yourself (DRY) principle
+        - Refactoring
       - Anti-patterns
     - Readability
-    - Source Code Comments
+      - Self-documenting code
+    - Source code comments
+  - People
+    - Alan Turing, George Boole, John von Neumann, Ada Lovelace
 - Debugging
   - Chrome DevTools
     - Inspector
@@ -1048,7 +1086,7 @@ List of concepts I've learned throurough this course (plus own research)
       - Serif
       - Sans-serif
   - Character encoding
-    - UTF-8, ASCII, Unicode, Shift JIS
+    - UTF-8, ASCII, Shift JIS, Unicode
   - Specificity
   - Box Model
     - Padding -> Border -> Margin
@@ -1063,12 +1101,18 @@ List of concepts I've learned throurough this course (plus own research)
         - `flex`, `flex-flow`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex-direction`, `justify-content`, `align-items`, `align-content`, `justify-items`, `gap`
     - Grid
       - `grid-template-columns`, `grid-template-rows`, `grid-column-gap`, `grid-row-gap`, `grid-template-areas`, `grid-area`
+    - Pseudo-elements
+    - Pseudo-classes
+- Document Object Model (DOM)
+  - Nodes and nodelists
+  - Capture and bubbling in events.
 - JavaScript (.js)
   - Variables
     - `var`, `let`, `const`
     - `NaN`, `undefined`, `null`
     - Postfixing and prefixing
     - bigInt
+    - `typeof` function
   - Operators
     - Order of precedence
     - Unary (one operand)
@@ -1078,8 +1122,19 @@ List of concepts I've learned throurough this course (plus own research)
   - Functions
     - Anonymous (without name)
     - Arrow: `(input) => output`
-    - 
-- Learning strategies
+  - Loops
+    - Control Flow
+      - [Labels](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) (they are similar in concept to GOTO)
+  - Runtime environments
+    - Browser
+    - Node.js
+      - Node Version Manager (nvm)
+      - Node Package Manager (npm)
+  - Test Driven Development
+    - Jest
+    - Assertion (do `x` if failed, do `y` if succesful)
+    - Unit testing
+- [Learning strategies](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset)
   - Active and passive learning
   - Focus mode and diffuse mode
   - Grit and motivation
@@ -1089,25 +1144,28 @@ List of concepts I've learned throurough this course (plus own research)
 - Terminal commands
   - `mv`(move), `rm`(remove), `mkdir`(make directory), `touch`, `pwd`(present working directory), `cd` (change directory), `code`, `chrome`, `cat`
 - File navigation
-  - `..` (to parent directory)
+  - `..` (to parent directory relative to the present working directory)
   - `./folderName` (go to this folder relative to the present working directory)
   - `~` (home directory)
 - Version Control
   - Types and history of version control
-  - Git commands
-    - `init`, `push`(to), `pull`(from), `branch`, `reflog`, `log`, `commit`, `rebase`, `add`, `restore`, `status`, `remote`, `clone`, `fetch`
-  - Atomic commits , commit frequency
-  - Redaction of commit messages
+  - [Git](https://www.theodinproject.com/lessons/foundations-introduction-to-git)
+    - [Difference between workspace and repository](https://stackoverflow.com/questions/59441589/how-is-repository-different-from-workspace)
+    - Commands
+      - `init`, `push`(to), `pull`(from), `branch`, `reflog`, `log`, `commit`, `rebase`, `add`, `restore`, `status`, `remote`, `clone`, `fetch`,`merge`,`checkout`
+    - Atomic commits, commit frequency
+    - Redaction of commit messages
 - GitHub
   - Making a repository
   - Making a GitHub Pages site
   - Pull requests
+  - SSH Keys
 - Markdown (.md)
   - Formatting
   - Variants, Extensions, Flavors
     - GitHub Flavored Markdown (GFM)
-  - Online Editors
+    - [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
 
 ## Conclusion
 
-Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (eg. making a calculator object and store the values there).
+Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (*i.e.*, instead of getting the operands and operator with a regular expression, make a Calculator object and store the values there when pressing the equal button).
