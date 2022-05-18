@@ -155,7 +155,7 @@
   <a href="#conclusion">Conclusion</a>
 </p>
 
-# <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/>Project overview
+# <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview
 
 This repository contains a calculator made with HTML, CSS and JavaScript.
 
@@ -171,45 +171,48 @@ src="./img/demo.gif">
 Supports scientific notation!
 </p>
 
-# Table of contents
+# 🔤 Table of contents
 
-- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/>Project overview](#project-overview)
-- [Table of contents](#table-of-contents)
-  - [Creation process](#creation-process)
-    - [Prerequisites](#prerequisites)
-    - [Setting up local and remote repositories](#setting-up-local-and-remote-repositories)
-    - [Making the files](#making-the-files)
-    - [Creating boilerplate code](#creating-boilerplate-code)
-    - [Understanding the problem](#understanding-the-problem)
-    - [Designing the page](#designing-the-page)
+- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview](#-project-overview)
+- [🔤 Table of contents](#-table-of-contents)
+  - [💡 Creation process](#-creation-process)
+    - [❗ Prerequisites](#-prerequisites)
+    - [💾 Setting up local and remote repositories](#-setting-up-local-and-remote-repositories)
+    - [📜 Making the files](#-making-the-files)
+    - [🍽️ Creating boilerplate code](#️-creating-boilerplate-code)
+    - [❓ Understanding the problem](#-understanding-the-problem)
+    - [🎨 Designing the page](#-designing-the-page)
     - [HTML](#html)
     - [CSS](#css)
     - [JavaScript](#javascript)
-    - [Handling calculation and display function logic](#handling-calculation-and-display-function-logic)
-  - [Debugging](#debugging)
-  - [What I've learned](#what-ive-learned)
-  - [Conclusion](#conclusion)
+    - [🔢 Handling calculation and display function logic](#-handling-calculation-and-display-function-logic)
+  - [🐛 Debugging](#-debugging)
+  - [✅ Unit Testing](#-unit-testing)
+  - [Pushing our local repository to our GitHub remote repository](#pushing-our-local-repository-to-our-github-remote-repository)
+  - [📔 What I've learned](#-what-ive-learned)
+  - [🏁 Conclusion](#-conclusion)
 
-## Creation process
+## 💡 Creation process
 
-### Prerequisites
+### ❗ Prerequisites
 
 - [Linux Terminal](https://www.theodinproject.com/lessons/foundations-prerequisites#os-installation) (or Git Bash)
 - [Visual Studio Code](https://www.theodinproject.com/lessons/foundations-text-editors#vscode-installation) (or other editors)
 - [Git](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-1-install-git)
 - [GitHub account](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-2-configure-git-and-github)
+- Figma (or another tool for designing layouts)
 
-### Setting up local and remote repositories
+### 💾 Setting up local and remote repositories
 
 - First, let's start by making a repository on GitHub.
 - Next, open the terminal with `Ctrl+Alt+T` and then clone the GitHub repository to a local folder with `git clone git@github.com:yourName/calculator.git`.
 
-### Making the files
+### 📜 Making the files
 
 - Enter the calculator folder with `cd calculator` and type `touch index.html style.css script.js` to make our project's files.
 - For organization purposes, we could also create folders and put certain files in there: type in `mkdir js style img` and then `mv script.js js/script.js` `mv style.css style/style.css` to move our files in those folders.
 
-### Creating boilerplate code
+### 🍽️ Creating boilerplate code
 
 Let's open *Visual Studio Code* and make it load all files of the present working directory. To do this, use the command `code .`
 
@@ -240,7 +243,7 @@ Let's open *Visual Studio Code* and make it load all files of the present workin
 </html>
 ```
 
-### Understanding the problem
+### ❓ Understanding the problem
 
 Now that we have our files and boilerplate code set up, we can review the project's tasks:
 
@@ -259,24 +262,24 @@ Then doing the same with the second section:
 - Three categories of buttons: numbers, operators and function buttons.
 - The function of each button changes depending on what category it is.
 
-### Designing the page
+### 🎨 Designing the page
 
 After listing the tasks that we would need to do, we can start by designing the look of the page.
 
 <img style="display: block; margin: auto;"
-src="./img/pageStructure.png">
+src="./img/layout.svg">
 <p style="text-align: center;">
 Main sections
 </p>
 
 <img style="display: block; margin: auto;"
-src="./img/pageStructure2.png">
+src="./img/layout2.svg">
 <p style="text-align: center;">
 Further subsections
 </p>
 
 <img style="display: block; margin: auto;"
-src="./img/pageStructure3.png">
+src="./img/layout3.svg">
 <p style="text-align: center;">
 Final result
 </p>
@@ -805,7 +808,7 @@ buttonsElements.forEach(function(currentButton){
 powerButtonElement.addEventListener("click", switchPower);
 ```
 
-### Handling calculation and display function logic
+### 🔢 Handling calculation and display function logic
 
 There's many ways to handle this, here's how it could be done with regex:
 
@@ -913,7 +916,7 @@ function displayResult(result){
 
 ***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](https://www.reddit.com/r/learnpython/comments/l1ybvx/comment/gk4b8lq/?utm_source=share&utm_medium=web2x&context=3), which is beyond the scope of the project's objectives.***
 
-## Debugging
+## 🐛 Debugging
 
 For debugging my code, I used the following:
 
@@ -926,16 +929,29 @@ For debugging my code, I used the following:
     - Stack trace, errors
   - Sources
     - Breakpoints, Watch
+- Rethinking approachs
+  - Refactoring, Simplifying, Modularising, Process of elimination
 
-## What I've learned
+## ✅ Unit Testing
+
+## Pushing our local repository to our GitHub remote repository
+
+Before we do that, it's recommended to check the state of the remote repository with `git fetch` and our local repository with `git status`. *If* working with multiple branches, *then* also use `git branch`.
+
+- Adding the changes: `git add fileName.extensionName` or `git add .` or `git add /folderName/fileName.extensionName`
+- Commiting the changes: `git commit -m "commitComment"` or `git commit`
+- Pushing the changes: `git push origin branchName` or `git push origin main` or `git push`
+
+## 📔 What I've learned
 
 List of concepts I've learned throurough this course (plus own research)
 
-- [Web Infrastructure](https://www.theodinproject.com/lessons/foundations-how-does-the-web-work)
+- [Internet Infrastructure](https://www.theodinproject.com/lessons/foundations-how-does-the-web-work)
   - Client and server, packets.
   - Web page -> Website -> Web Server
   - IP Adress -> Router -> ISP
   - DNS
+  - TCP and UDP
 - Virtual Machines
 - Programming in general
   - [**Problem Solving (most important concept)**](https://www.theodinproject.com/lessons/foundations-problem-solving)
@@ -1023,12 +1039,20 @@ List of concepts I've learned throurough this course (plus own research)
         - Properties, Methods and Events
     - Multiparadigm
   - Abstraction
-    - Examples: Analog -> Digital -> Binary -> Hexadecimal -> Assembly -> C -> C++ -> Java -> JavaScript. From standard libraries to custom frameworks.
-  - Learning concepts
-    - Reading documentation
-    - Asking in communities
-    - Analyzing other's code
-    - Implementing proof of concepts
+    - Examples: Analog -> Digital -> Binary -> Hexadecimal -> Assembly -> C -> C++ -> Java -> JavaScript. From standard libraries to custom frameworks. Literals (`1`) to Variables (`a := 1`) to Objects (`obj := {a: 1}`) to Classes (`a = object.New("Class");a:ChangeValue(1)`).
+  - Learning
+    - Concepts
+      - Reading documentation
+      - Asking in communities
+      - Analyzing other's code
+      - Implementing proof of concepts (POCs)
+    - [Strategies](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset)
+      - Active and passive learning
+      - Focus mode and diffuse mode
+      - Grit and motivation
+      - Fixed vs growth mindset
+      - Avoiding rabbit holes. Patience.
+      - Creating analogies, linking to existing ideas, reformulation and recitation.
   - **Data structures**
     - Arrays
       - Push and pop
@@ -1054,6 +1078,21 @@ List of concepts I've learned throurough this course (plus own research)
       - Nesting
   - Regular Expressions
   - Modules, Libraries, Frameworks
+  - Experience terms: Trainee, Junior (JR), Semi-Senior (SSR), Senior (SR)
+  - Field of development terms
+    - Front-End
+      - Graphical User Interfaces (GUIs), User Experience (UX), Graphic Design, Interactivity
+    - Back-End
+      - Databases, Data Persistence, Schemas, Reliability
+    - Dev-Ops
+      - Systems, Networks, Deployment, Connectivity
+    - Full-Stack
+      - Integrity, Synergy, Compatibility
+      - Stack Initials
+        - LAMP (Linux + Apache + MySQL + PHP)
+        - MERN (MongoDB + Express + React + Node.js)
+        - MEAN (MongoDB + Express + Angular + Node.js)
+        - MEVN (MongoDB + Express + Vue + Node.js)
   - Code style
     - Case
       - `camelCase`, `PascalCase`
@@ -1065,6 +1104,8 @@ List of concepts I've learned throurough this course (plus own research)
     - Readability
       - Self-documenting code
     - Source code comments
+  - Integrated Development Environments (IDEs)
+    - *e.g.,* Visual Studio Code, Eclipse
   - People
     - Alan Turing, George Boole, John von Neumann, Ada Lovelace
 - Debugging
@@ -1076,36 +1117,48 @@ List of concepts I've learned throurough this course (plus own research)
   - `print`/`console`, `error` and `warn` functions
   - Static analysis programs
     - ESLint, semgrep
-- HTML (.html)
-  - Elements and tags
-- CSS (.css)
-  - Selectors (and properties holding values)
-  - Typography
-    - Typefaces
-      - Fonts
-      - Serif
-      - Sans-serif
-  - Character encoding
-    - UTF-8, ASCII, Shift JIS, Unicode
-  - Specificity
-  - Box Model
-    - Padding -> Border -> Margin
-  - Display types
-    - None
-    - Block
-    - Inline
-    - Flexbox
-      - Containers and items
-      - Main and cross axis
-      - Properties and/or shorthands
-        - `flex`, `flex-flow`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex-direction`, `justify-content`, `align-items`, `align-content`, `justify-items`, `gap`
-    - Grid
-      - `grid-template-columns`, `grid-template-rows`, `grid-column-gap`, `grid-row-gap`, `grid-template-areas`, `grid-area`
-    - Pseudo-elements
-    - Pseudo-classes
-- Document Object Model (DOM)
-  - Nodes and nodelists
-  - Capture and bubbling in events.
+  - Test Driven Development (TDD)
+    - Tools
+      - Jest
+- Markup languages
+  - HTML (.html)
+    - Elements and tags
+  - Markdown (.md)
+    - Formatting
+    - Variants, Extensions, Flavors
+      - GitHub Flavored Markdown (GFM)
+      - [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+- Style sheet languages
+  - CSS (.css)
+    - Selectors (and properties holding values)
+    - Typography
+      - Typefaces
+        - Fonts
+        - Serif
+        - Sans-serif
+    - Character encoding
+      - UTF-8, ASCII, Shift JIS, Unicode
+    - Specificity
+    - Box Model
+      - Padding -> Border -> Margin
+    - Display types
+      - None
+      - Block
+      - Inline
+      - Flexbox
+        - Containers and items
+        - Main and cross axis
+        - Properties and/or shorthands
+          - `flex`, `flex-flow`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex-direction`, `justify-content`, `align-items`, `align-content`, `justify-items`, `gap`
+      - Grid
+        - `grid-template-columns`, `grid-template-rows`, `grid-column-gap`, `grid-row-gap`, `grid-template-areas`, `grid-area`
+      - Pseudo-elements
+      - Pseudo-classes
+      - Variables
+- Application Programming Interfaces (API)
+  - Document Object Model (DOM)
+    - Nodes and nodelists
+    - Capture and bubbling in events.
 - JavaScript (.js)
   - Variables
     - `var`, `let`, `const`
@@ -1126,28 +1179,25 @@ List of concepts I've learned throurough this course (plus own research)
     - Control Flow
       - [Labels](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) (they are similar in concept to GOTO)
   - Runtime environments
-    - Browser
+    - Browsers
+      - Compatibility differences
     - Node.js
       - Node Version Manager (nvm)
       - Node Package Manager (npm)
   - Test Driven Development
-    - Jest
+    - Tools
+      - Jest
     - Assertion (do `x` if failed, do `y` if succesful)
     - Unit testing
-- [Learning strategies](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset)
-  - Active and passive learning
-  - Focus mode and diffuse mode
-  - Grit and motivation
-  - Fixed vs growth mindset
 - Command line interface (CLI)
   - Flags: `-` and `--`. Example: `-f`, `--help`
 - Terminal commands
-  - `mv`(move), `rm`(remove), `mkdir`(make directory), `touch`, `pwd`(present working directory), `cd` (change directory), `code`, `chrome`, `cat`
+  - `mv`(move), `rm`(remove), `mkdir`(make directory), `touch`, `pwd`(present working directory), `cd` (change directory), `code`, `chrome`, `cat`, `ls`
 - File navigation
   - `..` (to parent directory relative to the present working directory)
   - `./folderName` (go to this folder relative to the present working directory)
   - `~` (home directory)
-- Version Control
+- Version Control Systems (VSC)
   - Types and history of version control
   - [Git](https://www.theodinproject.com/lessons/foundations-introduction-to-git)
     - [Difference between workspace and repository](https://stackoverflow.com/questions/59441589/how-is-repository-different-from-workspace)
@@ -1155,17 +1205,15 @@ List of concepts I've learned throurough this course (plus own research)
       - `init`, `push`(to), `pull`(from), `branch`, `reflog`, `log`, `commit`, `rebase`, `add`, `restore`, `status`, `remote`, `clone`, `fetch`,`merge`,`checkout`
     - Atomic commits, commit frequency
     - Redaction of commit messages
+    - .gitignore
 - GitHub
   - Making a repository
   - Making a GitHub Pages site
   - Pull requests
   - SSH Keys
-- Markdown (.md)
-  - Formatting
-  - Variants, Extensions, Flavors
-    - GitHub Flavored Markdown (GFM)
-    - [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+  - Personal Access Tokens (PATs)
+- Figma
 
-## Conclusion
+## 🏁 Conclusion
 
 Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (*i.e.*, instead of getting the operands and operator with a regular expression, make a Calculator object and store the values there when pressing the equal button).
