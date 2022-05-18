@@ -249,8 +249,7 @@ body{
 }
 
 .calculator{
-  box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
-  0 0 0 4px hsl(240, 100%, 81%);
+  box-shadow: inset 0 0 0 4px hsl(0deg 0% 15%), 0 0 0 4px hsl(240deg 100% 81%), 5px 5px 0px 5px #777777;
   margin-top: 64px;
   padding:20px;
   background-color: var(--calculator);
@@ -262,39 +261,122 @@ body{
   box-sizing: border-box;
 }
 
-/*https://stackoverflow.com/questions/27298934/3d-box-shadow-effect*/
-.calculatorSection.depthBottom,
-.calculatorSection.depthRight {
-  content: '';
-  background: grey;
-  position: absolute;
-  display:block;
-}
-
-.calculatorSection.depthBottom {
-  width: 100%;
-  height: 10px;
-  left: 5px;
-  bottom: 0;
-  transform: translatey(100%) skewx(45deg);
-  border-radius: 4px 4px 4px 4px;
-}
-
-.calculatorSection.depthRight {
-  width: 10px;
-  height: 100%;
-  right: 0;
-  transform: translatex(100%) skewy(45deg);
-  top: 5px;
-  border-radius: 4px 4px 4px 4px;
-}
-
 .dark-modeCalculator{
   box-shadow: 0px 0px 64px 16px rgba(138, 210, 255,50%);
   border: 2px solid rgb(89, 164, 255);
   background-color: var(--dark-calculator-background);
   color:var(--dark-calculator-font);
-  border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
+  transition-property: -webkit-transform;
+  transition-duration: 7s;
+  animation-name: grow;
+  animation-duration: 11s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-transition-property: -webkit-transform;
+  -webkit-transition-duration: 7s;
+  -moz-transition-property: -moz-transform background-color;
+  -moz-transition-duration: 7s;
+  -webkit-animation-name: grow;
+  -webkit-animation-duration: 11s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: grow;
+  -moz-animation-duration: 11s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 1em;
+	border-radius: 5px;
+	color: #fff;
+	margin: 5px 20px;
+	/*NOTE: You can include all these using the shorthand 'animation' property, but some older  browsers require that all the values be in their own property. Additionally, I feel its easier to learn/demonstrate this way*/
+	-webkit-animation-name: color-transition;
+	animation-name: color-transition;
+	-webkit-animation-duration: 25s;
+	animation-duration: 25s;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	/*default value for timing-function is ease, we'll specify linear to keep the same timing through out*/
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+div:not(.hero) {
+	display: inline;
+	padding: 20px;
+	margin: 5px 20px;
+	-webkit-animation-name: color-transition;
+	animation-name: color-transition;
+	-webkit-animation-duration: 25s;
+	animation-duration: 25s;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}TODO
+
+.hero {
+	margin: 50px auto;
+	width: 50%;
+	height: 100px;
+	-webkit-animation-name: color-transition;
+	animation-name: color-transition;
+	-webkit-animation-duration: 25s;
+	animation-duration: 25s;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+
+/*This is the animation used to change colors; In this instance, I made sure to have the same color at 0% as I did at 100% */
+
+@-webkit-keyframes color-transition {
+	0% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
+	33% {
+		background-color: #80D39B;
+		border-color: #80D39B;
+	}
+	66% {
+		background-color: #BE3E82;
+		border-color: #BE3E82;
+	}
+	100% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
+}
+
+@keyframes color-transition {
+	0% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
+	33% {
+		background-color: #80D39B;
+		border-color: #80D39B;
+	}
+	66% {
+		background-color: #BE3E82;
+		border-color: #BE3E82;
+	}
+	100% {
+		background-color: #4C6085;
+		border-color: #4C6085;
+	}
 }
 
 .topSection{
