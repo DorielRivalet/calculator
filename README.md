@@ -1,8 +1,8 @@
 <h1 align="center">Part of<br>
-<a href="https://theodinproject.com">
+<a href="https://www.theodinproject.com">
   <img align="center" src="https://www.skillfinder.com.au/media/wysiwyg/the-odin-project-logo-skill-finder-partners-page.png" width="50%" height="auto"/>
 </a><br>
-<a href="https://github.com/anuraghazra/convoychat">
+<a href="https://www.theodinproject.com">
   <img align="center" src="https://www.theodinproject.com/assets/badge-foundations-21a2e04cbb0f20e4420bf13cd6593813ea6f97b0821e95ff238de3e6f26ff4bd.svg" />
 </a>
 <br>Course
