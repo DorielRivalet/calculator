@@ -36,9 +36,8 @@ Additionally, in the settings menu you can set the colors of the display screen'
 
 [▶️ Live demonstration](https://dorielrivalet.github.io/calculator)
 
-<img align="center" style="display: block; margin: auto;"
-src="./img/demo.gif">
 <p style="text-align: center;">
+<img src="./img/demo.gif" style="display: block; margin: auto;">
 <em>Supports scientific notation!</em>
 </p>
 
@@ -139,21 +138,21 @@ Then doing the same with the second section:
 
 After listing the tasks that we would need to do, we can start by designing the look of the page.
 
+<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout.svg">
-<p style="text-align: center;">
 <em>Main sections</em>
 </p>
 
+<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout2.svg">
-<p style="text-align: center;">
 <em>Further subsections</em>
 </p>
 
+<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout3.svg">
-<p style="text-align: center;">
 <em>Final result</em>
 </p>
 
