@@ -1,19 +1,1103 @@
 <h1 align="center">Part of<br>
-<svg xmlns="http://www.w3.org/2000/svg" width="205" height="59" viewBox="0 0 205 59" fill="none" role="img" aria-labelledby="a68i8g4g8a05x1fs089a4mwee9l60mwy" class="hidden lg:block h-15 w-auto text-gray-800"><title id="a68i8g4g8a05x1fs089a4mwee9l60mwy">Odin Logo</title>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.68945 34.7331L13.1482 19.2902H30.9833L35.442 34.7331H8.68945Z" fill="#EED9C3" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#e8cbad;"></path>
-<ellipse cx="27.7849" cy="27.1223" rx="1.26005" ry="1.24284" fill="#353535" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#c7c2ba;"></ellipse>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.446 25.7092C19.446 25.2752 19.0891 24.9233 18.6493 24.9233C17.638 24.9233 15.9034 24.9233 14.8922 24.9233C14.4523 24.9233 14.0955 25.2752 14.0955 25.7092C14.0955 26.3856 14.0955 27.3716 14.0955 28.1426C14.0955 28.7935 14.6305 29.3212 15.2902 29.3212C15.6995 29.3212 16.1763 29.3212 16.6578 29.3212C17.3973 29.3212 18.1062 29.0314 18.6295 28.5155C19.1522 28.0001 19.446 27.3004 19.446 26.5712C19.446 26.2585 19.446 25.9621 19.446 25.7092Z" fill="#A78347" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#be9d66;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M35.0004 4.5308L43.8517 0L39.0002 18L35.0002 22L35.0004 4.5308Z" fill="#E3B261" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#e4b465;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.8514 4.5308L0.000132561 0L4.85156 18L8.85156 22L8.8514 4.5308Z" fill="#E3B261" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#e4b465;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M35.442 12.7438C35.442 12.7438 28.7539 8.34589 22.0657 8.34589C15.3776 8.34589 8.68945 12.7438 8.68945 12.7438V25.9373L10.473 29.4556C11.7527 24.5929 17.5445 22.5672 21.576 25.5723L22.0657 25.9373L22.5554 25.5723C26.587 22.5672 32.3788 24.5929 33.6585 29.4556L35.442 25.9373V12.7438Z" fill="#E3B261" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#e4b465;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.6068 32.5341L14.0398 53.2041L9.12134 49.6858L13.148 34.7331L17.6068 32.5341Z" fill="#D4D4D4" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#cdc8c2;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M26.5243 32.5341L30.0913 53.2041L35.0098 49.6858L30.9831 34.7331L26.5243 32.5341Z" fill="#D5D5D5" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#cdc9c3;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.68933 25.9373L5.12231 39.1309L9.58108 47.9267L13.1481 34.7331L8.68933 25.9373Z" fill="#E6E6E6" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#d8d5d0;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M35.4418 25.9373L39.0088 39.1309L34.55 47.9267L30.983 34.7331L35.4418 25.9373Z" fill="#E6E6E6" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#d8d5d0;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M17.6069 32.5341L13.594 54.0837L22.0656 58.4815L30.5373 54.0837L26.5244 32.5341L22.3983 30.4992L22.0656 30.3352L17.6069 32.5341Z" fill="#E6E6E6" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#d8d5d0;"></path>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M23.6636 33.4137H20.5425C20.5425 33.4137 20.5425 33.9348 20.5425 34.514C20.5425 34.9222 20.707 35.3131 20.9995 35.6016C21.292 35.8901 21.6884 36.0524 22.1022 36.0524C22.1026 36.0524 22.1035 36.0524 22.1039 36.0524C22.5177 36.0524 22.9141 35.8901 23.2066 35.6016C23.4991 35.3131 23.6636 34.9222 23.6636 34.514C23.6636 33.9348 23.6636 33.4137 23.6636 33.4137Z" fill="#353535" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#c7c2ba;"></path>
-<path d="M68.808 20.384L67.704 20.456C67.368 20.456 67.056 20.456 66.696 20.432C66.504 20.432 66.288 20.6 66.144 20.6L65.688 20.408L63.36 20.288L63.288 22.256L63.576 22.544L65.04 22.496C65.112 22.496 65.256 22.472 65.424 22.424L65.544 22.304L66.072 22.376L66.216 23.36L66.12 24.896L66.264 26.024L66.144 30.92L66.024 34.304L66.24 34.544L65.88 36.056V37.904L67.152 38.096L67.824 37.976L68.52 37.592L68.328 35.888V31.376L68.04 30.92L68.064 30.896L68.28 29.456L68.256 27.608V27.2C68.256 27.032 68.232 26.816 68.232 26.624C68.208 26.48 68.208 25.88 68.208 25.664L68.256 23.888L68.16 23.36L68.304 22.352H69.048L69.768 22.4L70.008 22.472H71.088L71.16 21.344L71.016 20.336L68.808 20.384ZM73.2638 33.992L73.3118 35.504L73.6478 35.864L73.2638 36.32L73.1918 37.928L74.7038 38.072L75.6878 38.024L75.7118 37.136L75.6398 36.056L75.4958 34.784L75.5198 34.712L75.6398 30.536L77.5118 29.744H77.5358L78.9278 29.432L78.9038 29.864L78.9758 30.2L78.9278 33.896L79.2878 34.28L79.0478 34.496L78.8798 37.184L79.1918 38.024H80.5838L81.4718 37.976L81.4238 36.656L81.2558 36.056L81.2078 32.984L81.1598 28.688L81.1118 28.208L81.0398 27.128L81.1598 24.872L80.9438 24.176L81.1838 23.864L81.2078 22.952V22.976L81.3518 21.608L81.4238 20.408L80.0558 20.36L79.1678 20.336L78.8078 21.032L78.9278 21.992L78.9758 24.152L79.0478 26.336L78.9518 26.984L78.6878 27.104L78.2318 27.32L77.2478 27.752L77.0318 28.016L76.6478 27.872L75.6398 28.232L75.5918 28.256L75.3758 25.928L75.4718 24.344L75.2078 24.128L75.4958 23.672L75.6158 22.208L75.7118 20.48L73.6478 20.216L73.0718 20.6L73.2398 22.088L73.1678 22.568L73.2398 24.152L73.4078 25.64L73.3118 27.992L73.4798 30.704L73.2638 33.992ZM90.8258 22.616L90.8738 21.272L90.8498 20.336L88.4738 20.36L87.5378 20.552L87.2018 20.36H85.8338L84.7058 20.504L84.8258 22.208L85.0898 22.52L84.8258 22.928L84.8498 24.152L84.8258 26.024V27.8L84.7538 28.688L84.9458 31.064L84.8498 31.256L84.8738 32.552V33.104L85.0898 33.392L84.8018 34.016L84.7778 35.12L84.8018 35.384L84.6578 37.016L84.7778 38L86.5778 38.024L86.7698 37.904H87.6098L88.9778 38.048L90.5618 38.072L91.1138 37.832L91.2098 36.944L91.2578 35.744L90.0578 35.72L89.4578 35.912L87.5378 35.936L87.3458 35.888L87.1298 35.84L87.0818 33.512L87.0578 33.464L87.1298 33.248L86.9858 32.552L87.0818 30.08H87.4658L88.9778 30.128L90.1538 30.176L90.2018 29.192L90.3458 28.472L90.0338 27.872L88.8098 27.992L87.8738 28.04L86.9858 27.992L86.9378 27.056L86.6978 26.864L86.9618 26.432L87.0818 25.712V23.336L87.1298 22.736V22.472H87.3458L88.6658 22.52L89.0498 22.448L89.1218 22.424L89.6978 22.616H90.8258ZM102.331 20.312L102.115 20.336H101.227L101.179 20.504L101.035 21.224L100.939 21.368L99.6429 24.608L99.7629 24.872L99.3309 25.184L98.0349 28.328L97.8429 28.448L97.8909 29.96L98.4669 31.184L99.3309 33.224L100.051 34.712H100.315L100.243 35.12L101.083 37.208L101.107 38L103.291 38.024L103.339 37.76L103.627 36.992L104.923 33.92L105.475 32.768L105.499 32.384L105.691 32.144L106.867 29.768L106.939 28.448L106.123 26.672L105.475 25.232H105.235L105.115 24.584L103.891 21.584L103.411 20.264L102.331 20.312ZM102.379 34.952L101.323 32.192L100.843 31.208L100.363 30.872L100.603 30.584L100.387 29.888L100.075 29.096L100.051 28.808L100.843 26.744L100.675 26.36L101.011 26.264L102.331 22.784L102.475 23.24L103.027 24.704L103.459 24.968L103.243 25.256L104.179 27.68L104.467 28.496L104.659 29.096L103.483 31.976L103.507 32.408H103.531L103.243 32.696L102.475 35.216L102.379 34.952ZM113.227 35.72L114.067 34.016L116.539 30.224L116.971 29.504L116.947 27.752L116.515 27.2L116.539 27.248L114.715 24.824L114.091 23.72L113.251 22.88L112.987 22.088L111.499 20.048L110.227 20.432L109.195 20.744L109.219 21.632L109.291 22.88L109.531 23.192L109.291 23.648L109.315 29.936L109.459 30.872L109.315 36.248V36.224L109.267 37.832L110.827 38.048L111.619 38.264L113.227 35.72ZM111.451 26.744L111.379 23.264L111.523 23.432L113.899 27.248L114.379 27.632L114.475 28.208L114.907 28.856L114.475 29.552L113.683 30.872L112.675 32.816L112.867 33.032L112.435 33.248L111.379 34.952L111.355 35L111.379 33.704L111.475 28.952L111.091 27.824L111.451 26.744ZM119.431 27.56L119.359 28.88L119.287 29.624V34.112V34.976L119.575 35.384L119.287 35.864L118.951 38L120.055 38.024L120.559 38.048L121.615 37.712L121.639 36.824L121.591 36.368L121.543 36.008V29.36L121.279 29.192L121.495 28.688L121.447 28.088L121.351 27.152L121.423 25.928L121.495 22.784L121.615 22.184L121.735 20.432L120.175 20.336L119.047 20.408L119.167 21.608L119.383 21.728L119.191 22.16L119.263 26.96L119.431 27.56ZM133.115 35.888V35.12L132.947 29.864L132.683 29.072L132.875 28.064L133.115 22.16L133.163 20.528L132.179 20.36L130.787 20.384V22.304L131.027 22.64L130.787 23.384V25.448L129.995 24.152L129.803 24.056L129.203 23.096L127.043 20.12L125.147 20.648V21.896L125.243 24.392L125.339 25.76L125.243 30.752L125.459 31.232L125.267 31.928L125.123 35.336V35.744L125.195 35.96L125.027 37.88L126.059 38.072L127.475 38.024L127.523 36.488L127.451 36.152L127.475 33.656L127.259 32.744L127.379 31.88L127.427 26.408L127.139 26.096L127.115 26.048L127.451 25.184V23.888L128.075 24.752L129.059 26.12L129.755 26.96L130.091 27.488L130.427 27.848L130.811 28.496L130.835 30.992L130.907 31.448L130.835 31.568L130.811 33.872L130.835 36.152L130.811 38.024L131.627 38.072L132.947 38.048L133.259 37.232L133.115 35.888ZM147.393 28.76L148.161 28.016L148.905 27.104L148.953 25.448L146.457 22.808L145.953 22.64L145.857 22.232L143.697 20L142.929 20.288L141.777 20.792L141.825 22.4L141.945 23.384V27.32L141.897 27.44L141.873 33.44L142.161 33.752L141.945 34.496L141.681 37.928L143.073 38.072L144.273 38L144.129 35.024L143.745 34.688L144.129 34.112L144.081 32.456L144.297 32.216L145.905 30.392L147.393 28.76ZM144.105 27.128L143.841 26.648L144.081 25.904L144.057 24.752L144.081 23.048L145.473 24.608L145.689 24.752L145.857 25.088L146.889 26.24L146.505 26.792L146.265 27.392L146.001 27.32L144.801 28.736L144.105 29.48V27.128ZM153.466 30.608L154.426 32.552L154.642 33.104L155.53 34.784L155.818 34.928L155.794 35.336L156.634 37.256L157.21 38.192L159.154 37.112L159.178 36.416L158.386 35.576L157.954 34.664V34.688L157.618 33.992L157.474 33.92V33.608L156.514 31.976C156.346 31.736 156.202 31.616 156.01 31.4V30.992C155.866 30.704 155.578 30.296 155.41 29.96L156.082 29.048L156.49 28.544L157.258 27.632L158.362 26.288L158.53 24.848L157.378 23.792C157.354 23.792 156.97 23.912 156.946 23.888L156.802 23.288L152.986 19.976L151.09 20.744L151.186 22.808L151.306 27.392L151.114 27.872L151.162 29.12L151.258 31.928V32.864L151.474 33.176L151.114 34.112L150.97 37.928L152.554 38.072L153.514 37.688L153.49 35.696L153.418 35.48L153.346 33.08L153.322 30.464L153.466 30.608ZM153.37 28.352L153.274 26.216L153.226 25.952L153.178 25.808L153.082 25.376L153.274 24.92V24.68L153.322 22.832L155.53 25.016L155.698 25.136L156.178 25.736L155.914 26.072C155.602 26.504 155.026 27.248 154.69 27.656L153.49 29.144L153.322 29.24L153.37 28.352ZM164.323 20.312L164.107 20.336H163.219L163.171 20.504L163.027 21.224L162.931 21.368L161.635 24.608L161.755 24.872L161.323 25.184L160.027 28.328L159.835 28.448L159.883 29.96L160.459 31.184L161.323 33.224L162.043 34.712H162.307L162.235 35.12L163.075 37.208L163.099 38L165.283 38.024L165.331 37.76L165.619 36.992L166.915 33.92L167.467 32.768L167.491 32.384L167.683 32.144L168.859 29.768L168.931 28.448L168.115 26.672L167.467 25.232H167.227L167.107 24.584L165.883 21.584L165.403 20.264L164.323 20.312ZM164.371 34.952L163.315 32.192L162.835 31.208L162.355 30.872L162.595 30.584L162.379 29.888L162.067 29.096L162.043 28.808L162.835 26.744L162.667 26.36L163.003 26.264L164.323 22.784L164.467 23.24L165.019 24.704L165.451 24.968L165.235 25.256L166.171 27.68L166.459 28.496L166.651 29.096L165.475 31.976L165.499 32.408H165.523L165.235 32.696L164.467 35.216L164.371 34.952ZM171.71 27.608L171.59 28.928L171.614 30.416L171.638 30.752V31.688L171.542 34.304L171.59 34.52L171.23 35.024L170.174 35.72L169.118 36.152V37.4L170.438 38.384L172.214 36.944L172.19 36.464L172.838 36.368L173.606 35.696L173.99 35.024L173.702 30.896L173.51 30.176L173.774 29.984L173.678 23.288L173.966 21.176L173.654 20.336L171.374 20.384V21.728L171.806 21.968L171.494 22.352L171.566 26.408L171.71 27.608ZM183.502 22.616L183.55 21.272L183.526 20.336L181.15 20.36L180.214 20.552L179.878 20.36H178.51L177.382 20.504L177.502 22.208L177.766 22.52L177.502 22.928L177.526 24.152L177.502 26.024V27.8L177.43 28.688L177.622 31.064L177.526 31.256L177.55 32.552V33.104L177.766 33.392L177.478 34.016L177.454 35.12L177.478 35.384L177.334 37.016L177.454 38L179.254 38.024L179.446 37.904H180.286L181.654 38.048L183.238 38.072L183.79 37.832L183.886 36.944L183.934 35.744L182.734 35.72L182.134 35.912L180.214 35.936L180.022 35.888L179.806 35.84L179.758 33.512L179.734 33.464L179.806 33.248L179.662 32.552L179.758 30.08H180.142L181.654 30.128L182.83 30.176L182.878 29.192L183.022 28.472L182.71 27.872L181.486 27.992L180.55 28.04L179.662 27.992L179.614 27.056L179.374 26.864L179.638 26.432L179.758 25.712V23.336L179.806 22.736V22.472H180.022L181.342 22.52L181.726 22.448L181.798 22.424L182.374 22.616H183.502ZM185.362 30.896L186.226 32.456L187.33 33.488L187.138 33.92L188.962 36.752L189.01 37.04L189.826 38.312L190.642 37.784L191.89 36.752L191.338 35.864L190.09 34.232L188.986 32.36L188.098 30.992L187.882 30.512L187.546 30.176L187.306 29.72L186.946 29.024L187.258 28.448L187.714 27.632L188.506 26.384L189.946 24.248L190.066 23.6L190.474 23.336L191.146 22.4L191.818 21.2L190.018 20L189.178 20.984L189.154 21.176L187.81 23.384V23.48L187.21 24.44V25.016L186.346 25.856L184.786 28.496L184.81 30.032L185.362 30.896ZM198.12 20.384L197.016 20.456C196.68 20.456 196.368 20.456 196.008 20.432C195.816 20.432 195.6 20.6 195.456 20.6L195 20.408L192.672 20.288L192.6 22.256L192.888 22.544L194.352 22.496C194.424 22.496 194.568 22.472 194.736 22.424L194.856 22.304L195.384 22.376L195.528 23.36L195.432 24.896L195.576 26.024L195.456 30.92L195.336 34.304L195.552 34.544L195.192 36.056V37.904L196.464 38.096L197.136 37.976L197.832 37.592L197.64 35.888V31.376L197.352 30.92L197.376 30.896L197.592 29.456L197.568 27.608V27.2C197.568 27.032 197.544 26.816 197.544 26.624C197.52 26.48 197.52 25.88 197.52 25.664L197.568 23.888L197.472 23.36L197.616 22.352H198.36L199.08 22.4L199.32 22.472H200.4L200.472 21.344L200.328 20.336L198.12 20.384Z" fill="currentColor" data-darkreader-inline-fill="" style="--darkreader-inline-fill:currentColor;"></path>
-</svg><br>
+<a href="https://theodinproject.com">
+  <img align="center" src="https://www.skillfinder.com.au/media/wysiwyg/the-odin-project-logo-skill-finder-partners-page.png" width="50%" height="auto"/>
+</a><br>
+<a href="https://github.com/anuraghazra/convoychat">
+  <img align="center" src="https://www.theodinproject.com/assets/badge-foundations-21a2e04cbb0f20e4420bf13cd6593813ea6f97b0821e95ff238de3e6f26ff4bd.svg" />
+</a>
+<br>Course
+</h1>
+
+<p align="center">
+  <a href="https://discord.com/invite/fbFCkYabZB">
+    <img src="https://discordapp.com/api/guilds/505093832157691914/widget.png?style=shield" alt="Discord Server">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#table-of-contents">Table of contents</a>
+  •
+  <a href="#creation-process">Creation process</a>
+  •
+  <a href="#debugging">Debugging</a>
+  •
+  <a href="#what-ive-learned">What I've learned</a>
+  •
+  <a href="#conclusion">Conclusion</a>
+</p>
+
+# <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview
+
+This repository contains a calculator made with HTML, CSS and JavaScript.
+
+This calculator can be used to perform addition, substraction, multiplication, division, exponentiation and get the remainder of a division. Numbers can be input via pressing keyboard keys or by interacting with the buttons.
+
+Additionally, in the settings menu you can set the colors of the display screen's text and background, toggle dark mode theme and view/input past operations.
+
+[▶️ Live demonstration](https://dorielrivalet.github.io/calculator)
+
+<img style="display: block; margin: auto;"
+src="./img/demo.gif">
+<p style="text-align: center;">
+Supports scientific notation!
+</p>
+
+# 🔤 Table of contents
+
+- [<img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview](#-project-overview)
+- [🔤 Table of contents](#-table-of-contents)
+  - [💡 Creation process](#-creation-process)
+    - [❗ Prerequisites](#-prerequisites)
+    - [💾 Setting up local and remote repositories](#-setting-up-local-and-remote-repositories)
+    - [📜 Making the files](#-making-the-files)
+    - [🍽️ Creating boilerplate code](#️-creating-boilerplate-code)
+    - [❓ Understanding the problem](#-understanding-the-problem)
+    - [🎨 Designing the page](#-designing-the-page)
+    - [HTML](#html)
+    - [CSS](#css)
+    - [JavaScript](#javascript)
+    - [🔢 Handling calculation and display function logic](#-handling-calculation-and-display-function-logic)
+  - [🐛 Debugging](#-debugging)
+  - [✅ Unit Testing](#-unit-testing)
+  - [Pushing our local repository to our GitHub remote repository](#pushing-our-local-repository-to-our-github-remote-repository)
+  - [📔 What I've learned](#-what-ive-learned)
+  - [🏁 Conclusion](#-conclusion)
+
+## 💡 Creation process
+
+### ❗ Prerequisites
+
+- [Linux Terminal](https://www.theodinproject.com/lessons/foundations-prerequisites#os-installation) (or Git Bash)
+- [Visual Studio Code](https://www.theodinproject.com/lessons/foundations-text-editors#vscode-installation) (or other editors)
+- [Git](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-1-install-git)
+- [GitHub account](https://www.theodinproject.com/lessons/foundations-setting-up-git#step-2-configure-git-and-github)
+- Figma (or another tool for designing layouts)
+
+### 💾 Setting up local and remote repositories
+
+- First, let's start by making a repository on GitHub.
+- Next, open the terminal with `Ctrl+Alt+T` and then clone the GitHub repository to a local folder with `git clone git@github.com:yourName/calculator.git`.
+
+### 📜 Making the files
+
+- Enter the calculator folder with `cd calculator` and type `touch index.html style.css script.js` to make our project's files.
+- For organization purposes, we could also create folders and put certain files in there: type in `mkdir js style img` and then `mv script.js js/script.js` `mv style.css style/style.css` to move our files in those folders.
+
+### 🍽️ Creating boilerplate code
+
+Let's open *Visual Studio Code* and make it load all files of the present working directory. To do this, use the command `code .`
+
+- Setting up the HTML file: Remember that you can also type `!` in an empty html file to automatically insert the boilerplate.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="The Odin Project, Foundations, Calculator, GitHub, yourName, HTML, HTML5, CSS, CSS3, JavaScript">
+  <meta name="copyright" content="© Doriel Rivalet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's do math! | THE ODIN PROJECT FOUNDATIONS</title>
+  <link rel="stylesheet" href="./style/style.css">
+  <script defer src="./js/script.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="./img/calculator.ico">
+</head>
+<body>
+  <header>
+  </header>
+  <main class="mainSection">
+  </main>
+  <footer class="footer">
+  </footer>
+</body>
+</html>
+```
+
+### ❓ Understanding the problem
+
+Now that we have our files and boilerplate code set up, we can review the project's tasks:
+
+The main objective is **making a calculator**. What does making a calculator entail? It can entail the following:
+
+1. Having a display screen
+2. Also having buttons to input values into that screen.
+
+Let's divide the first section into further subtasks:
+
+- Display the user input.
+- Additionally, show the result of the operation.
+
+Then doing the same with the second section:
+
+- Three categories of buttons: numbers, operators and function buttons.
+- The function of each button changes depending on what category it is.
+
+### 🎨 Designing the page
+
+After listing the tasks that we would need to do, we can start by designing the look of the page.
+
+<img style="display: block; margin: auto;"
+src="./img/layout.svg">
+<p style="text-align: center;">
+Main sections
+</p>
+
+<img style="display: block; margin: auto;"
+src="./img/layout2.svg">
+<p style="text-align: center;">
+Further subsections
+</p>
+
+<img style="display: block; margin: auto;"
+src="./img/layout3.svg">
+<p style="text-align: center;">
+Final result
+</p>
+
+### HTML
+
+```html
+<body>
+  <header>
+  </header>
+  <!-- calculator-->
+  <main class="mainSection">
+    <div class="calculatorSection">
+      <div class="calculator">
+        <div class="topSection">
+          <div class="modelName">
+            <button class="brandName">name</button>
+            <button class="productId">id</button>
+          </div>
+          <div class="displaySection" id="display">
+            <div class="inputSection">
+              <div class="userInputValue"></div>
+            </div>
+            <div class="result">0</div>
+          </div>
+        </div>
+        <div class="buttonSection">
+          <button title="Turn ON/OFF" id="power" class="functionButton">ON</button>
+          <button title="Input Previous Result Value" id="ans" class="functionButton">ANS</button>
+          <button title="Clear Display [Escape|Delete]" id="ac" class="functionButton">AC</button>
+          <button title="Undo [Backspace]" id="del" class="functionButton">DEL</button>
+
+          <button id="seven" class="numberButton">7</button>
+          <button id="eight" class="numberButton">8</button>
+          <button id="nine" class="numberButton">9</button>
+          <button title="Divide [/]" id="divide" class="operatorButton">÷</button>
+
+          <button id="four" class="numberButton">4</button>
+          <button id="five" class="numberButton">5</button>
+          <button id="six" class="numberButton">6</button>
+          <button title="Multiply [*|x]" id="multiply" class="operatorButton">×</button>
+
+          <button id="one" class="numberButton">1</button>
+          <button id="two" class="numberButton">2</button>
+          <button id="three" class="numberButton">3</button>
+          <button title="Substract [-]" id="minus" class="operatorButton">-</button>
+
+          <button id="zero" class="numberButton">0</button>
+          <button id="dot" class="numberButton">.</button>
+          <button title="Calculate Result [Enter|=]" id="equal" class="equalButton">=</button>
+          <button title="Add [+]" id="plus" class="operatorButton">+</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- footer-->
+  <footer class="footer">
+    <p>Copyright © <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/yourName" target="_blank" id="creator" title="Check my GitHub profile!">yourName</a></p>
+  </footer>
+</body>
+</html>
+```
+
+### CSS
+
+**Flex-flow** structure:
+
+<img style="display: block; margin: auto;"
+src="./img/flexFlow.png">
+<p style="text-align: center;">
+flex-flow is shorthand for flex direction and flex wrap.
+</p>
+
+<img style="display: block; margin: auto;"
+src="./img/flexFlow2.png">
+<p style="text-align: center;">
+Further designing the layout
+</p>
+
+<img style="display: block; margin: auto;"
+src="./img/flexFlow3.png">
+<p style="text-align: center;">
+End result
+</p>
+
+**Flexbox** code:
+
+```css
+.calculatorSection{
+  display:flex;
+  flex-flow:column nowrap;
+  flex:1 0;
+  align-items: center;
+  text-align: center;
+}
+
+.calculator{
+  box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
+  0 0 0 4px hsl(240, 100%, 81%);
+  margin-top: 64px;
+  padding:20px;
+  background-color: var(--calculator);
+  border: 2px solid hsl(240, 100%, 75%);
+  border-radius: 8px 8px 8px 8px;
+  width: 400px;
+  z-index: 1;
+  position:relative;
+  box-sizing: border-box;
+}
+
+.topSection{
+  padding:8px;
+  display:flex;
+  flex-flow: column nowrap;
+  width:auto;
+  gap:4px;
+}
+
+.modelName{
+  padding-top:16px;
+  padding-bottom: 16px;
+  display:flex;
+  justify-content: space-between;
+}
+
+.displaySection{
+  /*font default in case the other 2 doesn't load*/
+  font-family: 'Press Start 2P', cursive;
+  white-space: nowrap;
+  overflow-x:auto;
+  overflow-y: hidden;
+  border: 4px solid hsl(0, 0%, 66%);
+  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
+  0 0 0 6px hsl(0, 0%, 76%);
+  border-radius: 2px 2px 2px 2px;
+  background-color: var(--screen-background);
+  color:var(--screen-font);
+  opacity: 0.6;
+  padding-left:12px;
+  padding-right:16px;
+  padding-top:8px;
+  padding-bottom: 0;
+  box-sizing: content-box;
+  display: flex;
+  height:125px;
+  flex-grow: 0;
+  gap:0;
+  flex-flow: column nowrap;
+}
+```
+
+**Grid**: layout for the button sections, done with grid-template-areas.
+
+```css
+.buttonSection{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  padding: 8px;
+  grid-template-areas: "power ans a b"
+                        "c d e f"
+                        "g h i j"
+                        "k l m n"
+                        "o p q r";
+}
+
+#power {
+  grid-area: power;
+  border-radius: 100%;
+  margin-bottom: 8px;
+}
+
+#ans {
+  grid-area: ans;
+  border-radius: 100%;
+  margin-bottom: 8px;
+}
+
+#ac {
+  grid-area: a;
+  border-radius: 100%;
+  margin-bottom: 8px;
+}
+
+#del {
+  grid-area: b;
+  border-radius: 100%;
+  margin-bottom: 8px;
+}
+
+#seven {
+  grid-area: c;
+}
+
+#eight {
+  grid-area: d;
+}
+
+#nine {
+  grid-area: e;
+}
+
+#divide {
+  grid-area: f;
+}
+
+#four {
+  grid-area: g;
+}
+
+#five {
+  grid-area: h;
+}
+
+#six {
+  grid-area: i;
+}
+
+#multiply {
+  grid-area: j;
+}
+
+#one {
+  grid-area: k;
+}
+
+#two {
+  grid-area: l;
+}
+
+#three {
+  grid-area: m;
+}
+
+#minus {
+  grid-area: n;
+}
+
+#zero {
+  grid-area: o;
+}
+
+#dot {
+  grid-area: p;
+}
+
+#equal {
+  grid-area: q;
+}
+
+#plus {
+  grid-area: r;
+}
+```
+
+### JavaScript
+
+**Variables**: We start by declaring their names and if their values are either constant or going to change later on in the program,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
+
+- Anytime we assign something to a variable, we are doing three things:
+  1. Creating the variable name in the current scope's lookup table (where all variable names are defined).
+  2. Evaluating the expression to the right of the equals, and placing the result at some location in the browser's allocated memory.
+  3. Assigning the variable name in that lookup table to reference that specific memory location.
+- Ans stands for the previous calculator answer.
+- Calculator states are used for handling the behaviour of functions after certain actions.
+
+```javascript
+const OPERATOR_REGEX= /([\+\×\x\*\-\÷\/\%\^]{1})/g; //for getting the operator later on
+const INITIAL_INPUT_VALUE = "";
+const INITIAL_RESULT_VALUE = 0;
+
+const screen = document.getElementById("display");
+const inputElement = document.querySelector('.userInputValue');
+const resultElement = document.querySelector('.result');
+const buttonsElements = document.querySelectorAll('.buttonSection button');
+const numberButtonElements = document.querySelectorAll('.buttonSection .numberButton');
+const operatorButtonElements = document.querySelectorAll('.buttonSection .operatorButton');
+const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
+const clearButtonElement = document.querySelector('#ac');
+const equalButtonElement = document.querySelector('.buttonSection .equalButton');
+const powerButtonElement = document.querySelector('#power');
+const plusButtonElement = document.querySelector('#plus');
+const minusButtonElement = document.querySelector('#minus');
+const multiplyButtonElement = document.querySelector('#multiply');
+const divideButtonElement = document.querySelector('#divide');
+const modelNameButtons = document.querySelectorAll('.modelName button');
+const productIdElement = document.querySelector('.modelName .productId');
+const calculatorElement = document.querySelector('.calculator');
+const displaySectionElement = document.querySelector('.displaySection');
+const githubIcon = document.querySelector(".fa-github");
+
+let Ans; //stands for previous answer of the calculation
+let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
+```
+
+**Functions**: also called *subroutines*, or *methods* when talking about objects.
+
+- Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct.
+- The common algorithm flow is as follows:
+  1. Wait for calculator to be turned on.
+  2. Process user input as either a keyboard key or a button press.
+  3. Check if the input is either a number, an operator, or a function (such as Ans, Equals, Clear or Delete).
+  4. Add the input to the display element (or delete it if pressing the Power, Clear or Delete buttons)
+  5. When pressing the Equal button, evaluate the current input.
+  6. If the current input passes the regex test, then perform the calculations according to the input.
+  7. Display the result and store the result in the Ans variable if successful.
+  8. Change the calculator state to either Error or Standby according to regex test or calculation test pass/fail.
+  9. Go back to i., or ii. if pressing the Power Button at anytime.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Off
+    Off --> On
+    On --> Off
+    On --> Standby
+    Standby --> On
+    Standby --> Off
+    On --> Error
+    Error --> On
+    Error --> Off
+```
+
+Diagram for calculator states
+
+```mermaid
+graph LR
+    A[fa:fa-calculator onInput] -->|event| B{currentState == on}
+    B -->|true| C{event.key or event.target.textContent}
+    C -->|+ or - or * or /| D[onOperatorPress]
+    C -->|0 to 9 or Ans| E[onNumberPress]
+    C -->|= or Enter| F[displayResult]
+    C -->|DEL or Backspace| G[deleteInput]
+    C -->|Delete or AC or CE or Escape| H[clearInput]
+```
+
+<p style="text-align: center;">
+Algorithm flowchart for the onInput function
+</p>
+
+```javascript
+function add(x,y){
+  return Number(x) + Number(y);
+}
+
+function substract(x,y){
+  return Number(x) - Number(y);
+}
+
+function multiply(x,y){
+  return Number(x) * Number(y);
+}
+
+function divide(x,y){
+  if (Number(y) === 0){
+    return false
+  }
+  return Number(x) / Number(y);
+}
+
+function switchPower(){
+  if (currentState === "Off"){
+    powerButtonElement.textContent = "OFF";
+    currentState = "On";
+    inputElement.style.opacity = 1;
+    waitEffectElement.style.opacity = 1;
+    resultElement.style.opacity = 1;
+    inputElement.style.textAlign = "start";
+  } else {
+    powerButtonElement.textContent = "ON";
+    currentState = "Off";
+    clearInput()
+    inputElement.style.opacity = 0;
+    waitEffectElement.style.opacity = 0;
+    resultElement.style.opacity = 0;
+  }
+}
+
+function clearInput(){
+  if (currentState === "Error" || currentState === "Standby"){
+    currentState = "On";
+    inputElement.style.textAlign = "start";
+  }
+  inputElement.textContent = INITIAL_INPUT_VALUE;
+  resultElement.textContent = INITIAL_RESULT_VALUE;
+  clearButtonElement.textContent = "AC";
+}
+
+function deleteInput(){
+  if (currentState === "Error" || currentState === "Standby"){
+    return;
+  }
+  if (inputElement.textContent.length === 1){
+    inputElement.textContent = "";
+    clearButtonElement.textContent = "AC";
+    return;
+  }  
+  inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
+}
+
+function operate(operator, operand1, operand2){
+  let currentResult;
+  switch(operator){
+    case "+":
+      currentResult = add(operand1,operand2);
+      break;
+    case "-":
+      currentResult = substract(operand1,operand2);
+      break;
+    case "*":
+    case "×":
+    case "x":
+      currentResult = multiply(operand1,operand2);
+      break;
+    case "/":
+    case "÷":
+      currentResult = divide(operand1,operand2);
+      break;
+    case "^":
+      currentResult = power(operand1,operand2);
+      break;
+    case "%":
+      currentResult = modulo(operand1,operand2);
+  }
+  return currentResult
+}
+
+function onNumberPress(input){
+  if (currentState === "Error" || input === undefined){
+    return
+  }
+  if (inputElement.textContent === "") {
+    inputElement.textContent += input;
+    clearButtonElement.textContent = "CE";
+    return
+  }
+  if (currentState === "Standby"){
+    currentState = "On";
+    inputElement.textContent = "";
+    inputElement.textContent += input;
+    return
+  }
+  inputElement.textContent += input;
+}
+
+function onOperatorPress(input){
+  if (currentState === "Error"){
+    return
+  }
+  if (inputElement.textContent === ""){
+    inputElement.textContent = "0"+input;
+    clearButtonElement.textContent = "CE";
+    return
+  }
+  if (currentState === "Standby"){
+    currentState = "On";
+    inputElement.textContent = "";
+    inputElement.textContent += Ans+input;
+    return
+  }
+  inputElement.textContent += input;
+}
+
+function onInput(event) {
+  if (currentState === "Off"){
+    return
+  }
+  let input = event.key || event.target.textContent; 
+  switch (input){
+    case "0":
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case ".": //techniqually not a number. used for making decimals.
+      onNumberPress(input);
+      break;
+    case "+":
+    case "-":
+    case "*":
+    case "x":
+    case "/":
+    case "÷":
+    case "×":
+    case "%": //modulo
+    case "^": //exponent
+      onOperatorPress(input);
+      break;
+    case "DEL":
+    case "Backspace":
+      deleteInput();
+      break;
+    case "Delete":
+    case "AC":
+    case "CE":
+    case "Escape":
+      clearInput();
+      break;
+    case "Enter":
+    case "=":
+      displayResult(calculateResult());//calculateResult returns the result value which displayResult then displays.
+      break;
+    case "ANS": //previous stored answer, or undefined if not stored.
+    case "A":
+      onNumberPress(Ans);
+  }
+}
+```
+
+**Event listeners**: We attach events to functions. When those events fire, it calls a certain function.
+
+- Adding event listeners to the DOM Nodes and Nodelists; which are referenced through variable names, whose values where gotten via the query selector subroutine.
+- Since buttonsElements is a nodelist, we can use the forEach method to add an event listener to each button element.
+
+```javascript
+document.addEventListener("keydown", onInput);
+buttonsElements.forEach(function(currentButton){
+  currentButton.addEventListener("click", onInput)
+});
+powerButtonElement.addEventListener("click", switchPower);
+```
+
+### 🔢 Handling calculation and display function logic
+
+There's many ways to handle this, here's how it could be done with regex:
+
+```javascript
+function calculateResult(){
+  if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === ""){
+    return false
+  }
+
+  let result;
+  let currentInput = inputElement.textContent;
+  //https://stackoverflow.com/questions/638565/parsing-scientific-notation-sensibly
+  //written with help of https://regexr.com/ cheatsheet
+  let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\x\*\-\÷\/\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  // first operand: /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?
+  // operator: ([\+\×\x\*\-\÷\/\%\^]{1})
+  // second operand: [+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+
+  let onlyFirstOperandRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
+  let isSyntaxCorrect = inputRegex.test(currentInput);
+
+  if(onlyInputFirstOperand){
+    result = Number.parseFloat(currentInput);
+    if (result){
+      return result;
+    } else {
+      return "Syntax ERROR";
+    }
+  }
+  
+  if (!isSyntaxCorrect){ 
+    return "Syntax ERROR";
+  }
+
+  //lazy initialization
+  let currentOperator;
+  let numbers;
+  let firstOperand;
+  let secondOperand;
+
+  //solution for negative numbers
+  if (currentInput[0] === "-"){ 
+    let newCurrentInput = currentInput.slice(1);
+    currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
+    numbers = newCurrentInput.split(currentOperator,3);
+    firstOperand = "-"+numbers[0];
+    secondOperand = currentInput.slice(firstOperand.length+1);
+  } else {
+    currentOperator = currentInput[currentInput.search(OPERATOR_REGEX)];
+    numbers = currentInput.split(currentOperator,3);
+    firstOperand = numbers[0];
+    secondOperand = currentInput.slice(firstOperand.length+1);
+  }
+  
+  //solution for negative exponents in the scientific notation
+  if (firstOperand.slice(-1) === "e"){
+    let newCurrentInput;
+    if (currentInput[firstOperand.length] === "-" || currentInput[firstOperand.length] === "+"){
+      newCurrentInput = currentInput.slice(firstOperand.length+1);
+    } else {
+      newCurrentInput = currentInput.slice(firstOperand.length);
+    }
+    currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
+    let newNumbers = newCurrentInput.split(currentOperator,3);
+    firstOperand += currentInput[firstOperand.length];
+    firstOperand += newNumbers[0];
+    secondOperand = currentInput.slice(firstOperand.length+1);
+  }
+
+  if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
+    return "Syntax ERROR";
+  }
+ 
+  result = operate(currentOperator,firstOperand,secondOperand);
+
+  if (result === false || Number.isNaN(result)){
+    return "Math ERROR";
+  }
+
+  return result
+}
+
+function displayResult(result){
+  if (result === false){
+    return
+  }
+  switch(result){
+    case "Syntax ERROR":
+    case "Math ERROR":
+      inputElement.textContent = result;
+      resultElement.textContent = "";
+      currentState = "Error";
+      inputElement.style.textAlign = "end";
+      break;
+    default:
+      //https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
+      result = Math.round((result + Number.EPSILON) * 10000) / 10000;
+      resultElement.textContent = result;
+      currentState = "Standby";
+      Ans = result;
+  }
+}
+```
+
+***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](https://www.reddit.com/r/learnpython/comments/l1ybvx/comment/gk4b8lq/?utm_source=share&utm_medium=web2x&context=3), which is beyond the scope of the project's objectives.***
+
+## 🐛 Debugging
+
+For debugging my code, I used the following:
+
+- JavaScript console object
+  - `console.log`, `console.table`
+- Google Chrome's DevTools (*Inspect Element*)
+  - Inspector
+  - Elements
+  - Console
+    - Stack trace, errors
+  - Sources
+    - Breakpoints, Watch
+- Rethinking approachs
+  - Refactoring, Simplifying, Modularising, Process of elimination
+
+## ✅ Unit Testing
+
+## Pushing our local repository to our GitHub remote repository
+
+Before we do that, it's recommended to check the state of the remote repository with `git fetch` and our local repository with `git status`. *If* working with multiple branches, *then* also use `git branch`.
+
+- Adding the changes: `git add fileName.extensionName` or `git add .` or `git add /folderName/fileName.extensionName`
+- Commiting the changes: `git commit -m "commitComment"` or `git commit`
+- Pushing the changes: `git push origin branchName` or `git push origin main` or `git push`
+
+## 📔 What I've learned
+
+List of concepts I've learned throurough this course (plus own research)
+
+- [Internet Infrastructure](https://www.theodinproject.com/lessons/foundations-how-does-the-web-work)
+  - Client and server, packets.
+  - Web page -> Website -> Web Server
+  - IP Adress -> Router -> ISP
+  - DNS
+  - TCP and UDP
+- Virtual Machines
+- Programming in general
+  - [**Problem Solving (most important concept)**](https://www.theodinproject.com/lessons/foundations-problem-solving)
+    - Divide and conquer approach
+    - How to ask good questions
+    - Pseudocode
+  - Compiler
+    - Lexical analyzer
+      - Tokens and lexemes
+        - Reserved words, Operators, Identifiers, Constants, Separators
+        - Example:
+
+        ```lua
+              newvalue = oldvalue + rate * 60
+
+        --[[  Token             Lexeme
+              Identifier      newvalue
+              assignOperation        =
+              Identifier      oldvalue
+              addOperation           +
+              identifier          rate
+              mulOperation           *
+              number                 6
+        ]] 
+        ```
+
+  - Literals
+  - Variables
+    - Declaration and assignment
+    - Data types
+      - Enum
+      - Primitive
+        - Boolean [(which is stored as 1 byte instead of 1 bit)](https://softwareengineering.stackexchange.com/questions/185104/why-is-a-boolean-value-stored-as-a-byte-inside-of-a-computer-when-it-only-requir)
+          - Falsy and truthy values
+        - Integer
+          - 2 bytes
+            - short, int16
+            - unsigned short, uint16
+          - 4 bytes
+            - signed integer, int32
+            - unsigned integer, uint32
+            - float
+          - 8 bytes
+            - double
+        - Char and String
+          - String manipulation
+          - String concatenation
+          - String interpolation
+          - Escaping
+      - Composite
+        - Object
+        - Array
+  - Operators
+    - Logical
+      - `AND`(and, &&, ∧, ·, &), `OR`(or, ∥, ||, ∨, +), `NOT`(not,¬, ~, !), `XOR`(exclusive or, ↮, ⊕, ⊻, ≢. Either x or y is true, and not both true), `NAND`(not and, ⊼, !(x && y)), `NOR`(not or, ⊽, !(x || y))
+    - Comparison
+      - `>`(greater than), `<`(lesser than), `>=`(greater or equal than), `<=`(lesser or equal than), `==`(equals), `!=`(not equals)
+    - Ternary operator: `(condition) ? IfTrue : IfFalse`
+  - Functions
+    - Invocation, calls.
+    - Arguments and parameters
+    - Recursion
+    - Nesting
+    - Coroutines
+    - Scope. Environment.
+    - Stack trace
+    - [Varargs `(...)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+  - Passing data
+    - Pass by *value*: passing the *data* itself.
+    - Pass by *reference*: pass the *variable* that references the data.
+    - Pass by *share*: pass the *reference* itself, sharing the memory location the variable uses (this is the way JavaScript handles assignments and function parameters).
+  - Language Paradigms
+    - Functional (*e.g.*, Haskell)
+    - Procedural, Imperative, Event-driven (*e.g.*, JavaScript)
+      - Event listeners
+        - Callback functions
+        - Adding and removing
+          - Memory leaks
+            - Garbage collection
+    - Object-oriented (*e.g.*, Java)
+      - Classes
+        - Instance
+        - Inheritance
+        - Singleton
+        - Properties, Methods and Events
+    - Multiparadigm
+  - Abstraction
+    - Examples: Analog -> Digital -> Binary -> Hexadecimal -> Assembly -> C -> C++ -> Java -> JavaScript. From standard libraries to custom frameworks. Literals (`1`) to Variables (`a := 1`) to Objects (`obj := {a: 1}`) to Classes (`a = object.New("Class");a:ChangeValue(1)`).
+  - Learning
+    - Concepts
+      - Reading documentation
+      - Asking in communities
+      - Analyzing other's code
+      - Implementing proof of concepts (POCs)
+    - [Strategies](https://www.theodinproject.com/lessons/foundations-motivation-and-mindset)
+      - Active and passive learning
+      - Focus mode and diffuse mode
+      - Grit and motivation
+      - Fixed vs growth mindset
+      - Avoiding rabbit holes. Patience.
+      - Creating analogies, linking to existing ideas, reformulation and recitation.
+  - **Data structures**
+    - Arrays
+      - Push and pop
+    - Lists
+      - Key and value pairs
+    - Dictionaries and tables
+      - Indexing, retrieving, insertion
+  - **Algorithms**
+    - Sorting data
+    - Binary search
+    - Loops
+      - `for`
+        - Numeric: `for i=start, end, step`
+        - Generic: `for element in list`
+      - `while`, `repeat` or `do while`
+      - Nesting
+      - Flow control
+        - `break` (the current loop)
+        - `continue` (to the next iteration)
+    - Conditionals
+      - `if` `else` `else if`
+      - `switch`
+      - Nesting
+  - Regular Expressions
+  - Modules, Libraries, Frameworks
+  - Experience terms: Trainee, Junior (JR), Semi-Senior (SSR), Senior (SR)
+  - Field of development terms
+    - Front-End
+      - Graphical User Interfaces (GUIs), User Experience (UX), Graphic Design, Interactivity
+    - Back-End
+      - Databases, Data Persistence, Schemas, Reliability
+    - Dev-Ops
+      - Systems, Networks, Deployment, Connectivity
+    - Full-Stack
+      - Integrity, Synergy, Compatibility
+      - Stack Initials
+        - LAMP (Linux + Apache + MySQL + PHP)
+        - MERN (MongoDB + Express + React + Node.js)
+        - MEAN (MongoDB + Express + Angular + Node.js)
+        - MEVN (MongoDB + Express + Vue + Node.js)
+  - Code style
+    - Case
+      - `camelCase`, `PascalCase`
+    - Design patterns
+      - Creational, structural, behavioral, concurrency
+      - Don't Repeat Yourself (DRY) principle
+        - Refactoring
+      - Anti-patterns
+    - Readability
+      - Self-documenting code
+    - Source code comments
+  - Integrated Development Environments (IDEs)
+    - *e.g.,* Visual Studio Code, Eclipse
+  - People
+    - Alan Turing, George Boole, John von Neumann, Ada Lovelace
+- Debugging
+  - Chrome DevTools
+    - Inspector
+    - Breakpoints
+    - Console
+    - Device Mode
+  - `print`/`console`, `error` and `warn` functions
+  - Static analysis programs
+    - ESLint, semgrep
+  - Test Driven Development (TDD)
+    - Tools
+      - Jest
+- Markup languages
+  - HTML (.html)
+    - Elements and tags
+  - Markdown (.md)
+    - Formatting
+    - Variants, Extensions, Flavors
+      - GitHub Flavored Markdown (GFM)
+      - [Mermaid](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)
+- Style sheet languages
+  - CSS (.css)
+    - Selectors (and properties holding values)
+    - Typography
+      - Typefaces
+        - Fonts
+        - Serif
+        - Sans-serif
+    - Character encoding
+      - UTF-8, ASCII, Shift JIS, Unicode
+    - Specificity
+    - Box Model
+      - Padding -> Border -> Margin
+    - Display types
+      - None
+      - Block
+      - Inline
+      - Flexbox
+        - Containers and items
+        - Main and cross axis
+        - Properties and/or shorthands
+          - `flex`, `flex-flow`, `flex-grow`, `flex-shrink`, `flex-basis`, `flex-direction`, `justify-content`, `align-items`, `align-content`, `justify-items`, `gap`
+      - Grid
+        - `grid-template-columns`, `grid-template-rows`, `grid-column-gap`, `grid-row-gap`, `grid-template-areas`, `grid-area`
+      - Pseudo-elements
+      - Pseudo-classes
+      - Variables
+- Application Programming Interfaces (API)
+  - Document Object Model (DOM)
+    - Nodes and nodelists
+    - Capture and bubbling in events.
+- JavaScript (.js)
+  - Variables
+    - `var`, `let`, `const`
+    - `NaN`, `undefined`, `null`
+    - Postfixing and prefixing
+    - bigInt
+    - `typeof` function
+  - Operators
+    - Order of precedence
+    - Unary (one operand)
+      - `+`, `!`
+    - `==`(equal value) and `===`(equal value and data type)
+    - Nullish coalescing operator: `??` (and difference from ||, the OR operator)
+  - Functions
+    - Anonymous (without name)
+    - Arrow: `(input) => output`
+  - Loops
+    - Control Flow
+      - [Labels](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/label) (they are similar in concept to GOTO)
+  - Runtime environments
+    - Browsers
+      - Compatibility differences
+    - Node.js
+      - Node Version Manager (nvm)
+      - Node Package Manager (npm)
+  - Test Driven Development
+    - Tools
+      - Jest
+    - Assertion (do `x` if failed, do `y` if succesful)
+    - Unit testing
+- Command line interface (CLI)
+  - Flags: `-` and `--`. Example: `-f`, `--help`
+- Terminal commands
+  - `mv`(move), `rm`(remove), `mkdir`(make directory), `touch`, `pwd`(present working directory), `cd` (change directory), `code`, `chrome`, `cat`, `ls`
+- File navigation
+  - `..` (to parent directory relative to the present working directory)
+  - `./folderName` (go to this folder relative to the present working directory)
+  - `~` (home directory)
+- Version Control Systems (VSC)
+  - Types and history of version control
+  - [Git](https://www.theodinproject.com/lessons/foundations-introduction-to-git)
+    - [Difference between workspace and repository](https://stackoverflow.com/questions/59441589/how-is-repository-different-from-workspace)
+    - Commands
+      - `init`, `push`(to), `pull`(from), `branch`, `reflog`, `log`, `commit`, `rebase`, `add`, `restore`, `status`, `remote`, `clone`, `fetch`,`merge`,`checkout`
+    - Atomic commits, commit frequency
+    - Redaction of commit messages
+    - .gitignore
+- GitHub
+  - Making a repository
+  - Making a GitHub Pages site
+  - Pull requests
+  - SSH Keys
+  - Personal Access Tokens (PATs)
+- Figma
+
+## 🏁 Conclusion
+
+Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (*i.e.*, instead of getting the operands and operator with a regular expression, make a Calculator object and store the values there when pressing the equal button).
+<h1 align="center">Part of<br></h1>
+<a href="https://theodinproject.com">
+  <img align="center" src="https://miro.medium.com/max/1200/1*P_wUre75IHZUQYFjoD7GZA.png" />
+</a><br>
+<a href="https://github.com/anuraghazra/convoychat">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=convoychat" />
+</a>
+
+
+<br>
 <svg xmlns="http://www.w3.org/2000/svg" width="25%" height="25%" viewBox="0 0 104 104" fill="none" class="bg-white odin-dark-bg">
 <circle cx="52" cy="52" r="50" stroke="url(#paint0_linear)" stroke-width="2.5"></circle>
 <circle cx="52" cy="52" r="28.2475" stroke="url(#paint1_linear)" stroke-width="1.5"></circle>
