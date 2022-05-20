@@ -797,7 +797,7 @@ For debugging my code, I used the following:
 
 - JavaScript console object
   - `console.log`, `console.table`
-- Google Chrome's DevTools (*Inspect Element*)
+- Google Chrome's DevTools (*Inspect Element*) `Ctrl+Shift+I`
   - Inspector
   - Elements
   - Console
@@ -832,7 +832,7 @@ Before we do that, it's recommended to check the state of the remote repository 
 
 ## 📔 What I've learned
 
-[List of concepts I've learned throurough this course (plus own research)](https://github.com/DorielRivalet/patchouli-computatrum)
+[List of concepts I've learned during this course (plus own research)](https://github.com/DorielRivalet/patchouli-computatrum)
 
 ## 🏁 Conclusion
 
