@@ -268,117 +268,6 @@ body{
   border: 2px solid rgb(89, 164, 255);
   background-color: var(--dark-calculator-background);
   color:var(--dark-calculator-font);
-/*   transition-property: -webkit-transform;
-  transition-duration: 7s;
-  animation-name: grow;
-  animation-duration: 11s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transition-duration: 7s;
-  -moz-transition-property: -moz-transform background-color;
-  -moz-transition-duration: 7s;
-  -webkit-animation-name: grow;
-  -webkit-animation-duration: 11s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -moz-animation-name: grow;
-  -moz-animation-duration: 11s;
-  -moz-animation-iteration-count: infinite;
-  -moz-animation-timing-function: linear; */
-}
-
-/* button {
-	padding: 10px 20px;
-	font-size: 1em;
-	border-radius: 5px;
-	color: #fff;
-	margin: 5px 20px;
-	NOTE: You can include all these using the shorthand 'animation' property, but some older  browsers require that all the values be in their own property. Additionally, I feel its easier to learn/demonstrate this way
- 	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
-	-webkit-animation-duration: 25s;
-	animation-duration: 25s;
-	-webkit-animation-direction: alternate;
-	animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	/*default value for timing-function is ease, we'll specify linear to keep the same timing through out
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear; 
-} */
-
-/* div:not(.hero) {
-	display: inline;
-	padding: 20px;
-	margin: 5px 20px;
-	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
-	-webkit-animation-duration: 25s;
-	animation-duration: 25s;
-	-webkit-animation-direction: alternate;
-	animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-}TODO
-
-.hero {
-	margin: 50px auto;
-	width: 50%;
-	height: 100px;
-	-webkit-animation-name: color-transition;
-	animation-name: color-transition;
-	-webkit-animation-duration: 25s;
-	animation-duration: 25s;
-	-webkit-animation-direction: alternate;
-	animation-direction: alternate;
-	-webkit-animation-iteration-count: infinite;
-	animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;
-	animation-timing-function: linear;
-} */
-
-
-/*This is the animation used to change colors; In this instance, I made sure to have the same color at 0% as I did at 100% */
-
-@-webkit-keyframes color-transition {
-	0% {
-		background-color: #4C6085;
-		border-color: #4C6085;
-	}
-	33% {
-		background-color: #80D39B;
-		border-color: #80D39B;
-	}
-	66% {
-		background-color: #BE3E82;
-		border-color: #BE3E82;
-	}
-	100% {
-		background-color: #4C6085;
-		border-color: #4C6085;
-	}
-}
-
-@keyframes color-transition {
-	0% {
-		background-color: #4C6085;
-		border-color: #4C6085;
-	}
-	33% {
-		background-color: #80D39B;
-		border-color: #80D39B;
-	}
-	66% {
-		background-color: #BE3E82;
-		border-color: #BE3E82;
-	}
-	100% {
-		background-color: #4C6085;
-		border-color: #4C6085;
-	}
 }
 
 .topSection{
@@ -992,7 +881,7 @@ footer{
   left: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   padding: 16px;
   gap: 8px;
@@ -1001,7 +890,7 @@ footer{
   font-weight: normal;
   margin-top: auto;
   z-index:3;
-  background-color: var(--footer-background);
+  background-color: transparent;
 	color: var(--footer-font);
 	filter:alpha(opacity=0.93);
 	-moz-opacity: 0.93;
