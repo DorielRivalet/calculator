@@ -15,15 +15,15 @@
 </p>
 
 <p align="center">
-  <a href="#table-of-contents">Table of contents</a>
+  <a href="#-table-of-contents">Table of contents</a>
   •
-  <a href="#creation-process">Creation process</a>
+  <a href="#-creation-process">Creation process</a>
   •
-  <a href="#debugging">Debugging</a>
+  <a href="#-debugging">Debugging</a>
   •
-  <a href="#what-ive-learned">What I've learned</a>
+  <a href="#-what-ive-learned">What I've learned</a>
   •
-  <a href="#conclusion">Conclusion</a>
+  <a href="#-conclusion">Conclusion</a>
 </p>
 
 # <img src="img/calculator.ico" alt="Calculator" height="42" width="42" align="top"/> Project overview
