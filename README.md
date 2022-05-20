@@ -683,6 +683,8 @@ powerButtonElement.addEventListener("click", switchPower);
 
 ### 🔢 Handling calculation and display function logic
 
+*See also [Jest](#Jest)*
+
 There's many ways to handle this, here's how it could be done with regex:
 
 ```javascript
@@ -805,13 +807,16 @@ For debugging my code, I used the following:
 - Rethinking approachs
   - Refactoring, Simplifying, Modularising, Process of elimination
 
+![DevTools](./img/devtools.png)
+
 ## ✅ Testing
 
 ### Jest
 
 ![Jest Tests Passed](./img/jest.png)
 
-TODO Explain tests
+First we create the specifications (*specs*) of the function. What type of *inputs* do we need? What kind of *outputs* do we expect? Program accordingly to these questions.
+Building a prototype of the function we want to make and test it in isolation from the rest of the source code can help when trying to debug or pinpoint a potential issue.
 
 ### Live Server
 
