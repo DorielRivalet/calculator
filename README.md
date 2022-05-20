@@ -38,7 +38,7 @@ Additionally, in the settings menu you can set the colors of the display screen'
 
 <p style="text-align: center;">
 <img src="./img/demo.gif" style="display: block; margin: auto;">
-<em>Supports scientific notation!</em>
+<br><em>Supports scientific notation!</em>
 </p>
 
 # 🔤 Table of contents
@@ -138,21 +138,21 @@ Then doing the same with the second section:
 
 After listing the tasks that we would need to do, we can start by designing the look of the page.
 
-<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout.svg">
+<p style="text-align: center;">
 <em>Main sections</em>
 </p>
 
-<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout2.svg">
+<p style="text-align: center;">
 <em>Further subsections</em>
 </p>
 
-<p style="text-align: center;">
 <img style="display: block; margin: auto;"
 src="./img/layout3.svg">
+<p style="text-align: center;">
 <em>Final result</em>
 </p>
 
@@ -463,31 +463,11 @@ let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
   8. Change the calculator state to either Error or Standby according to regex test or calculation test pass/fail.
   9. Go back to i., or ii. if pressing the Power Button at anytime.
 
-```mermaid
-stateDiagram-v2
-    [*] --> Off
-    Off --> On
-    On --> Off
-    On --> Standby
-    Standby --> On
-    Standby --> Off
-    On --> Error
-    Error --> On
-    Error --> Off
-```
+[![mermaid](https://mermaid.ink/img/pako:eNpdkLEOwjAMRH-l8ojahTEDE50ZOhIG0zhQqUmQcZCqqv9OIEGi9XT3fDfYM_TBECh4CgodB7wxuua1175Kc95dqqY5VCdrM0giA1-83-yz7wS9uU6ZFbPqrdim3DIHzuQrV8U_Yi3U4IgdDiYdMH8CGuROjjSoJA1ZjKNo0H5J0fgw6cTWDBIYlMXxSTVglNBNvgclHOkXKn8oqeUNemVY1g)](https://mermaid.live/edit#pako:eNpdkLEOwjAMRH-l8ojahTEDE50ZOhIG0zhQqUmQcZCqqv9OIEGi9XT3fDfYM_TBECh4CgodB7wxuua1175Kc95dqqY5VCdrM0giA1-83-yz7wS9uU6ZFbPqrdim3DIHzuQrV8U_Yi3U4IgdDiYdMH8CGuROjjSoJA1ZjKNo0H5J0fgw6cTWDBIYlMXxSTVglNBNvgclHOkXKn8oqeUNemVY1g)
 
 <em>Diagram for calculator states</em>
 
-```mermaid
-graph LR
-    A[fa:fa-calculator onInput] -->|event| B{currentState == on}
-    B -->|true| C{event.key or event.target.textContent}
-    C -->|+ or - or * or /| D[onOperatorPress]
-    C -->|0 to 9 or Ans| E[onNumberPress]
-    C -->|= or Enter| F[displayResult]
-    C -->|DEL or Backspace| G[deleteInput]
-    C -->|Delete or AC or CE or Escape| H[clearInput]
-```
+[![mermaid](https://mermaid.ink/img/pako:eNptkclqwzAQhl9F6NjGba81pJA47gKhLcnRzmEqTRITWRJaSoOdd-_ITiGB6jAaDd8_mzoujESe850Du2fLVa0ZnVm1hXwLmQAlooJgHDP6TdsYNizLnnr8Rh16Nu9EdI7cdYCAbDol6jRmmA9ccBF7VnQDf3fAI6NM4yOA2yFd-BMKowOFzspiUN4mMkvmJpn7ni0qoz8sutTNp0PvN5f8AwuGPSZ0pn3PSoLfY_uF_6DTRJVU0vXsuZKNtwqOK_RRhStuUS4TOQdx8BYEDfJSSVQYcNzEFTvEh_JFskU5FPECLOleK6EQ3CjjE96ia6GRtPYuJal52GOLNc_JlbgF6qTmtT4RGq2k1Zayoak5fYnyOOEQg1kfteB5WvAftGiAfrE9U6dfcj6eZQ)](https://mermaid.live/edit#pako:eNptkclqwzAQhl9F6NjGba81pJA47gKhLcnRzmEqTRITWRJaSoOdd-_ITiGB6jAaDd8_mzoujESe850Du2fLVa0ZnVm1hXwLmQAlooJgHDP6TdsYNizLnnr8Rh16Nu9EdI7cdYCAbDol6jRmmA9ccBF7VnQDf3fAI6NM4yOA2yFd-BMKowOFzspiUN4mMkvmJpn7ni0qoz8sutTNp0PvN5f8AwuGPSZ0pn3PSoLfY_uF_6DTRJVU0vXsuZKNtwqOK_RRhStuUS4TOQdx8BYEDfJSSVQYcNzEFTvEh_JFskU5FPECLOleK6EQ3CjjE96ia6GRtPYuJal52GOLNc_JlbgF6qTmtT4RGq2k1Zayoak5fYnyOOEQg1kfteB5WvAftGiAfrE9U6dfcj6eZQ)
 
 <p style="text-align: center;">
 <em>Algorithm flowchart for the onInput function</em>
