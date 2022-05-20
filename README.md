@@ -809,7 +809,13 @@ For debugging my code, I used the following:
 
 ### Jest
 
+![Jest Tests Passed](./img/jest.png)
+
+TODO Explain tests
+
 ### Live Server
+
+For testing the webpage in a browser, we can use Visual Studio Code's extension *Live Server* (press `Alt+L` then `Alt+O`)
 
 ## Pushing our local repository to our GitHub remote repository
 

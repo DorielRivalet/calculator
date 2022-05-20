@@ -21,6 +21,7 @@ INDEX
 ※ Calculator states are used for handling the behaviour of functions after certain actions.
 =^..^=   =^..^=   =^..^=    =^..^=    =^..^=    =^..^=    =^..^=*/
 
+
 // see config.js
 const OPERATOR_REGEX = config.OPERATOR_REGEX;
 const INITIAL_INPUT_VALUE = config.INITIAL_INPUT_VALUE;

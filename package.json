@@ -1,0 +1,35 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Part of<br> <a href=\"https://theodinproject.com\">   <img align=\"center\" src=\"https://www.skillfinder.com.au/media/wysiwyg/the-odin-project-logo-skill-finder-partners-page.png\" width=\"50%\" height=\"auto\"/> </a><br> <a href=\"https://github.com/anuraghazra/convoychat\">   <img align=\"center\" src=\"https://www.theodinproject.com/assets/badge-foundations-21a2e04cbb0f20e4420bf13cd6593813ea6f97b0821e95ff238de3e6f26ff4bd.svg\" /> </a> <br>Course </h1>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DorielRivalet/calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DorielRivalet/calculator/issues"
+  },
+  "homepage": "https://github.com/DorielRivalet/calculator#readme",
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "root": true
+  },
+   "jest": {
+    "testPathIgnorePatterns": [
+      "generator-exercise/"
+    ]
+  }
+}
