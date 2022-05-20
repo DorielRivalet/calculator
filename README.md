@@ -1271,7 +1271,9 @@ Supports scientific notation!
     - [JavaScript](#javascript)
     - [🔢 Handling calculation and display function logic](#-handling-calculation-and-display-function-logic)
   - [🐛 Debugging](#-debugging)
-  - [✅ Unit Testing](#-unit-testing)
+  - [✅ Testing](#-testing)
+    - [Jest](#jest)
+    - [Live Server](#live-server)
   - [Pushing our local repository to our GitHub remote repository](#pushing-our-local-repository-to-our-github-remote-repository)
   - [📔 What I've learned](#-what-ive-learned)
   - [🏁 Conclusion](#-conclusion)
@@ -2016,7 +2018,11 @@ For debugging my code, I used the following:
 - Rethinking approachs
   - Refactoring, Simplifying, Modularising, Process of elimination
 
-## ✅ Unit Testing
+## ✅ Testing
+
+### Jest
+
+### Live Server
 
 ## Pushing our local repository to our GitHub remote repository
 
@@ -2028,7 +2034,7 @@ Before we do that, it's recommended to check the state of the remote repository 
 
 ## 📔 What I've learned
 
-List of concepts I've learned throurough this course (plus own research)
+[List of concepts I've learned throurough this course (plus own research)](obsidian repo)
 
 - [Internet Infrastructure](https://www.theodinproject.com/lessons/foundations-how-does-the-web-work)
   - Client and server, packets.
@@ -2145,6 +2151,9 @@ List of concepts I've learned throurough this course (plus own research)
     - Dictionaries and tables
       - Indexing, retrieving, insertion
   - **Algorithms**
+    - Time Complexity
+      - Notation
+        - Big O
     - Sorting data
     - Binary search
     - Loops
