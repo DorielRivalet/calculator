@@ -808,6 +808,7 @@ Before we do that, it's recommended to check the state of the remote repository 
 - Adding the changes: `git add fileName.extensionName` or `git add .` or `git add /folderName/fileName.extensionName`
 - Commiting the changes: `git commit -m "commitComment"` or `git commit`
 - Pushing the changes: `git push origin branchName` or `git push origin main` or `git push`
+- If working with feature branches, meaning a branch that isn't the production branch, then first do `git checkout main` to switch to the main branch, then `git merge featureBranchName` to merge the contents of the feature branch into the branch we are currently in, and finally `git push origin main` to push the changes.
 
 ## 📔 What I've learned
 
