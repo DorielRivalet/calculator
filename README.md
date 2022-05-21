@@ -134,15 +134,17 @@ Then doing the same with the second section:
 - Three categories of buttons: numbers, operators and function buttons.
 - The function of each button changes depending on what category it is.
 
+*See also [Jest](#Jest)*
+
 ### 🎨 Designing the page
 
 After listing the tasks that we would need to do, we can start by designing the look of the page.
 
-<img style="display: block; margin: auto;"
-src="./img/layout.svg">
-<p style="text-align: center;">
-<em>Main sections</em>
-</p>
+<figure>
+    <img src="./img/layout.svg"
+         alt="Main sections">
+    <figcaption>Main sections</figcaption>
+</figure>
 
 <img style="display: block; margin: auto;"
 src="./img/layout2.svg">
@@ -661,8 +663,6 @@ powerButtonElement.addEventListener("click", switchPower);
 ```
 
 ### 🔢 Handling calculation and display function logic
-
-*See also [Jest](#Jest)*
 
 There's many ways to handle this, here's how it could be done with regex:
 
