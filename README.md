@@ -812,7 +812,7 @@ Before we do that, it's recommended to check the state of the remote repository 
 
 ## 📔 What I've learned
 
-[List of concepts I've learned during this course (plus own research)](https://github.com/DorielRivalet/patchouli-computatrum)
+[List of concepts I've learned during this course (plus own research)](https://dorielrivalet.github.io/quartz/notes/index-list/the-odin-project/)
 
 ## 🏁 Conclusion
 
