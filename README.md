@@ -784,7 +784,7 @@ For debugging my code, I used the following:
   - Sources
     - Breakpoints, Watch
 - Rethinking approachs
-  - Refactoring, Simplifying, Modularising, Process of elimination
+  - Refactoring, Simplifying, Modularising, Encapsulation, Process of elimination
 
 ![DevTools](./img/devtools.png)
 
