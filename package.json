@@ -27,7 +27,7 @@
   "eslintConfig": {
     "root": true
   },
-   "jest": {
+  "jest": {
     "testPathIgnorePatterns": [
       "generator-exercise/"
     ]

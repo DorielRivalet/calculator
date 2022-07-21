@@ -86,32 +86,32 @@ Additionally, in the settings menu you can set the colors of the display screen'
 
 ### 🍽️ Creating boilerplate code
 
-Let's open *Visual Studio Code* and make it load all files of the present working directory. To do this, use the command `code .`
+Let's open _Visual Studio Code_ and make it load all files of the present working directory. To do this, use the command `code .`
 
 - Setting up the HTML file: Remember that you can also type `!` in an empty html file to automatically insert the boilerplate.
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="keywords" content="The Odin Project, Foundations, Calculator, GitHub, yourName, HTML, HTML5, CSS, CSS3, JavaScript">
-  <meta name="copyright" content="© Doriel Rivalet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Let's do math! | THE ODIN PROJECT FOUNDATIONS</title>
-  <link rel="stylesheet" href="./style/style.css">
-  <script defer src="./js/script.js" type="text/javascript"></script>
-  <link rel="shortcut icon" href="./img/calculator.ico">
-</head>
-<body>
-  <header>
-  </header>
-  <main class="mainSection">
-  </main>
-  <footer class="footer">
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="keywords"
+      content="The Odin Project, Foundations, Calculator, GitHub, yourName, HTML, HTML5, CSS, CSS3, JavaScript"
+    />
+    <meta name="copyright" content="© Doriel Rivalet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's do math! | THE ODIN PROJECT FOUNDATIONS</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <script defer src="./js/script.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="./img/calculator.ico" />
+  </head>
+  <body>
+    <header></header>
+    <main class="mainSection"></main>
+    <footer class="footer"></footer>
+  </body>
 </html>
 ```
 
@@ -134,7 +134,7 @@ Then doing the same with the second section:
 - Three categories of buttons: numbers, operators and function buttons.
 - The function of each button changes depending on what category it is.
 
-*See also [Jest](#Jest)*
+_See also [Jest](#Jest)_
 
 ### 🎨 Designing the page
 
@@ -148,12 +148,14 @@ After listing the tasks that we would need to do, we can start by designing the 
 
 <img style="display: block; margin: auto;"
 src="./img/layout2.svg">
+
 <p style="text-align: center;">
 <em>Further subsections</em>
 </p>
 
 <img style="display: block; margin: auto;"
 src="./img/layout3.svg">
+
 <p style="text-align: center;">
 <em>Final result</em>
 </p>
@@ -223,18 +225,21 @@ src="./img/layout3.svg">
 
 <img style="display: block; margin: auto;"
 src="./img/flexFlow.png">
+
 <p style="text-align: center;">
 <em>flex-flow is shorthand for flex direction and flex wrap.</em>
 </p>
 
 <img style="display: block; margin: auto;"
 src="./img/flexFlow2.png">
+
 <p style="text-align: center;">
 <em>Further designing the layout</em>
 </p>
 
 <img style="display: block; margin: auto;"
 src="./img/flexFlow3.png">
+
 <p style="text-align: center;">
 <em>End result</em>
 </p>
@@ -242,65 +247,63 @@ src="./img/flexFlow3.png">
 **Flexbox** code:
 
 ```css
-.calculatorSection{
-  display:flex;
-  flex-flow:column nowrap;
-  flex:1 0;
+.calculatorSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0;
   align-items: center;
   text-align: center;
 }
 
-.calculator{
-  box-shadow: inset 0 0 0 4px hsl(0,0%,15%),
-  0 0 0 4px hsl(240, 100%, 81%);
+.calculator {
+  box-shadow: inset 0 0 0 4px hsl(0, 0%, 15%), 0 0 0 4px hsl(240, 100%, 81%);
   margin-top: 64px;
-  padding:20px;
+  padding: 20px;
   background-color: var(--calculator);
   border: 2px solid hsl(240, 100%, 75%);
   border-radius: 8px 8px 8px 8px;
   width: 400px;
   z-index: 1;
-  position:relative;
+  position: relative;
   box-sizing: border-box;
 }
 
-.topSection{
-  padding:8px;
-  display:flex;
+.topSection {
+  padding: 8px;
+  display: flex;
   flex-flow: column nowrap;
-  width:auto;
-  gap:4px;
+  width: auto;
+  gap: 4px;
 }
 
-.modelName{
-  padding-top:16px;
+.modelName {
+  padding-top: 16px;
   padding-bottom: 16px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 
-.displaySection{
+.displaySection {
   /*font default in case the other 2 doesn't load*/
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   white-space: nowrap;
-  overflow-x:auto;
+  overflow-x: auto;
   overflow-y: hidden;
   border: 4px solid hsl(0, 0%, 66%);
-  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
-  0 0 0 6px hsl(0, 0%, 76%);
+  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%), 0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
   background-color: var(--screen-background);
-  color:var(--screen-font);
+  color: var(--screen-font);
   opacity: 0.6;
-  padding-left:12px;
-  padding-right:16px;
-  padding-top:8px;
+  padding-left: 12px;
+  padding-right: 16px;
+  padding-top: 8px;
   padding-bottom: 0;
   box-sizing: content-box;
   display: flex;
-  height:125px;
+  height: 125px;
   flex-grow: 0;
-  gap:0;
+  gap: 0;
   flex-flow: column nowrap;
 }
 ```
@@ -308,18 +311,19 @@ src="./img/flexFlow3.png">
 **Grid**: layout for the button sections, done with grid-template-areas.
 
 ```css
-.buttonSection{
+.buttonSection {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
   padding: 8px;
-  grid-template-areas: "power ans a b"
-                        "c d e f"
-                        "g h i j"
-                        "k l m n"
-                        "o p q r";
+  grid-template-areas:
+    "power ans a b"
+    "c d e f"
+    "g h i j"
+    "k l m n"
+    "o p q r";
 }
 
 #power {
@@ -413,7 +417,7 @@ src="./img/flexFlow3.png">
 
 ### JavaScript
 
-**Variables**: We start by declaring their names and if their values are either constant or going to change later on in the program,  and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
+**Variables**: We start by declaring their names and if their values are either constant or going to change later on in the program, and then assigning their values to either DOM nodes, other variables, strings, numbers, arrays or booleans.
 
 - Anytime we assign something to a variable, we are doing three things:
   1. Creating the variable name in the current scope's lookup table (where all variable names are defined).
@@ -423,35 +427,43 @@ src="./img/flexFlow3.png">
 - Calculator states are used for handling the behaviour of functions after certain actions.
 
 ```javascript
-const OPERATOR_REGEX= /([\+\×\x\*\-\÷\/\%\^]{1})/g; //for getting the operator later on
+const OPERATOR_REGEX = /([\+\×\x\*\-\÷\/\%\^]{1})/g; //for getting the operator later on
 const INITIAL_INPUT_VALUE = "";
 const INITIAL_RESULT_VALUE = 0;
 
 const screen = document.getElementById("display");
-const inputElement = document.querySelector('.userInputValue');
-const resultElement = document.querySelector('.result');
-const buttonsElements = document.querySelectorAll('.buttonSection button');
-const numberButtonElements = document.querySelectorAll('.buttonSection .numberButton');
-const operatorButtonElements = document.querySelectorAll('.buttonSection .operatorButton');
-const functionButtonElements = document.querySelectorAll('.buttonSection .functionButton');
-const clearButtonElement = document.querySelector('#ac');
-const equalButtonElement = document.querySelector('.buttonSection .equalButton');
-const powerButtonElement = document.querySelector('#power');
-const plusButtonElement = document.querySelector('#plus');
-const minusButtonElement = document.querySelector('#minus');
-const multiplyButtonElement = document.querySelector('#multiply');
-const divideButtonElement = document.querySelector('#divide');
-const modelNameButtons = document.querySelectorAll('.modelName button');
-const productIdElement = document.querySelector('.modelName .productId');
-const calculatorElement = document.querySelector('.calculator');
-const displaySectionElement = document.querySelector('.displaySection');
+const inputElement = document.querySelector(".userInputValue");
+const resultElement = document.querySelector(".result");
+const buttonsElements = document.querySelectorAll(".buttonSection button");
+const numberButtonElements = document.querySelectorAll(
+  ".buttonSection .numberButton"
+);
+const operatorButtonElements = document.querySelectorAll(
+  ".buttonSection .operatorButton"
+);
+const functionButtonElements = document.querySelectorAll(
+  ".buttonSection .functionButton"
+);
+const clearButtonElement = document.querySelector("#ac");
+const equalButtonElement = document.querySelector(
+  ".buttonSection .equalButton"
+);
+const powerButtonElement = document.querySelector("#power");
+const plusButtonElement = document.querySelector("#plus");
+const minusButtonElement = document.querySelector("#minus");
+const multiplyButtonElement = document.querySelector("#multiply");
+const divideButtonElement = document.querySelector("#divide");
+const modelNameButtons = document.querySelectorAll(".modelName button");
+const productIdElement = document.querySelector(".modelName .productId");
+const calculatorElement = document.querySelector(".calculator");
+const displaySectionElement = document.querySelector(".displaySection");
 const githubIcon = document.querySelector(".fa-github");
 
 let Ans; //stands for previous answer of the calculation
 let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
 ```
 
-**Functions**: also called *subroutines*, or *methods* when talking about objects.
+**Functions**: also called _subroutines_, or _methods_ when talking about objects.
 
 - Various functions in this file apply the concept of early returns (also called guard clauses) to check whether the current calculator state or the value of the user input are correct.
 - The common algorithm flow is as follows:
@@ -476,27 +488,27 @@ let currentState = "Off"; // 0/1/2/3 Off/On/Standby/Error.
 </p>
 
 ```javascript
-function add(x,y){
+function add(x, y) {
   return Number(x) + Number(y);
 }
 
-function substract(x,y){
+function substract(x, y) {
   return Number(x) - Number(y);
 }
 
-function multiply(x,y){
+function multiply(x, y) {
   return Number(x) * Number(y);
 }
 
-function divide(x,y){
-  if (Number(y) === 0){
-    return false
+function divide(x, y) {
+  if (Number(y) === 0) {
+    return false;
   }
   return Number(x) / Number(y);
 }
 
-function switchPower(){
-  if (currentState === "Off"){
+function switchPower() {
+  if (currentState === "Off") {
     powerButtonElement.textContent = "OFF";
     currentState = "On";
     inputElement.style.opacity = 1;
@@ -506,15 +518,15 @@ function switchPower(){
   } else {
     powerButtonElement.textContent = "ON";
     currentState = "Off";
-    clearInput()
+    clearInput();
     inputElement.style.opacity = 0;
     waitEffectElement.style.opacity = 0;
     resultElement.style.opacity = 0;
   }
 }
 
-function clearInput(){
-  if (currentState === "Error" || currentState === "Standby"){
+function clearInput() {
+  if (currentState === "Error" || currentState === "Standby") {
     currentState = "On";
     inputElement.style.textAlign = "start";
   }
@@ -523,87 +535,90 @@ function clearInput(){
   clearButtonElement.textContent = "AC";
 }
 
-function deleteInput(){
-  if (currentState === "Error" || currentState === "Standby"){
+function deleteInput() {
+  if (currentState === "Error" || currentState === "Standby") {
     return;
   }
-  if (inputElement.textContent.length === 1){
+  if (inputElement.textContent.length === 1) {
     inputElement.textContent = "";
     clearButtonElement.textContent = "AC";
     return;
-  }  
-  inputElement.textContent = inputElement.textContent.slice(0,inputElement.textContent.length-1);
+  }
+  inputElement.textContent = inputElement.textContent.slice(
+    0,
+    inputElement.textContent.length - 1
+  );
 }
 
-function operate(operator, operand1, operand2){
+function operate(operator, operand1, operand2) {
   let currentResult;
-  switch(operator){
+  switch (operator) {
     case "+":
-      currentResult = add(operand1,operand2);
+      currentResult = add(operand1, operand2);
       break;
     case "-":
-      currentResult = substract(operand1,operand2);
+      currentResult = substract(operand1, operand2);
       break;
     case "*":
     case "×":
     case "x":
-      currentResult = multiply(operand1,operand2);
+      currentResult = multiply(operand1, operand2);
       break;
     case "/":
     case "÷":
-      currentResult = divide(operand1,operand2);
+      currentResult = divide(operand1, operand2);
       break;
     case "^":
-      currentResult = power(operand1,operand2);
+      currentResult = power(operand1, operand2);
       break;
     case "%":
-      currentResult = modulo(operand1,operand2);
+      currentResult = modulo(operand1, operand2);
   }
-  return currentResult
+  return currentResult;
 }
 
-function onNumberPress(input){
-  if (currentState === "Error" || input === undefined){
-    return
+function onNumberPress(input) {
+  if (currentState === "Error" || input === undefined) {
+    return;
   }
   if (inputElement.textContent === "") {
     inputElement.textContent += input;
     clearButtonElement.textContent = "CE";
-    return
+    return;
   }
-  if (currentState === "Standby"){
+  if (currentState === "Standby") {
     currentState = "On";
     inputElement.textContent = "";
     inputElement.textContent += input;
-    return
+    return;
   }
   inputElement.textContent += input;
 }
 
-function onOperatorPress(input){
-  if (currentState === "Error"){
-    return
+function onOperatorPress(input) {
+  if (currentState === "Error") {
+    return;
   }
-  if (inputElement.textContent === ""){
-    inputElement.textContent = "0"+input;
+  if (inputElement.textContent === "") {
+    inputElement.textContent = "0" + input;
     clearButtonElement.textContent = "CE";
-    return
+    return;
   }
-  if (currentState === "Standby"){
+  if (currentState === "Standby") {
     currentState = "On";
     inputElement.textContent = "";
-    inputElement.textContent += Ans+input;
-    return
+    inputElement.textContent += Ans + input;
+    return;
   }
   inputElement.textContent += input;
 }
 
 function onInput(event) {
-  if (currentState === "Off"){
-    return
+  if (currentState === "Off") {
+    return;
   }
-  let input = event.key || event.target.textContent; 
-  switch (input){
+  let input = event.key || event.target.textContent;
+  switch (input) {
     case "0":
     case "1":
     case "2":
@@ -640,7 +655,7 @@ function onInput(event) {
       break;
     case "Enter":
     case "=":
-      displayResult(calculateResult());//calculateResult returns the result value which displayResult then displays.
+      displayResult(calculateResult()); //calculateResult returns the result value which displayResult then displays.
       break;
     case "ANS": //previous stored answer, or undefined if not stored.
     case "A":
@@ -656,8 +671,8 @@ function onInput(event) {
 
 ```javascript
 document.addEventListener("keydown", onInput);
-buttonsElements.forEach(function(currentButton){
-  currentButton.addEventListener("click", onInput)
+buttonsElements.forEach(function (currentButton) {
+  currentButton.addEventListener("click", onInput);
 });
 powerButtonElement.addEventListener("click", switchPower);
 ```
@@ -667,34 +682,40 @@ powerButtonElement.addEventListener("click", switchPower);
 There's many ways to handle this, here's how it could be done with regex:
 
 ```javascript
-function calculateResult(){
-  if (currentState === "Error" || currentState === "Standby" || inputElement.textContent === ""){
-    return false
+function calculateResult() {
+  if (
+    currentState === "Error" ||
+    currentState === "Standby" ||
+    inputElement.textContent === ""
+  ) {
+    return false;
   }
 
   let result;
   let currentInput = inputElement.textContent;
   //https://stackoverflow.com/questions/638565/parsing-scientific-notation-sensibly
   //written with help of https://regexr.com/ cheatsheet
-  let inputRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\x\*\-\÷\/\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  let inputRegex =
+    /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?([\+\×\x\*\-\÷\/\%\^]{1})[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
   // first operand: /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?
   // operator: ([\+\×\x\*\-\÷\/\%\^]{1})
   // second operand: [+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
 
-  let onlyFirstOperandRegex = /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
+  let onlyFirstOperandRegex =
+    /^[+\-]?(?=\.\d|\d)(?:0|[1-9]\d*)?(?:\.\d+)?(?:(?<=\d)(?:[eE][+\-]?\d+))?$/g;
   let onlyInputFirstOperand = onlyFirstOperandRegex.test(currentInput);
   let isSyntaxCorrect = inputRegex.test(currentInput);
 
-  if(onlyInputFirstOperand){
+  if (onlyInputFirstOperand) {
     result = Number.parseFloat(currentInput);
-    if (result){
+    if (result) {
       return result;
     } else {
       return "Syntax ERROR";
     }
   }
-  
-  if (!isSyntaxCorrect){ 
+
+  if (!isSyntaxCorrect) {
     return "Syntax ERROR";
   }
 
@@ -705,52 +726,56 @@ function calculateResult(){
   let secondOperand;
 
   //solution for negative numbers
-  if (currentInput[0] === "-"){ 
+  if (currentInput[0] === "-") {
     let newCurrentInput = currentInput.slice(1);
     currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
-    numbers = newCurrentInput.split(currentOperator,3);
-    firstOperand = "-"+numbers[0];
-    secondOperand = currentInput.slice(firstOperand.length+1);
+    numbers = newCurrentInput.split(currentOperator, 3);
+    firstOperand = "-" + numbers[0];
+    secondOperand = currentInput.slice(firstOperand.length + 1);
   } else {
     currentOperator = currentInput[currentInput.search(OPERATOR_REGEX)];
-    numbers = currentInput.split(currentOperator,3);
+    numbers = currentInput.split(currentOperator, 3);
     firstOperand = numbers[0];
-    secondOperand = currentInput.slice(firstOperand.length+1);
+    secondOperand = currentInput.slice(firstOperand.length + 1);
   }
-  
+
   //solution for negative exponents in the scientific notation
-  if (firstOperand.slice(-1) === "e"){
+  if (firstOperand.slice(-1) === "e") {
     let newCurrentInput;
-    if (currentInput[firstOperand.length] === "-" || currentInput[firstOperand.length] === "+"){
-      newCurrentInput = currentInput.slice(firstOperand.length+1);
+    if (
+      currentInput[firstOperand.length] === "-" ||
+      currentInput[firstOperand.length] === "+"
+    ) {
+      newCurrentInput = currentInput.slice(firstOperand.length + 1);
     } else {
       newCurrentInput = currentInput.slice(firstOperand.length);
     }
     currentOperator = newCurrentInput[newCurrentInput.search(OPERATOR_REGEX)];
-    let newNumbers = newCurrentInput.split(currentOperator,3);
+    let newNumbers = newCurrentInput.split(currentOperator, 3);
     firstOperand += currentInput[firstOperand.length];
     firstOperand += newNumbers[0];
-    secondOperand = currentInput.slice(firstOperand.length+1);
+    secondOperand = currentInput.slice(firstOperand.length + 1);
   }
 
-  if (secondOperand === "-undefined"){ //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
+  if (secondOperand === "-undefined") {
+    //because of secondOperand = "-"+numbers[2]; and numbers[2] being undefined and doing + concatenation between string and undefined returns -undefined as a string.
     return "Syntax ERROR";
   }
- 
-  result = operate(currentOperator,firstOperand,secondOperand);
 
-  if (result === false || Number.isNaN(result)){
+  result = operate(currentOperator, firstOperand, secondOperand);
+
+  if (result === false || Number.isNaN(result)) {
     return "Math ERROR";
   }
 
-  return result
+  return result;
 }
 
-function displayResult(result){
-  if (result === false){
-    return
+function displayResult(result) {
+  if (result === false) {
+    return;
   }
-  switch(result){
+  switch (result) {
     case "Syntax ERROR":
     case "Math ERROR":
       inputElement.textContent = result;
@@ -768,7 +793,7 @@ function displayResult(result){
 }
 ```
 
-***Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](https://www.reddit.com/r/learnpython/comments/l1ybvx/comment/gk4b8lq/?utm_source=share&utm_medium=web2x&context=3), which is beyond the scope of the project's objectives.***
+**_Caveats: this calculator only does operations with 2 numbers at a time. For adding more operands while still following order of operations (PEMDAS), we would need to do [something like this](https://www.reddit.com/r/learnpython/comments/l1ybvx/comment/gk4b8lq/?utm_source=share&utm_medium=web2x&context=3), which is beyond the scope of the project's objectives._**
 
 ## 🐛 Debugging
 
@@ -776,7 +801,7 @@ For debugging my code, I used the following:
 
 - JavaScript console object
   - `console.log`, `console.table`
-- Google Chrome's DevTools (*Inspect Element*) `Ctrl+Shift+I`
+- Google Chrome's DevTools (_Inspect Element_) `Ctrl+Shift+I`
   - Inspector
   - Elements
   - Console
@@ -794,16 +819,16 @@ For debugging my code, I used the following:
 
 ![Jest Tests Passed](./img/jest.png)
 
-First we create the specifications (*specs*) of the function. What type of *inputs* do we need? What kind of *outputs* do we expect? Program accordingly to these questions.
+First we create the specifications (_specs_) of the function. What type of _inputs_ do we need? What kind of _outputs_ do we expect? Program accordingly to these questions.
 Building a prototype of the function we want to make and test it in isolation from the rest of the source code can help when trying to debug or pinpoint a potential issue.
 
 ### Live Server
 
-For testing the webpage in a browser, we can use Visual Studio Code's extension *Live Server* (press `Alt+L` then `Alt+O`)
+For testing the webpage in a browser, we can use Visual Studio Code's extension _Live Server_ (press `Alt+L` then `Alt+O`)
 
 ## Pushing our local repository to our GitHub remote repository
 
-Before we do that, it's recommended to check the state of the remote repository with `git fetch` and our local repository with `git status`. *If* working with multiple branches, *then* also use `git branch`.
+Before we do that, it's recommended to check the state of the remote repository with `git fetch` and our local repository with `git status`. _If_ working with multiple branches, _then_ also use `git branch`.
 
 - Adding the changes: `git add fileName.extensionName` or `git add .` or `git add /folderName/fileName.extensionName`
 - Commiting the changes: `git commit -m "commitComment"` or `git commit`
@@ -816,4 +841,4 @@ Before we do that, it's recommended to check the state of the remote repository 
 
 ## 🏁 Conclusion
 
-Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (*i.e.*, instead of getting the operands and operator with a regular expression, make a Calculator object and store the values there when pressing the equal button).
+Overall, it was a very fun project to finish. There could be some improvements, such as replacing the regex logic with an object-oriented programming approach (_i.e._, instead of getting the operands and operator with a regular expression, make a Calculator object and store the values there when pressing the equal button).

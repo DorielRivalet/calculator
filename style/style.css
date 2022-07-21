@@ -3,26 +3,25 @@ https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-font
 https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
 */
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
-@import url('https://fonts.googleapis.com/earlyaccess/mplus1p.css');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext");
+@import url("https://fonts.googleapis.com/earlyaccess/mplus1p.css");
 
 /* https://www.fontget.com/font/led-calculator/ */
 @font-face {
   font-family: "LEDCalculator";
-  src: local('LEDCalculator'), 
-       url('../fonts/LEDCalculator.woff') format('woff');
-  src: url('../fonts/LEDCalculator.ttf') format('truetype');
+  src: local("LEDCalculator"), url("../fonts/LEDCalculator.woff") format("woff");
+  src: url("../fonts/LEDCalculator.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 
 /* https://www.fontspace.com/digital-7-font-f7087 */
 @font-face {
-  font-family: 'Digital7-Mono';
+  font-family: "Digital7-Mono";
   font-style: italic;
   font-weight: normal;
-  src: local('Digital7-Mono'), 
-       url('../fonts/Digital7Monoitalic-8xKz.ttf') format('truetype');
+  src: local("Digital7-Mono"),
+    url("../fonts/Digital7Monoitalic-8xKz.ttf") format("truetype");
 }
 
 /* css variables for color palette */
@@ -30,18 +29,18 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
   --background: #f6f6f6;
   --font: #222;
   --border: #333;
-  --scrollbar-thumb:rgb(107, 0, 0);
-  --scrollbar-track:rgb(46, 46, 46);
+  --scrollbar-thumb: rgb(107, 0, 0);
+  --scrollbar-track: rgb(46, 46, 46);
   --screen-background: #d2ff8f;
   --screen-font: #000000;
   --calculator: hsl(0, 0%, 86%);
   --btn: #efefef;
   --btn-hover: crimson;
-  --btn-border:whitesmoke;
-  --btn-hover-border:#a00000;
-  --product-id:#a0a0a0;
-  --cog:rgb(200, 195, 188);
-  --cog-item:rgb(232, 230, 227);
+  --btn-border: whitesmoke;
+  --btn-hover-border: #a00000;
+  --product-id: #a0a0a0;
+  --cog: rgb(200, 195, 188);
+  --cog-item: rgb(232, 230, 227);
 
   --number-button: aliceblue;
   --operator-button: rgb(155, 198, 184);
@@ -50,22 +49,22 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
 
   --dark-background: #121212;
   --dark-font: rgb(222, 222, 222);
-  --dark-calculator-background:hsl(234, 37%, 25%);
-  --dark-calculator-font:whitesmoke;
-  --dark-btn:antiquewhite;
-  --dark-btn-border:rgb(97, 64, 150);
+  --dark-calculator-background: hsl(234, 37%, 25%);
+  --dark-calculator-font: whitesmoke;
+  --dark-btn: antiquewhite;
+  --dark-btn-border: rgb(97, 64, 150);
 
   --dark-number-button: rgb(93, 133, 168);
   --dark-operator-button: #8db5ff;
   --dark-function-button: #c49fff;
   --dark-equal-button: #d98200;
 
-  --footer-font:#eee;
-  --footer-background:#20096E7F;
+  --footer-font: #eee;
+  --footer-background: #20096e7f;
 
-  --github-icon:#efefef;
-  --commits:#efefef;
-  --creator:crimson;
+  --github-icon: #efefef;
+  --commits: #efefef;
+  --creator: crimson;
 }
 
 *,
@@ -98,8 +97,6 @@ INDEX
 07. Dark Mode Background
 ⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒⭒☆━━━━━━━━━━━━━━━☆⭒*/
 
-
-
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 01. Overall background
 ※ For the background color, basically specify a color that can read white or black characters.
@@ -107,14 +104,17 @@ INDEX
 ※ If you want to make a dark color or image, overwrite the text color etc. as a whole.
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
-body{
-  font-family:'Roboto', Avenir, "Helvetica Neue", Helvetica, Arial, Verdana, "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "メイリオ", Meiryo, sans-serif;
+body {
+  font-family: "Roboto", Avenir, "Helvetica Neue", Helvetica, Arial, Verdana,
+    "Droid Sans", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN",
+    "Hiragino Kaku Gothic Pro", "游ゴシック", "Yu Gothic", "游ゴシック体",
+    "YuGothic", "メイリオ", Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   height: 100vh;
-  margin:0;
+  margin: 0;
   background-color: rgb(255, 213, 171);
   /*brown paper background, courtesy of numberphile (not)*/
-  background-image: url("../img/page-background.jpg"); 
+  background-image: url("../img/page-background.jpg");
   color: rgb(14, 14, 14);
   box-sizing: border-box;
   margin-bottom: 32px;
@@ -125,7 +125,7 @@ body{
   color: var(--dark-font);
 }
 
-.mainSection{
+.mainSection {
   box-sizing: border-box;
   margin: 0;
   display: flex;
@@ -135,10 +135,7 @@ body{
   min-height: 500px;
   padding: 10px;
   margin-top: 50px;
-
 }
-
-
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 02. Main Scrollbar
@@ -148,26 +145,24 @@ body{
   width: 8px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb);
   border-radius: 4px 4px 4px 4px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: var(--scrollbar-track);
   border-radius: 4px 4px 4px 4px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.7);
 }
 
-::-webkit-scrollbar-track-piece{
+::-webkit-scrollbar-track-piece {
   background-color: var(--scrollbar-track);
   border-radius: 4px 4px 4px 4px;
 }
-
-
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 03. Github Icon
@@ -196,7 +191,7 @@ body{
   transition-property: all;
   transition-duration: 0.6s;
   transition-timing-function: ease;
-  background-color: rgba(13, 14, 14,.75);
+  background-color: rgba(13, 14, 14, 0.75);
   color: var(--github-icon);
 }
 
@@ -216,8 +211,8 @@ body{
   transform: scale(0.3, 0.3) translate3d(0, 113.05px, 0) rotate(45deg);
 }
 
-.fa-github:hover{
-  filter:brightness(200%);
+.fa-github:hover {
+  filter: brightness(200%);
   border: 2px solid #dadada;
   border-radius: 7px;
   outline: none;
@@ -235,80 +230,89 @@ body{
   font-size: 128px;
 }
 
-
-
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 04. Calculator
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
-.calculatorSection{
-  display:flex;
-  flex-flow:column nowrap;
-  flex:1 0;
+.calculatorSection {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1 0;
   align-items: center;
   text-align: center;
 }
 
-.calculator{
-  box-shadow: inset 0 0 0 4px hsl(0deg 0% 15%), 0 0 0 4px hsl(240deg 100% 81%), 5px 5px 0px 5px #777777;
+.calculator {
+  box-shadow: inset 0 0 0 4px hsl(0deg 0% 15%), 0 0 0 4px hsl(240deg 100% 81%),
+    5px 5px 0px 5px #777777;
   margin-top: 96px;
-  padding:20px;
+  padding: 20px;
   background-color: var(--calculator);
-  color:var(--font);
+  color: var(--font);
   border: 2px solid hsl(240, 100%, 75%);
   border-radius: 8px 8px 8px 8px;
   width: 400px;
   z-index: 1;
-  position:relative;
+  position: relative;
   box-sizing: border-box;
 }
 
-.dark-modeCalculator{
-  box-shadow: 0px 0px 64px 16px rgba(138, 210, 255,50%);
+.dark-modeCalculator {
+  box-shadow: 0px 0px 64px 16px rgba(138, 210, 255, 50%);
   border: 2px solid rgb(89, 164, 255);
   background-color: var(--dark-calculator-background);
-  color:var(--dark-calculator-font);
+  color: var(--dark-calculator-font);
 }
 
-.topSection{
-  padding:8px;
-  display:flex;
+.topSection {
+  padding: 8px;
+  display: flex;
   flex-flow: column nowrap;
-  width:auto;
-  gap:4px;
+  width: auto;
+  gap: 4px;
 }
 
-.modelName{
-  padding-top:16px;
+.modelName {
+  padding-top: 16px;
   padding-bottom: 16px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
 
-.modelName .brandName{
-  font-family: 'Audiowide', cursive;
+.modelName .brandName {
+  font-family: "Audiowide", cursive;
   font-size: 32px;
   font-weight: lighter;
-  text-shadow: 2px 2px 0px rgba(255,0,0,0.75), -2px -2px 0px rgba(77, 112, 255, 0.75);
+  text-shadow: 2px 2px 0px rgba(255, 0, 0, 0.75),
+    -2px -2px 0px rgba(77, 112, 255, 0.75);
 }
 
-.modelName .productId{
+.modelName .productId {
   font-style: normal;
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   font-size: 16px;
-  cursor:copy;
-/*https://html-css-js.com/css/generator/text-shadow/*/
+  cursor: copy;
+  /*https://html-css-js.com/css/generator/text-shadow/*/
   color: var(--product-id);
   text-shadow: #e0e0e0 2px 2px 0;
 }
 
-.modelName .dark-modeProductId{
+.modelName .dark-modeProductId {
   color: var(--dark-calculator-font);
   /*https://stackoverflow.com/questions/57464935/font-outline-using-only-css*/
-  text-shadow: 0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255),0 0 3px rgb(137, 87, 255);
+  text-shadow: 0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255), 0 0 3px rgb(137, 87, 255),
+    0 0 3px rgb(137, 87, 255);
 }
 
-.modelName button{
+.modelName button {
   font-style: italic;
   text-decoration: none;
   border: 0px;
@@ -316,32 +320,31 @@ body{
   background-color: transparent;
 }
 
-.dark-modeModelName{
+.dark-modeModelName {
   color: var(--dark-calculator-font);
 }
 
-.displaySection{
+.displaySection {
   /*font default in case the other 2 doesn't load*/
-  font-family: 'Press Start 2P', cursive;
+  font-family: "Press Start 2P", cursive;
   white-space: nowrap;
-  overflow-x:auto;
+  overflow-x: auto;
   overflow-y: hidden;
   border: 4px solid hsl(0, 0%, 66%);
-  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%),
-  0 0 0 6px hsl(0, 0%, 76%);
+  box-shadow: inset 0 0 0 4px hsl(0, 0%, 56%), 0 0 0 6px hsl(0, 0%, 76%);
   border-radius: 2px 2px 2px 2px;
   background-color: var(--screen-background);
-  color:var(--screen-font);
+  color: var(--screen-font);
   opacity: 0.6;
-  padding-left:12px;
-  padding-right:16px;
-  padding-top:8px;
+  padding-left: 12px;
+  padding-right: 16px;
+  padding-top: 8px;
   padding-bottom: 0;
   box-sizing: content-box;
   display: flex;
-  height:125px;
+  height: 125px;
   flex-grow: 0;
-  gap:0;
+  gap: 0;
   flex-flow: column nowrap;
 }
 
@@ -359,76 +362,77 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
   height: 12px;
 }
 
-#display::-webkit-scrollbar-button{
+#display::-webkit-scrollbar-button {
   background-color: transparent;
 }
 
-#display::-webkit-scrollbar-thumb{
+#display::-webkit-scrollbar-thumb {
   background-color: rgba(145, 255, 0, 0.303);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
-#display::-webkit-scrollbar-track{
+#display::-webkit-scrollbar-track {
   background-color: transparent;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
-#display::-webkit-scrollbar-track-piece{
-  background-color: transparent;
-}
-
-#display::-webkit-scrollbar-corner{
+#display::-webkit-scrollbar-track-piece {
   background-color: transparent;
 }
 
-#display::-webkit-scrollbar-resizer{
+#display::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
-.inputSection{
+#display::-webkit-scrollbar-resizer {
+  background-color: transparent;
+}
+
+.inputSection {
   box-sizing: content-box;
-  display:flex;
-  flex-flow:row nowrap;
+  display: flex;
+  flex-flow: row nowrap;
   font-family: "LEDCalculator";
   font-size: 48px;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
-.userInputValue, .waitingEffect{
-  display:inline-block;
+.userInputValue,
+.waitingEffect {
+  display: inline-block;
   text-align: start;
   box-sizing: content-box;
 }
 
-.result{
+.result {
   box-sizing: content-box;
-  font-family: 'Digital7-Mono';
+  font-family: "Digital7-Mono";
   font-style: italic;
   text-align: end;
   font-size: 64px;
 }
 
-.dark-modeDisplaySection{
+.dark-modeDisplaySection {
   border: 4px solid hsl(234, 37%, 45%);
-  box-shadow: inset 0 0 0 4px hsl(234, 37%, 55%),
-  0 0 0 8px hsl(234, 37%, 35%);
+  box-shadow: inset 0 0 0 4px hsl(234, 37%, 55%), 0 0 0 8px hsl(234, 37%, 35%);
 }
 
-.buttonSection{
+.buttonSection {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
   padding: 8px;
-  grid-template-areas: "power ans a b"
-                        "c d e f"
-                        "g h i j"
-                        "k l m n"
-                        "o p q r";
+  grid-template-areas:
+    "power ans a b"
+    "c d e f"
+    "g h i j"
+    "k l m n"
+    "o p q r";
 }
 
 #power {
@@ -519,59 +523,69 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar*/
   grid-area: r;
 }
 
-.buttonSection button{
-  padding:16px;
+.buttonSection button {
+  padding: 16px;
   font-size: 16px;
-  font-family:'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: bolder;
   border-radius: 4px 4px 4px 4px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-button{
+button {
   border-color: var(--btn-border);
-  text-shadow: 1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke;
+  text-shadow: 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke;
 }
 
-.dark-modeButtonSection{
+.dark-modeButtonSection {
   border-color: var(--dark-btn-border);
-  color:var(--dark-btn);
-  text-shadow: 1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black;
+  color: var(--dark-btn);
+  text-shadow: 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black;
 }
 
-.buttonSection button:hover{
+.buttonSection button:hover {
   filter: brightness(110%);
 }
 
-.numberButton{
+.numberButton {
   background-color: var(--number-button);
 }
 
-.operatorButton{
+.operatorButton {
   background-color: var(--operator-button);
 }
 
-.functionButton{
+.functionButton {
   background-color: var(--function-button);
 }
 
-.equalButton{
+.equalButton {
   background-color: var(--equal-button);
 }
 
-.dark-modeNumberButton{
+.dark-modeNumberButton {
   background-color: var(--dark-number-button);
 }
 
-.dark-modeOperatorButton{
+.dark-modeOperatorButton {
   background-color: var(--dark-operator-button);
 }
 
-.dark-modeFunctionButton{
+.dark-modeFunctionButton {
   background-color: var(--dark-function-button);
 }
 
-.dark-modeEqualButton{
+.dark-modeEqualButton {
   background-color: var(--dark-equal-button);
 }
 
@@ -579,7 +593,7 @@ button{
 05. Settings
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
-#cog{
+#cog {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.05em;
@@ -601,7 +615,7 @@ button{
   box-sizing: border-box;
 }
 
-#cog a{
+#cog a {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.05em;
@@ -625,13 +639,13 @@ button{
   transition-property: all;
   transition-duration: 0.6s;
   transition-timing-function: ease;
-  background-color: rgba(13, 14, 14,.75);
+  background-color: rgba(13, 14, 14, 0.75);
   color: var(--cog-item);
   top: -60px;
   right: -60px;
 }
 
-#cog a .icon{
+#cog a .icon {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 0.05em;
@@ -651,16 +665,16 @@ button{
   transition: transform 0.3s ease-in-out;
 }
 
-#cog a .icon:hover{
+#cog a .icon:hover {
   transition: transform 1s ease-in-out;
   transform: scale(0.45, 0.45) translate3d(-70px, 0px, 0) rotate(180deg);
 }
 
-.settingsModal{
+.settingsModal {
   box-sizing: content-box;
   display: flex;
   flex-flow: column nowrap;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.6;
   box-sizing: border-box;
   margin: 0;
@@ -698,184 +712,205 @@ button{
   display: block;
 }
 
-.settingsMenu{
+.settingsMenu {
   display: flex;
   flex-flow: column nowrap;
-  gap:8px;
+  gap: 8px;
   box-sizing: content-box;
 }
 
-.settingsMenu .tabs{
-  display:flex;
+.settingsMenu .tabs {
+  display: flex;
   justify-items: flex-start;
   box-sizing: content-box;
 }
 
-.tabs button{
-  padding:4px;
+.tabs button {
+  padding: 4px;
   box-sizing: content-box;
   cursor: pointer;
   font-size: 18px;
-  color:var(--btn);
+  color: var(--btn);
   background-color: transparent;
-  border-right:1px solid #efefef;
-  border-left:none;
-  border-top:none;
-  border-bottom:none;
-  text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
+  border-right: 1px solid #efefef;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  text-shadow: 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212;
 }
 
-.tabs button:last-child{
-  border-right:none;
+.tabs button:last-child {
+  border-right: none;
 }
 
-.tabs button:hover{
-  color:var(--btn-hover);
+.tabs button:hover {
+  color: var(--btn-hover);
   filter: brightness(110%);
 }
 
-#commits{
+#commits {
   padding-left: 4px;
   padding-right: 4px;
   font-size: 18px;
-  color:var(--btn);
+  color: var(--btn);
   background-color: transparent;
-  border-right:1px solid #efefef;
-  border-left:none;
-  border-top:none;
-  border-bottom:none;
-  text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
+  border-right: 1px solid #efefef;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  text-shadow: 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212;
 }
 
-#commits:hover{
-  color:var(--btn-hover);
+#commits:hover {
+  color: var(--btn-hover);
   filter: brightness(110%);
 }
 
-.settingsMenu .menuContent{
+.settingsMenu .menuContent {
   max-height: 400px;
   border-radius: 8px 8px 8px 8px;
   overflow-y: auto;
   overflow-x: hidden;
-  color:var(--btn);
+  color: var(--btn);
   padding: 8px;
   font-size: 18px;
-  text-shadow: 1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212,1px 1px 0 #121212;
+  text-shadow: 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212, 1px 1px 0 #121212,
+    1px 1px 0 #121212, 1px 1px 0 #121212;
   text-align: start;
   /*https://projects.verou.me/css3patterns/#carbon*/
-  background:
-  linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-  linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-  linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-  linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-  linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-  linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
   background-color: #131313;
   background-size: 20px 20px;
 }
 
-.menuContent div button{
-  cursor:pointer;
+.menuContent div button {
+  cursor: pointer;
   border: 1px solid #efefef;
-  background:transparent;
+  background: transparent;
   border-radius: 4px 4px 4px 4px;
-  color:var(--btn);
+  color: var(--btn);
   text-align: center;
   text-shadow: none;
-/*https://stackoverflow.com/questions/3622756/button-center-css */
+  /*https://stackoverflow.com/questions/3622756/button-center-css */
   margin: 8px auto;
-  padding:4px;
+  padding: 4px;
   display: block;
 }
 
-.menuContent div button:hover{
-  filter:brightness(110%);
-  color:var(--btn-hover);
+.menuContent div button:hover {
+  filter: brightness(110%);
+  color: var(--btn-hover);
   border-color: var(--btn-hover-border);
 }
 
-.colorPicker{
-  cursor:cell;
+.colorPicker {
+  cursor: cell;
 }
 
-.colorOptions{
-  display:none;
+.colorOptions {
+  display: none;
 }
 
-.colorOptions.active{
-  display:block;
+.colorOptions.active {
+  display: block;
 }
 
-.screenTextColor, .screenBackgroundColor{
-  display:flex;
+.screenTextColor,
+.screenBackgroundColor {
+  display: flex;
   justify-content: space-between;
 }
 
-#historyLog{
-  display:none;
+#historyLog {
+  display: none;
 }
 
-#historyLog.active{
-  display:block;
+#historyLog.active {
+  display: block;
 }
 
-#historyLog div{
-  cursor:copy;
-  margin:4px;
-  padding:4px;
+#historyLog div {
+  cursor: copy;
+  margin: 4px;
+  padding: 4px;
   overflow-x: auto;
   white-space: nowrap;
   border-bottom: 2px solid #a00000;
 }
 
-#historyLog div:last-child{
-  border-bottom:none;
+#historyLog div:last-child {
+  border-bottom: none;
 }
 
 #historyLog div::-webkit-scrollbar {
   height: 8px;
 }
 
-#historyLog div::-webkit-scrollbar-button{
+#historyLog div::-webkit-scrollbar-button {
   background-color: transparent;
 }
 
-#historyLog div::-webkit-scrollbar-thumb{
+#historyLog div::-webkit-scrollbar-thumb {
   background-color: rgba(255, 0, 0, 0.303);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
-#historyLog div::-webkit-scrollbar-track{
+#historyLog div::-webkit-scrollbar-track {
   background-color: transparent;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
-#historyLog div::-webkit-scrollbar-track-piece{
-  background-color: transparent;
-}
-
-#historyLog div::-webkit-scrollbar-corner{
+#historyLog div::-webkit-scrollbar-track-piece {
   background-color: transparent;
 }
 
-#historyLog div::-webkit-scrollbar-resizer{
+#historyLog div::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
-#historyLog div:hover{
+#historyLog div::-webkit-scrollbar-resizer {
+  background-color: transparent;
+}
+
+#historyLog div:hover {
   filter: brightness(110%);
-  color:var(--btn-hover);
+  color: var(--btn-hover);
 }
-
-
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 06. Footer
 ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ*/
 
-footer{
+footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -889,46 +924,54 @@ footer{
   font-style: normal;
   font-weight: normal;
   margin-top: auto;
-  z-index:3;
+  z-index: 3;
   background-color: transparent;
-	color: var(--footer-font);
-	filter:alpha(opacity=0.93);
-	-moz-opacity: 0.93;
-	opacity: 0.93;
-  text-shadow: 1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black,1px 1px 0 black;
+  color: var(--footer-font);
+  filter: alpha(opacity=0.93);
+  -moz-opacity: 0.93;
+  opacity: 0.93;
+  text-shadow: 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black,
+    1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black, 1px 1px 0 black;
 }
 
-#creator{
+#creator {
   color: var(--creator);
   cursor: help;
 }
 
-#creator:hover{
-  text-shadow: 1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke,1px 1px 0 whitesmoke;
+#creator:hover {
+  text-shadow: 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke,
+    1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke, 1px 1px 0 whitesmoke;
 }
 
-a:hover{
+a:hover {
   text-decoration: none;
   color: var(--font);
 }
 
-a:active{
+a:active {
   text-decoration: none;
   color: var(--font);
 }
 
-a:visited{
+a:visited {
   text-decoration: none;
   color: var(--font);
 }
 
-a:link{
+a:link {
   text-decoration: none;
   color: var(--font);
 }
-
-
-
 
 /*ฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅฅ^•ﻌ•^ฅ
 07. Dark Mode Background
@@ -937,73 +980,76 @@ a:link{
 
 @keyframes move-background {
   from {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-	}
-	to { 
-		-webkit-transform: translate3d(1000px, 0px, 0px);
-	}
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
 }
 @-webkit-keyframes move-background {
   from {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-	}
-	to { 
-		-webkit-transform: translate3d(1000px, 0px, 0px);
-	}
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
 }
 
-@-moz-keyframes move-background {    
-	from {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-	}
-	to { 
-		-webkit-transform: translate3d(1000px, 0px, 0px);
-	}
+@-moz-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
 }
 
-    @-webkit-keyframes move-background {
-	from {
-		-webkit-transform: translate3d(0px, 0px, 0px);
-	}
-	to { 
-		-webkit-transform: translate3d(1000px, 0px, 0px);
-	}
+@-webkit-keyframes move-background {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
 }
 
-.background-container{
-  display:none;
-	position: fixed;
-	top: 0;
-	left:0;
-	bottom: 0;
-	right: 0;
+.background-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .stars {
- background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
- position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	display: block;
+  background: black
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
   z-index: 0;
 }
 
-.twinkling{
-	width:10000px;
-	height: 100%;
-	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
-	background-size: 1000px 1000px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    
-    -moz-animation:move-background 70s linear infinite;
-  -ms-animation:move-background 70s linear infinite;
-  -o-animation:move-background 70s linear infinite;
-  -webkit-animation:move-background 70s linear infinite;
-  animation:move-background 70s linear infinite;
+.twinkling {
+  width: 10000px;
+  height: 100%;
+  background: transparent
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png")
+    repeat;
+  background-size: 1000px 1000px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+
+  -moz-animation: move-background 70s linear infinite;
+  -ms-animation: move-background 70s linear infinite;
+  -o-animation: move-background 70s linear infinite;
+  -webkit-animation: move-background 70s linear infinite;
+  animation: move-background 70s linear infinite;
 }
